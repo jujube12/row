@@ -1,0 +1,26 @@
+.search_box_container {
+    width: 100%;
+    text-align: center;
+}
+
+.search_box_input {
+    width: 50%;
+    margin: auto;
+    padding: 10px 5px;
+    border-radius: 10rem;
+    background: white;
+}
+
+.search_box_input input {
+    width: 70%;
+    outline: none;
+    border: none;
+}
+
+.search_box_input button {
+    width: 20%;
+    border: none;
+    background: white;
+    cursor: pointer;
+    color: var(--main-color-blue);
+}
