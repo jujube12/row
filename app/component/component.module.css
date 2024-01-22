@@ -6,19 +6,21 @@
 .search_box_input {
     width: 50%;
     margin: auto;
-    padding: 10px 5px;
+    padding: 10px;
+    padding-left: 15px;
     border-radius: 10rem;
     background: white;
+    display: flex;
 }
 
 .search_box_input input {
-    width: 70%;
+    flex-grow: 1;
     outline: none;
     border: none;
 }
 
 .search_box_input button {
-    width: 20%;
+    width: 80px;
     border: none;
     background: white;
     cursor: pointer;

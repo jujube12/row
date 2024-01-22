@@ -8,10 +8,9 @@ export default function SearchBox() {
     let [input, setInput] = useState('')
     useEffect(() => {
         if (searchBtn == true) {
-            fetch('api/summoner/search', { method: 'POST', body: JSON.stringify(input) }).then(r => r.json())
+            fetch('api/summoner/search', { method: 'POST', body: input }).then(r => r.json())
                 .then((result) => {
-                    console.log(result)
-                    router.push('/search')
+                    router.push(`/search/${input}`)
                 })
         }
     }, [searchBtn])
