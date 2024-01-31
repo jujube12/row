@@ -36,3 +36,77 @@
     justify-content: space-around;
     border-radius: 10px;
 }
+
+.match_box_team {
+    width: 45%;
+}
+
+.match_user_box {
+    display: flex;
+    margin: 10px;
+    position: relative;
+}
+
+.match_user_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.match_user_info {
+    width: 200px;
+}
+
+.match_user_spell {
+    margin-right: 5px;
+}
+
+.match_user_spell img {
+    width: 21px;
+    margin: 2px;
+    display: block;
+    border-radius: 2px;
+    padding: 1px;
+    background-color: black;
+}
+
+.match_user_level {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 13px;
+    top: 35px;
+    left: 35px;
+}
+
+.match_user_kda {
+    font-size: 12px;
+    color: gray;
+}
+
+.match_user_item {
+    display: flex;
+    width: 210px;
+    height: 30px;
+}
+
+.match_user_item img {
+    width: 30px;
+    border-radius: 3px;
+    margin: 0.5px;
+}
+
+.match_user_item p {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 3px;
+    margin: 0.5px;
+}
+
+.match_user_name {}
