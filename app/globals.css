@@ -1,8 +1,12 @@
 :root {
-  --main-color-blue: #6d7ee3;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-purple: #a54cc2;
+  --color-purple-light: #cb91de;
+  --color-purple-dark: #793f8d;
 }
 
 body {
-  background-color: var(--main-color-blue);
+  background-color: var(--color-purple-light);
   margin: 0;
 }
