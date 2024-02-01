@@ -72,7 +72,8 @@ export default async function Search(props: param) {
                     matchInfo.map((a, i) => {
                         return (
                             <div key={i} className={style.match_box}>
-                                <div className={style.match_box_team}>
+                                <div className={style.match_box_team_blue}>
+                                    <div>{a.info.participants[0].win == true ? <div className={style.match_win}>victory (blue)</div> : <div className={style.match_lose}>defeat (red)</div>}</div>
                                     {
                                         userNameCnt.map((b, i) => {
                                             return (
@@ -88,7 +89,7 @@ export default async function Search(props: param) {
                                                             : <div className={style.match_user_name}>{a.info.participants[b - 1].summonerName}</div>
                                                         }
                                                         <div className={style.match_user_level}> {a.info.participants[b - 1].champLevel} </div>
-                                                        <div className={style.match_user_kda}>{a.info.participants[b - 1].kills} / {a.info.participants[b - 1].deaths}/ {a.info.participants[b - 1].assists}</div>
+                                                        <div className={style.match_user_kda}>{a.info.participants[b - 1].kills} / {a.info.participants[b - 1].deaths} / {a.info.participants[b - 1].assists}</div>
                                                     </div>
                                                     <div className={style.match_user_item}>
                                                         {
@@ -132,7 +133,8 @@ export default async function Search(props: param) {
                                         })
                                     }
                                 </div>
-                                <div className={style.match_box_team}>
+                                <div className={style.match_box_team_red}>
+                                    <div>{a.info.participants[9].win == true ? <div className={style.match_win}>victory (blue)</div> : <div className={style.match_lose}>defeat (red)</div>}</div>
                                     {
                                         userNameCnt.map((b, i) => {
                                             return (
@@ -148,7 +150,7 @@ export default async function Search(props: param) {
                                                             : <div className={style.match_user_name}>{a.info.participants[b + 4].summonerName}</div>
                                                         }
                                                         <div className={style.match_user_level}>{a.info.participants[b + 4].champLevel}</div>
-                                                        <div className={style.match_user_kda}>{a.info.participants[b + 4].kills} / {a.info.participants[b + 4].deaths}/ {a.info.participants[b + 4].assists}</div>
+                                                        <div className={style.match_user_kda}>{a.info.participants[b + 4].kills} / {a.info.participants[b + 4].deaths} / {a.info.participants[b + 4].assists}</div>
                                                     </div>
                                                     <div className={style.match_user_item}>
                                                         {

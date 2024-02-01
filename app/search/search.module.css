@@ -47,12 +47,34 @@
     color: var(--color-black);
     display: flex;
     margin: 10px 0px;
-    justify-content: space-around;
     border-radius: 10px;
+    padding: 10px;
 }
 
-.match_box_team {
-    width: 45%;
+.match_box_team_blue {
+    width: 50%;
+    background-color: var(--color-blue-light);
+    border-radius: 10px 0px 0px 10px;
+}
+
+.match_box_team_red {
+    width: 50%;
+    background-color: var(--color-red-light);
+    border-radius: 0px 10px 10px 0px;
+}
+
+.match_win {
+    color: var(--color-blue);
+    font-weight: 500;
+    padding: 5px;
+    border-bottom: solid 1px var(--color-blue);
+}
+
+.match_lose {
+    color: var(--color-red);
+    font-weight: 500;
+    padding: 5px;
+    border-bottom: solid 1px var(--color-red);
 }
 
 .match_user_box {
