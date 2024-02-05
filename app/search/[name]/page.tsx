@@ -17,7 +17,7 @@ export default async function Search(props: param) {
         .then((result) => {
             summonerLeague = result[0]
         })
-    await fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerInfo.puuid}/ids?start=0&count=10&api_key=${process.env.NEXT_RIOT}`)
+    await fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerInfo.puuid}/ids?start=0&count=5&api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
             matchIDInfo = result
