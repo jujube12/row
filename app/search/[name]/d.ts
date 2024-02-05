@@ -1,3 +1,10 @@
+type date = {
+    year: number,
+    month: number,
+    day: number,
+    hours: number,
+    minutes: number,
+}
 type param = {
     params: {
         name: string

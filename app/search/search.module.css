@@ -65,9 +65,26 @@
 .match_box {
     background-color: var(--color-white);
     color: var(--color-black);
-    display: flex;
-    margin: 10px 0px;
     border-radius: 10px;
+    margin: 10px 0px;
+}
+
+.match_box>div:nth-child(1) {
+    padding: 10px;
+}
+
+.match_box>div:nth-child(2) {
+    display: flex;
+    padding: 0 10px;
+}
+
+.match_box>div:nth-child(2)>div {
+    width: 50%;
+    margin: 0 10px;
+}
+
+.match_box>div:nth-child(3) {
+    display: flex;
     padding: 10px;
 }
 
@@ -93,7 +110,7 @@
 .match_user_box {
     display: flex;
     height: 50px;
-    margin: 10px;
+    padding: 5px;
     position: relative;
 }
 

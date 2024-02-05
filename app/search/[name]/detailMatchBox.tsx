@@ -1,6 +1,7 @@
 import style from '../search.module.css'
+import { matchDate, duringTime } from '@/app/function/timeCal'
 
-export default function DetailMatchBox(props: { matchInfo: match, spell: any }) {
+export default function DetailMatchBox(props: { matchInfo: match, spell: any, summonerInfo: summoner }) {
     let match: match = props.matchInfo
     let blueTeam: participants[] = props.matchInfo.info.participants.slice(0, 5)
     let redTeam: participants[] = props.matchInfo.info.participants.slice(5, 10)
@@ -14,17 +15,29 @@ export default function DetailMatchBox(props: { matchInfo: match, spell: any }) 
         damageTo.push(a.totalDamageDealtToChampions)
         damageTake.push(a.totalDamageTaken)
     })
+    let date = matchDate(match.info.gameEndTimestamp)
+    let matchTime: { min: number, sec: number } = duringTime(match.info.gameDuration)
     let damageToMax = Math.max(...damageTo)
     let damageTakeMax = Math.max(...damageTake)
     return (
         <div className={style.match_box}>
-            <TeamBox team={blueTeam} spell={props.spell}></TeamBox>
-            <TeamBox team={redTeam} spell={props.spell}></TeamBox>
+            <div>
+                <div>{`${date.month}월 ${date.day}일 ${date.hours}시 ${date.minutes}분`}</div>
+                <div>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
+            </div>
+            <div>
+                <div>{blueTeam[0].win == true ? 'victory' : 'defeat'} (블루팀)</div>
+                <div>{redTeam[0].win == true ? 'victory' : 'defeat'} (레드팀)</div>
+            </div>
+            <div>
+                <TeamBox team={blueTeam} spell={props.spell} summonerid={props.summonerInfo.id}></TeamBox>
+                <TeamBox team={redTeam} spell={props.spell} summonerid={props.summonerInfo.id}></TeamBox>
+            </div>
         </div>
     )
 }
 
-function TeamBox(props: { team: participants[], spell: any }) {
+function TeamBox(props: { team: participants[], spell: any, summonerid: string }) {
     return (
         <div className={style.match_box_team}>
             {
@@ -38,7 +51,7 @@ function TeamBox(props: { team: participants[], spell: any }) {
                     itemKeys.push(team.item5)
                     itemKeys.push(team.item6)
                     return (
-                        <div key={i} className={style.match_user_box}>
+                        <div key={i} className={props.summonerid == team.summonerId ? `${style.match_user_box} bg_gray` : style.match_user_box}>
                             <div className={style.match_user_img}>
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${team.championName}.png`}></img>
                                 <div>
@@ -74,11 +87,11 @@ function TeamBox(props: { team: participants[], spell: any }) {
                             </div>
                             <div className={style.match_user_item}>
                                 {
-                                    itemKeys.map((a) => {
+                                    itemKeys.map((a, i) => {
                                         return (
                                             a != 0
-                                                ? <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/item/${a}.png`}></img>
-                                                : <p></p>
+                                                ? <img key={i} src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/item/${a}.png`}></img>
+                                                : <p key={i}></p>
                                         )
                                     })
                                 }

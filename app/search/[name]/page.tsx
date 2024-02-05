@@ -46,7 +46,7 @@ export default async function Search(props: param) {
                     </div>
                 </div>
             </div>
-            <MatchBox matchInfo={matchInfo}></MatchBox>
+            <MatchBox matchInfo={matchInfo} summonerInfo={summonerInfo}></MatchBox>
         </div >
     )
 }

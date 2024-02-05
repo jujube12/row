@@ -2,7 +2,7 @@
 import style from '../search.module.css'
 import DetailMatchBox from './detailMatchBox';
 
-export default function MatchBox(props: { matchInfo: match[] }) {
+export default function MatchBox(props: { matchInfo: match[], summonerInfo: summoner }) {
     let matchInfo: match[] = props.matchInfo
     let spell = {
         21: 'SummonerBarrier',
@@ -29,7 +29,7 @@ export default function MatchBox(props: { matchInfo: match[] }) {
             {
                 matchInfo.map((a, i) => {
                     return (
-                        <DetailMatchBox key={i} matchInfo={a} spell={spell}></DetailMatchBox>
+                        <DetailMatchBox key={i} matchInfo={a} spell={spell} summonerInfo={props.summonerInfo}></DetailMatchBox>
                     )
                 })
             }

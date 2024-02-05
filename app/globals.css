@@ -16,3 +16,7 @@ body {
   background-color: var(--color-gray);
   margin: 0;
 }
+
+.bg_gray {
+  background-color: var(--color-gray);
+}
