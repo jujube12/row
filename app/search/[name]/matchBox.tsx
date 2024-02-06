@@ -31,10 +31,14 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
             {
                 matchInfo.map((a, i) => {
                     let summoner!: participants
+                    let blueParti: { name: string, champ: string }[] = []
+                    let redParti: { name: string, champ: string }[] = []
                     for (let i = 0; i < 10; i++) {
                         if (a.info.participants[i].summonerId == props.summonerInfo.id) {
                             summoner = a.info.participants[i]
                         }
+                        i < 5 ? blueParti.push({ name: a.info.participants[i].summonerName, champ: a.info.participants[i].championName })
+                            : redParti.push({ name: a.info.participants[i].summonerName, champ: a.info.participants[i].championName })
                     }
                     let itemKeys: number[] = []
                     itemKeys.push(summoner.item0)
@@ -53,7 +57,9 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                                 setArr(copy)
                             }}>
                                 <div>
-                                    victory
+                                    {
+                                        summoner.win == true ? 'victory' : 'defeat'
+                                    }
                                 </div>
                                 <div>
                                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${summoner.championName}.png`}></img>
@@ -61,7 +67,6 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                                 </div>
                                 <div className={style.match_summury_info}>
                                     <div>
-
                                         <div>
                                             <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner1Id as keyof typeof spell]}.png`}></img>
                                             <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner2Id as keyof typeof spell]}.png`}></img>
@@ -81,7 +86,7 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                                         </div>
                                         <div className={style.match_summury_extra}>
                                             <div>킬관여 00%</div>
-                                            <div>CS 000</div>
+                                            <div>CS {summoner.neutralMinionsKilled + summoner.totalMinionsKilled}</div>
                                             <div>tier</div>
                                         </div>
                                     </div>
@@ -92,6 +97,32 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                                                     a != 0
                                                         ? <img key={i} src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/item/${a}.png`}></img>
                                                         : <p key={i}></p>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                <div className={style.match_summury_parti}>
+                                    <div>
+                                        {
+                                            blueParti.map((b, i) => {
+                                                return (
+                                                    <div key={i}>
+                                                        <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${b.champ}.png`}></img>
+                                                        <div>{b.name}</div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                    <div>
+                                        {
+                                            redParti.map((b, i) => {
+                                                return (
+                                                    <div key={i}>
+                                                        <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${b.champ}.png`}></img>
+                                                        <div>{b.name}</div>
+                                                    </div>
                                                 )
                                             })
                                         }

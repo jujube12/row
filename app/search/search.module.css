@@ -124,6 +124,15 @@
     margin-top: 3px;
 }
 
+.match_summury_info>div:nth-child(2)>p {
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    display: inline-block;
+    background-color: var(--color-black);
+}
+
 .match_summury_kda {
     width: 120px;
     text-align: center;
@@ -138,8 +147,30 @@
     font-size: 15px;
 }
 
+.match_summury_extra {}
 
+.match_summury_parti {
+    display: flex;
+}
 
+.match_summury_parti>div {
+    width: 200px;
+    margin: 5px 10px;
+}
+
+.match_summury_parti>div>div {
+    display: flex;
+    height: 20px;
+    margin: 3px;
+}
+
+.match_summury_parti img {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+/* detail */
 .match_box {
     background-color: var(--color-white);
     color: var(--color-black);
@@ -171,7 +202,6 @@
 }
 
 
-/* detail */
 .match_user_box {
     display: flex;
     height: 50px;

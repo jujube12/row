@@ -79,7 +79,7 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string }
                             </div>
                             <div className={style.match_user_cs}>
                                 <div>CS</div>
-                                <div>{team.totalMinionsKilled}</div>
+                                <div>{team.totalMinionsKilled + team.neutralMinionsKilled}</div>
                             </div>
                             <div className={style.match_user_damage}>
                                 <div>{team.totalDamageDealtToChampions}</div>
