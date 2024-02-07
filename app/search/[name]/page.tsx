@@ -35,7 +35,7 @@ export default async function Search(props: param) {
             <SearchBox></SearchBox>
             <div className={style.profile_container}>
                 <div className={style.profile_box}>
-                    <div className={style.profile_image}>
+                    <div>
                         <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/profileicon/${summonerInfo.profileIconId}.png`}></img>
                     </div>
                     <div className={style.profile_info}>

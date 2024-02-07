@@ -26,6 +26,7 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
         55: 'Summoner_UltBookSmitePlaceholder',
     }
     let [arr, setArr] = useState(new Array(10).fill(false))
+
     return (
         <div className={style.match_container}>
             {
@@ -48,17 +49,19 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                     itemKeys.push(summoner.item4)
                     itemKeys.push(summoner.item5)
                     itemKeys.push(summoner.item6)
+                    let gameResult: boolean = summoner.win
                     return (
                         <div key={i}>
-                            <div className={style.match_summury_box} onClick={() => {
+                            <div className={`${style.match_summury_container} ${gameResult ? 'bg_blue_light' : 'bg_red_light'}`} onClick={() => {
                                 let copy = [...arr]
                                 if (arr[i] == false) { copy[i] = true }
                                 else { copy[i] = false }
                                 setArr(copy)
                             }}>
-                                <div>
+                                <div className={style.match_summury_result}>
+                                    <div className={gameResult ? 'bg_blue' : 'bg_red'}></div>
                                     {
-                                        summoner.win == true ? 'victory' : 'defeat'
+                                        gameResult == true ? <div className='blue'>승리</div> : <div className='red'>패배</div>
                                     }
                                 </div>
                                 <div>
@@ -136,6 +139,6 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                     )
                 })
             }
-        </div>
+        </div >
     )
 }

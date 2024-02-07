@@ -1,5 +1,7 @@
 .main_container {
     position: relative;
+    width: 1000px;
+    margin: auto;
 }
 
 .main_title {
