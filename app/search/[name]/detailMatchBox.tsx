@@ -67,10 +67,10 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string }
                                 }
                                 <div>{team.kills} / {team.deaths} / {team.assists}</div>
                                 <div>
-                                    <span>kda </span>
+                                    <span className='red'>kda </span>
                                     {
                                         team.deaths == 0
-                                            ? <span>perfect</span>
+                                            ? <span className='fw700 red'>perfect</span>
                                             : <span>
                                                 {(Math.round((team.kills + team.assists) / team.deaths)).toFixed(2)}
                                             </span>

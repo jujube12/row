@@ -64,48 +64,50 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                                         gameResult == true ? <div className='blue'>승리</div> : <div className='red'>패배</div>
                                     }
                                 </div>
-                                <div>
+                                <div className={style.match_summury_img}>
                                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${summoner.championName}.png`}></img>
                                     <div>{summoner.champLevel}</div>
                                 </div>
                                 <div className={style.match_summury_info}>
                                     <div>
-                                        <div>
-                                            <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner1Id as keyof typeof spell]}.png`}></img>
-                                            <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner2Id as keyof typeof spell]}.png`}></img>
-                                        </div>
-                                        <div className={style.match_summury_kda}>
-                                            <div>{summoner.kills} / {summoner.deaths} / {summoner.assists}</div>
+                                        <div className={style.match_summury_info_spell}>
                                             <div>
-                                                <span>kda </span>
-                                                {
-                                                    summoner.deaths == 0
-                                                        ? <span>perfect</span>
-                                                        : <span>
-                                                            {(Math.round((summoner.kills + summoner.assists) / summoner.deaths)).toFixed(2)}
-                                                        </span>
-                                                }
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner1Id as keyof typeof spell]}.png`}></img>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner2Id as keyof typeof spell]}.png`}></img>
+                                            </div>
+                                            <div className={style.match_summury_kda}>
+                                                <div className='f18px'>{summoner.kills} / {summoner.deaths} / {summoner.assists}</div>
+                                                <div className='gray_dark'>
+                                                    <span>kda </span>
+                                                    {
+                                                        summoner.deaths == 0
+                                                            ? <span>perfect</span>
+                                                            : <span>
+                                                                {(Math.round((summoner.kills + summoner.assists) / summoner.deaths)).toFixed(2)}
+                                                            </span>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div className={`${style.match_summury_extra} f14px`}>
+                                                <div><span>킬관여</span> 00%</div>
+                                                <div><span>CS</span> {summoner.neutralMinionsKilled + summoner.totalMinionsKilled}</div>
+                                                <div>tier</div>
                                             </div>
                                         </div>
-                                        <div className={style.match_summury_extra}>
-                                            <div>킬관여 00%</div>
-                                            <div>CS {summoner.neutralMinionsKilled + summoner.totalMinionsKilled}</div>
-                                            <div>tier</div>
+                                        <div className={style.match_summury_info_item}>
+                                            {
+                                                itemKeys.map((a, i) => {
+                                                    return (
+                                                        a != 0
+                                                            ? <img key={i} src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/item/${a}.png`}></img>
+                                                            : <p key={i}></p>
+                                                    )
+                                                })
+                                            }
                                         </div>
                                     </div>
-                                    <div>
-                                        {
-                                            itemKeys.map((a, i) => {
-                                                return (
-                                                    a != 0
-                                                        ? <img key={i} src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/item/${a}.png`}></img>
-                                                        : <p key={i}></p>
-                                                )
-                                            })
-                                        }
-                                    </div>
                                 </div>
-                                <div className={style.match_summury_parti}>
+                                <div className={`${style.match_summury_parti} f14px`}>
                                     <div>
                                         {
                                             blueParti.map((b, i) => {
@@ -130,6 +132,9 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                                             })
                                         }
                                     </div>
+                                </div>
+                                <div className={style.match_detail_btn}>
+                                    <div className='red_btn'></div>
                                 </div>
                             </div>
                             {
