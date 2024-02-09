@@ -21,3 +21,20 @@ export function duringTime(unixTime: number): { min: number, sec: number } {
     let second = Number((time % 1 * 60).toFixed(3))
     return { min: minutes, sec: second }
 }
+
+export function gameDate(unixTime: number): string {
+    const now = new Date();
+    const game = new Date(unixTime);
+    const diff = now.getTime() - game.getTime()
+    let result: string = ''
+    if (diff > (30 * 24 * 60 * 60 * 1000)) {
+        result = '오래전'
+    } else if (diff >= (24 * 60 * 60 * 1000)) {
+        result = (diff / (24 * 60 * 60 * 1000)).toFixed() + '일 전'
+    } else if (diff < (24 * 60 * 60 * 1000) && diff > (60 * 60 * 1000)) {
+        result = (diff / (60 * 60 * 1000)).toFixed() + '시간 전'
+    } else if (diff < (60 * 60 * 1000)) {
+        result = (diff / (60 * 1000)).toFixed() + '분 전'
+    }
+    return result
+}

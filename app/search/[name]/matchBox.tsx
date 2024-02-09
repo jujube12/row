@@ -1,7 +1,8 @@
 'use client'
 import style from '../search.module.css'
-import DetailMatchBox from './detailMatchBox';
+import DetailMatchBox from './detailMatchBox'
 
+import { matchDate, gameDate } from '../../function/timeCal'
 import { useState } from 'react';
 export default function MatchBox(props: { matchInfo: match[], summonerInfo: summoner }) {
     let matchInfo: match[] = props.matchInfo
@@ -26,7 +27,6 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
         55: 'Summoner_UltBookSmitePlaceholder',
     }
     let [arr, setArr] = useState(new Array(10).fill(false))
-
     return (
         <div className={style.match_container}>
             {
@@ -38,8 +38,8 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                         if (a.info.participants[i].summonerId == props.summonerInfo.id) {
                             summoner = a.info.participants[i]
                         }
-                        i < 5 ? blueParti.push({ name: a.info.participants[i].summonerName, champ: a.info.participants[i].championName })
-                            : redParti.push({ name: a.info.participants[i].summonerName, champ: a.info.participants[i].championName })
+                        i < 5 ? blueParti.push({ name: a.info.participants[i].riotIdGameName, champ: a.info.participants[i].championName })
+                            : redParti.push({ name: a.info.participants[i].riotIdGameName, champ: a.info.participants[i].championName })
                     }
                     let itemKeys: number[] = []
                     itemKeys.push(summoner.item0)
@@ -60,9 +60,14 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                             }}>
                                 <div className={style.match_summury_result}>
                                     <div className={gameResult ? 'bg_blue' : 'bg_red'}></div>
-                                    {
-                                        gameResult == true ? <div className='blue'>승리</div> : <div className='red'>패배</div>
-                                    }
+                                    <div>
+                                        {
+                                            gameResult == true ? <div className='blue fw700'>승리</div> : <div className='red fw700'>패배</div>
+                                        }
+                                        <div className='f14px'>{gameDate(a.info.gameStartTimestamp)}</div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
                                 </div>
                                 <div className={style.match_summury_img}>
                                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${summoner.championName}.png`}></img>
@@ -134,7 +139,7 @@ export default function MatchBox(props: { matchInfo: match[], summonerInfo: summ
                                     </div>
                                 </div>
                                 <div className={style.match_detail_btn}>
-                                    <div className='red_btn'></div>
+                                    <div className={gameResult ? 'blue_btn' : 'red_btn'}></div>
                                 </div>
                             </div>
                             {
