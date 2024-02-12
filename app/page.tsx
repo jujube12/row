@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <div className={style.main_container}>
         <div className={style.main_title}>
-          ADAP
+          \lol/
         </div>
         <SearchBox></SearchBox>
       </div>

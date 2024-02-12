@@ -11,6 +11,7 @@
     border-radius: 10rem;
     background: white;
     display: flex;
+    box-shadow: var(--color-black) 1px 1px 5px;
 }
 
 .search_box_input input {

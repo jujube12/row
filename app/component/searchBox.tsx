@@ -9,7 +9,7 @@ export default function SearchBox() {
     return (
         <div className={`${style.search_box_container}`}>
             <div className={style.search_box_input}>
-                <input placeholder='검색어를 입력하세요' onChange={(e) => { setInput(e.target.value) }}></input>
+                <input placeholder='검색어를 입력하세요' onChange={(e) => { setInput(e.target.value) }} onKeyDown={(e) => { if (e.key == 'Enter') { router.push(`/search/${input}`) } }}></input>
                 <button onClick={() => { router.push(`/search/${input}`) }}>검색</button>
             </div>
         </div>
