@@ -6,7 +6,6 @@ export default async function Search(props: param) {
     let summonerInfo!: summoner
     let matchIDInfo!: string[]
     let summonerLeague!: league
-    let matchInfo: match[] = []
     await fetch(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${props.params.name}?api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
@@ -17,18 +16,13 @@ export default async function Search(props: param) {
         .then((result) => {
             summonerLeague = result[0]
         })
-    await fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerInfo.puuid}/ids?start=0&count=20&api_key=${process.env.NEXT_RIOT}`)
+    await fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerInfo.puuid}/ids?start=0&count=10&api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
             matchIDInfo = result
-        })
-    await Promise.all(matchIDInfo.map(async (a) => {
-        await fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/${a}?api_key=${process.env.NEXT_RIOT}`)
-            .then((r) => r.json())
-            .then((result) => {
-                matchInfo.push(result)
-            })
-    }))
+        }).then(
+
+    )
     return (
         <div className={style.search_container}>
             <div style={{ margin: '20px' }}></div>
@@ -41,17 +35,29 @@ export default async function Search(props: param) {
                     <div className={style.profile_info}>
                         <div>{summonerInfo.name}</div>
                         <div>level: {summonerInfo.summonerLevel}</div>
-                        <div><span>{summonerLeague.tier}</span> <span>{summonerLeague.leaguePoints}점</span></div>
-                        <div><span>{summonerLeague.wins + summonerLeague.losses}전</span> <span>{summonerLeague.wins}승</span> <span>{summonerLeague.losses}패</span></div>
+                        {
+                            summonerLeague &&
+                            <>
+                                <div><span>{summonerLeague.tier}</span> <span>{summonerLeague.leaguePoints}점</span></div>
+                                <div><span>{summonerLeague.wins + summonerLeague.losses}전</span> <span>{summonerLeague.wins}승</span> <span>{summonerLeague.losses}패</span></div>
+                            </>
+                        }
                     </div>
                 </div>
             </div>
             {
-                matchInfo && matchInfo.map((a, i) => {
+                matchIDInfo.map((a, i) => {
                     return (
-                        <MatchBox key={i} matchInfo={a} summonerInfo={summonerInfo}></MatchBox>
+                        fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/${a}?api_key=${process.env.NEXT_RIOT}`)
+                            .then((r) => r.json())
+                            .then((result) => {
+                                return (
+                                    <MatchBox key={i} matchInfo={result} summonerInfo={summonerInfo}></MatchBox>
+                                )
+                            })
                     )
                 })
+
             }
         </div >
     )
