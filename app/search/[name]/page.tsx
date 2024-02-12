@@ -46,7 +46,13 @@ export default async function Search(props: param) {
                     </div>
                 </div>
             </div>
-            <MatchBox matchInfo={matchInfo} summonerInfo={summonerInfo}></MatchBox>
+            {
+                matchInfo && matchInfo.map((a, i) => {
+                    return (
+                        <MatchBox key={i} matchInfo={a} summonerInfo={summonerInfo}></MatchBox>
+                    )
+                })
+            }
         </div >
     )
 }
