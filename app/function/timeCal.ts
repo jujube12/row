@@ -30,11 +30,11 @@ export function gameDate(unixTime: number): string {
     if (diff > (30 * 24 * 60 * 60 * 1000)) {
         result = '오래전'
     } else if (diff >= (24 * 60 * 60 * 1000)) {
-        result = (diff / (24 * 60 * 60 * 1000)).toFixed() + '일 전'
+        result = Math.floor(diff / (60 * 60 * 1000)) + '일 전'
     } else if (diff < (24 * 60 * 60 * 1000) && diff > (60 * 60 * 1000)) {
-        result = (diff / (60 * 60 * 1000)).toFixed() + '시간 전'
+        result = Math.floor(diff / (60 * 60 * 1000)) + '시간 전'
     } else if (diff < (60 * 60 * 1000)) {
-        result = (diff / (60 * 1000)).toFixed() + '분 전'
+        result = Math.floor(diff / (60 * 60 * 1000)) + '분 전'
     }
     return result
 }
