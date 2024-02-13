@@ -15,6 +15,7 @@
     background-color: var(--color-white);
     border-radius: 10px;
     padding: 20px;
+    box-shadow: var(--color-gray-dark2) 1px 2px 5px;
 }
 
 .profile_box img {
@@ -48,15 +49,15 @@
 /* ===================== match ===================== */
 .match_container {
     width: 100%;
-    margin-top: 20px;
+    margin: 10px 0px;
 }
 
 .match_summury_container {
     display: flex;
     width: 100%;
     margin-bottom: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
+    box-shadow: var(--color-gray-dark1) 3px 1px 5px;
 }
 
 .match_summury_container>div {
@@ -150,6 +151,10 @@
 
 .match_summury_kda div:nth-child(2) {
     font-size: 15px;
+}
+
+.match_summury_extra {
+    margin-top: 10px;
 }
 
 .match_summury_extra span {

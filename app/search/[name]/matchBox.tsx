@@ -1,10 +1,9 @@
 'use client'
 import style from '../search.module.css'
 import DetailMatchBox from './detailMatchBox'
-import { useRouter } from 'next/navigation'
+import { kill, tierAver } from '../../function/game'
 import { gameDate } from '../../function/timeCal'
-import { useEffect, useState } from 'react';
-import { Router } from 'next/router'
+import { useState } from 'react';
 export default function MatchBox(props: { matchInfo: match, summonerInfo: summoner }) {
     let spell = {
         21: 'SummonerBarrier',
@@ -26,17 +25,27 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
         54: 'Summoner_UltBookPlaceholder',
         55: 'Summoner_UltBookSmitePlaceholder',
     }
-    let router = useRouter()
     let matchInfo: match = props.matchInfo
-    let summoner!: participants
+    let summoner!: participants  // 검색한 소환사
     let blueParti: { name: string, champ: string }[] = []
     let redParti: { name: string, champ: string }[] = []
+    // 킬관여율에 활용
+    let blueKill: number = 0
+    let redKill: number = 0
+    let summonerTeam: string = ''
     for (let i = 0; i < 10; i++) {
         if (matchInfo.info.participants[i].summonerId == props.summonerInfo.id) {
             summoner = matchInfo.info.participants[i]
+            if (i < 5) { summonerTeam = 'blue' }
+            else { summonerTeam = 'red' }
         }
-        i < 5 ? blueParti.push({ name: matchInfo.info.participants[i].riotIdGameName, champ: matchInfo.info.participants[i].championName })
-            : redParti.push({ name: matchInfo.info.participants[i].riotIdGameName, champ: matchInfo.info.participants[i].championName })
+        if (i < 5) {
+            blueParti.push({ name: matchInfo.info.participants[i].riotIdGameName, champ: matchInfo.info.participants[i].championName })
+            blueKill += matchInfo.info.participants[i].kills
+        } else {
+            redParti.push({ name: matchInfo.info.participants[i].riotIdGameName, champ: matchInfo.info.participants[i].championName })
+            redKill += matchInfo.info.participants[i].kills
+        }
     }
     let itemKeys: number[] = []
     itemKeys.push(summoner.item0)
@@ -91,9 +100,8 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                                     </div>
                                 </div>
                                 <div className={`${style.match_summury_extra} f14px`}>
-                                    <div><span>킬관여</span> 00%</div>
+                                    <div><span>킬관여</span> {summonerTeam == 'blue' ? kill(blueKill, summoner.kills + summoner.assists) : kill(redKill, summoner.kills + summoner.assists)}</div>
                                     <div><span>CS</span> {summoner.neutralMinionsKilled + summoner.totalMinionsKilled}</div>
-                                    <div>tier</div>
                                 </div>
                             </div>
                             <div className={style.match_summury_info_item}>
