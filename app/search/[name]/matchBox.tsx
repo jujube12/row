@@ -1,7 +1,7 @@
 'use client'
 import style from '../search.module.css'
 import DetailMatchBox from './detailMatchBox'
-import { kill, tierAver } from '../../function/game'
+import { kill } from '../../function/game'
 import { gameDate } from '../../function/timeCal'
 import { useState } from 'react';
 export default function MatchBox(props: { matchInfo: match, summonerInfo: summoner }) {

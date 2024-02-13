@@ -4,6 +4,7 @@
   --color-gray: #dadada;
   --color-gray-dark1: #939393;
   --color-gray-dark2: #5c5c5c;
+  --color-gray-dark3: #2f2f2f;
   --color-purple: #a54cc2;
   --color-purple-light: #cb91de;
   --color-purple-dark: #793f8d;
@@ -12,10 +13,39 @@
   --color-red: #dd3a3a;
   --color-red-light: #ffe6e6;
   --color-red-gray: #aa9090;
+  --color-gold: #d0b173;
+  --color-gold-light: #f6d89d;
+  --color-gold-dark1: #a78b55;
+  --color-gold-dark2: #895e08;
+}
+
+* {
+  cursor: url('../asset/cursor.png'), auto;
 }
 
 body {
   margin: 0;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(at top left, #1e3143, transparent),
+    radial-gradient(at top right, #5f9176, transparent),
+    radial-gradient(at bottom left, #47519c, transparent);
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-gold), var(--color-gold-dark2));
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(#5f9176, #1e3143);
 }
 
 div {

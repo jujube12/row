@@ -11,6 +11,7 @@
     border-radius: 10rem;
     background: white;
     display: flex;
+    border: solid 3px var(--color-gold);
     box-shadow: var(--color-black) 1px 1px 5px;
 }
 
@@ -24,6 +25,21 @@
     width: 80px;
     border: none;
     background: white;
-    cursor: pointer;
-    color: var(--color-black);
+    font-weight: 500;
+    color: var(--color-gold-dark2);
+}
+
+/* 992px 이하 */
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+    .search_box_input {
+        width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+    .search_box_input {
+        width: 80%;
+    }
 }
