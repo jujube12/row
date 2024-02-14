@@ -26,7 +26,7 @@
 body {
   margin: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: relative;
   overflow-x: hidden;
   background-image:
@@ -71,6 +71,18 @@ div {
 
 .bg_blue_light {
   background-color: var(--color-blue-light);
+}
+
+.bg_blue_gradiant {
+  background-image:
+    linear-gradient(1.25turn, var(--color-blue), var(--color-gold))
+}
+
+.bg_red_gradiant {
+  background-image:
+    radial-gradient(at bottom right, var(--color-gold-dark1), transparent),
+    radial-gradient(at top right, var(--color-gold), transparent),
+    radial-gradient(at top left, var(--color-red), transparent);
 }
 
 /* color */
@@ -180,5 +192,5 @@ div {
 .loading {
   width: 100vw;
   height: 100vh;
-  cursor: wait;
+  cursor: url('../asset/load01.gif'), wait;
 }

@@ -60,12 +60,11 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
     return (
         <div className={style.match_container}>
             <div>
-                <div className={`${style.match_summury_container} ${gameResult ? 'bg_blue_light' : 'bg_red_light'}`} onClick={() => {
+                <div className={`${style.match_summury_container} ${gameResult ? 'bg_blue_gradiant' : 'bg_red_gradiant'}`} onClick={() => {
                     if (detail == false) { setDetail(true) }
                     else { setDetail(false) }
                 }}>
                     <div className={style.match_summury_result}>
-                        <div className={gameResult ? 'bg_blue' : 'bg_red'}></div>
                         <div>
                             <div className={gameResult == true ? 'blue fw700' : 'red fw700'}>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
                             <div className='f14px'>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
