@@ -56,7 +56,8 @@
     width: 100%;
     margin-bottom: 10px;
     border-radius: 10px;
-    box-shadow: var(--color-gray-dark1) 3px 1px 5px;
+    border: 1px solid var(--color-gold-dark1);
+    box-shadow: var(--color-gray-dark3) 3px 1px 5px;
 }
 
 .match_summury_container>div {
@@ -66,6 +67,8 @@
 .match_summury_result {
     display: flex;
     width: 100px;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 .match_summury_result>div:nth-child(1)>div:nth-child(1) {
@@ -148,7 +151,6 @@
 
 .match_summury_extra span {
     font-size: 13px;
-    color: var(--color-gray-dark1);
 }
 
 .match_summury_info_item {
@@ -370,11 +372,20 @@
     }
 
     .match_summury_result {
-        width: 15%;
+        width: 80px;
+        padding: 0px;
+        padding-left: 10px;
+        padding-top: 7px;
     }
 
     .match_summury_img {
-        width: 25%;
+        width: 100px;
+        padding: 0;
+        padding-left: 10px;
+    }
+
+    .match_summury_img {
+        width: 100px;
     }
 
     .match_summury_img img {
@@ -386,11 +397,11 @@
         font-size: 12px;
         padding: 3px;
         bottom: 8px;
-        right: 30px;
+        right: 8px;
     }
 
     .match_summury_info {
-        width: 60%;
+        width: 250px;
     }
 
     .match_summury_info>div {

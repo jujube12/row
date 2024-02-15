@@ -94,6 +94,19 @@ div {
   color: var(--color-blue);
 }
 
+.gold_border {
+  color: var(--color-black);
+  text-shadow: #5f9176 1px 1px;
+}
+
+.gold {
+  color: var(--color-gold);
+}
+
+.black {
+  color: var(--color-black);
+}
+
 .gray_dark2 {
   color: var(--color-gray-dark2);
 }

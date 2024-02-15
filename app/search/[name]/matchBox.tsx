@@ -66,10 +66,10 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                 }}>
                     <div className={style.match_summury_result}>
                         <div>
-                            <div className={gameResult == true ? 'blue fw700' : 'red fw700'}>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
+                            <div className={gameResult == true ? 'black fw700' : 'black fw700'}>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
                             <div className='f14px'>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
                             <div></div>
-                            <div className='f14px fw700 gray_dark2'>
+                            <div className='f14px fw700 gold'>
                                 {gameResult == true ? '승리' : '패배'}
                             </div>
                         </div>
