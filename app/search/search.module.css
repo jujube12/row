@@ -51,6 +51,7 @@
     margin: 10px 0px;
 }
 
+/* summury */
 .match_summury_container {
     display: flex;
     width: 100%;
@@ -212,43 +213,40 @@
 .match_box {
     background-color: var(--color-white);
     color: var(--color-black);
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border: var(--color-gold-dark1) 2px solid;
+    display: flex;
 }
 
-.match_box>div:nth-child(1) {
+.match_box_blue {
+    width: 50%;
     padding: 10px;
 }
 
-.match_box>div:nth-child(2) {
-    display: flex;
-    padding: 0 10px;
+.match_box_blue>div:nth-child(1) {
+    padding-bottom: 5px;
+    border-bottom: solid 1px var(--color-black);
 }
 
-.match_box>div:nth-child(2)>div {
+.match_box_red>div:nth-child(1) {
+    padding-bottom: 5px;
+    border-bottom: solid 1px var(--color-black);
+}
+
+.match_box_red {
     width: 50%;
-    margin: 0 10px;
-}
-
-.match_box>div:nth-child(3) {
-    display: flex;
     padding: 10px;
-}
-
-.match_box_team {
-    width: 50%;
 }
 
 .match_user_box {
     display: flex;
-    height: 50px;
+    height: 60px;
     padding: 5px;
     position: relative;
 }
 
 .match_user_img {
     display: flex;
-    width: 100px;
+    width: 90px;
 }
 
 .match_user_img>img {
@@ -260,7 +258,6 @@
 
 .match_user_img div:nth-child(2) {
     border-radius: 5px;
-    margin-right: 5px;
 }
 
 .match_user_img div:nth-child(2)>img {
@@ -281,16 +278,16 @@
     text-align: center;
     border-radius: 3px;
     font-size: 13px;
-    top: 35px;
-    left: 35px;
+    top: 40px;
+    left: 40px;
 }
 
 .match_user_info {
-    width: 200px;
+    width: 130px;
 }
 
 .match_user_info div:nth-child(1) {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .match_user_info div:nth-child(2) {
@@ -299,12 +296,12 @@
 
 .match_user_info div:nth-child(3) {
     font-size: 12px;
-    color: gray;
 }
 
 .match_user_cs {
-    width: 50px;
+    width: 30px;
     text-align: center;
+    padding-top: 5px;
 }
 
 .match_user_cs div:nth-child(1) {
@@ -317,6 +314,32 @@
 
 .match_user_damage {
     width: 80px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.match_user_damage_bar {
+    width: 70px;
+    height: 5px;
+    margin: auto;
+    background-color: var(--color-gray-dark1);
+}
+
+.match_user_damage_taken_bar {
+    width: 70px;
+    height: 5px;
+    margin: auto;
+    background-color: var(--color-gray-dark1);
+}
+
+.match_user_damage_bar div {
+    height: 5px;
+    background-color: var(--color-red);
+}
+
+.match_user_damage_taken_bar div {
+    height: 5px;
+    background-color: var(--color-blue);
 }
 
 .match_user_item {
@@ -341,6 +364,77 @@
 }
 
 .match_user_name {}
+
+@media (max-width: 1400px) {
+    .search_container {
+        width: 90%;
+    }
+
+    .match_user_damage {
+        width: 60px;
+    }
+
+    .match_user_damage_bar {
+        width: 50px;
+    }
+
+    .match_user_damage_taken_bar {
+        width: 50px;
+    }
+
+    .match_user_item {
+        width: 180px;
+        margin: 5px;
+        margin-top: 15px;
+    }
+
+    .match_user_item img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .match_user_item p {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 1120px) {
+    .search_container {
+        width: 90%;
+    }
+
+    .match_summury_parti {
+        display: flex;
+        width: 320px;
+    }
+
+    .match_summury_parti>div {
+        width: 160px;
+        margin: 5px 0px;
+    }
+
+    .match_user_info div:nth-child(1) {
+        font-size: 12px;
+    }
+
+    .match_user_item {
+        width: 150px;
+        margin: 5px;
+        margin-top: 15px;
+    }
+
+    .match_user_item img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .match_user_item p {
+        width: 20px;
+        height: 20px;
+    }
+
+}
 
 /** 992px 이하일 때 적용됨 */
 @media (max-width: 992px) {
@@ -387,16 +481,6 @@
         height: 30px;
     }
 
-    .match_summury_parti {
-        display: flex;
-        width: 320px;
-    }
-
-    .match_summury_parti>div {
-        width: 160px;
-        margin: 5px 0px;
-    }
-
     .match_detail_btn {
         width: 20px;
     }
@@ -431,6 +515,18 @@
     .match_summury_result {
         width: 80px;
         padding-top: 7px;
+    }
+
+    .match_summury_result>div:nth-child(1)>div:nth-child(1) {
+        margin-bottom: 2px;
+    }
+
+    .match_summury_result>div:nth-child(1)>div:nth-child(2) {
+        font-size: 12px;
+    }
+
+    .match_summury_result>div:nth-child(1)>div:nth-child(5) {
+        font-size: 12px;
     }
 
     .match_summury_img {

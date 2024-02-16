@@ -57,6 +57,10 @@ div {
   background-color: var(--color-gray);
 }
 
+.bg_gold {
+  background-color: var(--color-gold);
+}
+
 .bg_red {
   background-color: var(--color-red);
 }
@@ -83,6 +87,26 @@ div {
     radial-gradient(at bottom right, var(--color-gold-dark1), transparent),
     radial-gradient(at top right, var(--color-gold), transparent),
     radial-gradient(at top left, var(--color-red), transparent);
+}
+
+.bg_match_gradiant_blue_win {
+  background-image:
+    linear-gradient(1.25turn, var(--color-blue-light), var(--color-blue-light), var(--color-gold-light))
+}
+
+.bg_match_gradiant_blue_lose {
+  background-image:
+    linear-gradient(1.25turn, var(--color-red-light), var(--color-red-light), var(--color-gold-light))
+}
+
+.bg_match_gradiant_red_win {
+  background-image:
+    linear-gradient(1.25turn, var(--color-gold-light), var(--color-blue-light), var(--color-blue-light))
+}
+
+.bg_match_gradiant_red_lose {
+  background-image:
+    linear-gradient(1.25turn, var(--color-red-light), var(--color-gold-light), var(--color-red-light))
 }
 
 /* color */

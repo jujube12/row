@@ -2,7 +2,7 @@
 import style from '../search.module.css'
 import DetailMatchBox from './detailMatchBox'
 import { kill } from '../../function/game'
-import { gameDate } from '../../function/timeCal'
+import { gameDate, duringTime } from '../../function/timeCal'
 import { useState } from 'react';
 export default function MatchBox(props: { matchInfo: match, summonerInfo: summoner }) {
     let spell = {
@@ -59,7 +59,8 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
     itemKeys.push(summoner.item5)
     itemKeys.push(summoner.item6)
     let gameResult: boolean = summoner.win
-    let [detail, setDetail] = useState(false)
+    let [detail, setDetail] = useState(true)
+    let matchTime: { min: number, sec: number } = duringTime(matchInfo.info.gameDuration)
     return (
         <div className={style.match_container}>
             <div>
@@ -75,6 +76,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                             <div className='f14px fw700 gold'>
                                 {gameResult == true ? '승리' : '패배'}
                             </div>
+                            <div className='f14px'>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
                         </div>
                     </div>
                     <div className={style.match_summury_img}>
@@ -145,6 +147,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                             }
                         </div>
                     </div>
+                    <div style={{ flexGrow: '1' }}></div>
                     <div className={style.match_detail_btn}>
                         <div className={gameResult ? 'blue_btn' : 'red_btn'}></div>
                     </div>

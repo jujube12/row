@@ -15,29 +15,23 @@ export default function DetailMatchBox(props: { matchInfo: match, spell: any, su
         damageTo.push(a.totalDamageDealtToChampions)
         damageTake.push(a.totalDamageTaken)
     })
-    let date = matchDate(match.info.gameEndTimestamp)
-    let matchTime: { min: number, sec: number } = duringTime(match.info.gameDuration)
-    let damageToMax = Math.max(...damageTo)
-    let damageTakeMax = Math.max(...damageTake)
+    let maxDamage = Math.max(...damageTo)
+    let maxTakenDamage = Math.max(...damageTake)
     return (
         <div className={style.match_box}>
-            <div>
-                <div>{`${date.month}월 ${date.day}일 ${date.hours}시 ${date.minutes}분`}</div>
-                <div>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
+            <div className={`${style.match_box_blue} ${blueTeam[0].win == true ? 'bg_match_gradiant_blue_win' : 'bg_match_gradiant_blue_lose'}`}>
+                <div className={blueTeam[0].win == true ? 'fw700 blue' : 'fw700 red'}>{blueTeam[0].win == true ? '승리' : '패배'} (블루팀)</div>
+                <TeamBox team={blueTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
-            <div>
-                <div>{blueTeam[0].win == true ? 'victory' : 'defeat'} (블루팀)</div>
-                <div>{redTeam[0].win == true ? 'victory' : 'defeat'} (레드팀)</div>
-            </div>
-            <div>
-                <TeamBox team={blueTeam} spell={props.spell} summonerid={props.summonerInfo.id}></TeamBox>
-                <TeamBox team={redTeam} spell={props.spell} summonerid={props.summonerInfo.id}></TeamBox>
+            <div className={`${style.match_box_red} ${redTeam[0].win == true ? 'bg_match_gradiant_red_win' : 'bg_match_gradiant_red_lose'}`}>
+                <div className={redTeam[0].win == true ? 'fw700 blue' : 'fw700 red'}>{redTeam[0].win == true ? '승리' : '패배'} (레드팀)</div>
+                <TeamBox team={redTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
         </div>
     )
 }
 
-function TeamBox(props: { team: participants[], spell: any, summonerid: string }) {
+function TeamBox(props: { team: participants[], spell: any, summonerid: string, maxDamage: number, maxTakenDamage: number }) {
     return (
         <div className={style.match_box_team}>
             {
@@ -51,7 +45,7 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string }
                     itemKeys.push(team.item5)
                     itemKeys.push(team.item6)
                     return (
-                        <div key={i} className={props.summonerid == team.summonerId ? `${style.match_user_box} bg_gray` : style.match_user_box}>
+                        <div key={i} className={props.summonerid == team.summonerId ? `${style.match_user_box} bg_gold` : style.match_user_box}>
                             <div className={style.match_user_img}>
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${team.championName}.png`}></img>
                                 <div>
@@ -67,7 +61,7 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string }
                                 }
                                 <div>{team.kills} / {team.deaths} / {team.assists}</div>
                                 <div>
-                                    <span className='red'>kda </span>
+                                    <span className='gray_dark2'>kda </span>
                                     {
                                         team.deaths == 0
                                             ? <span className='fw700 red'>perfect</span>
@@ -82,8 +76,18 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string }
                                 <div>{team.totalMinionsKilled + team.neutralMinionsKilled}</div>
                             </div>
                             <div className={style.match_user_damage}>
-                                <div>{team.totalDamageDealtToChampions}</div>
-                                <div>{team.totalDamageTaken}</div>
+                                <div>
+                                    <div>{team.totalDamageDealtToChampions}</div>
+                                    <div className={style.match_user_damage_bar}>
+                                        <div style={{ width: (team.totalDamageDealtToChampions / props.maxDamage * 100).toFixed() + '%' }}></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>{team.totalDamageTaken}</div>
+                                    <div className={style.match_user_damage_taken_bar}>
+                                        <div style={{ width: (team.totalDamageDealtToChampions / props.maxTakenDamage * 100).toFixed() + '%' }}></div>
+                                    </div>
+                                </div>
                             </div>
                             <div className={style.match_user_item}>
                                 {

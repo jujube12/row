@@ -24,7 +24,6 @@ export default async function Search(props: param) {
         .then((result) => {
             matchIDInfo = result
         }).then(
-
     )
     return (
         summonerInfo ?
