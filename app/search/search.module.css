@@ -343,65 +343,13 @@
 .match_user_name {}
 
 /** 992px 이하일 때 적용됨 */
-@media (max-width: 992px) {}
-
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .search_container {
         width: 90%;
     }
 
-    .profile_box img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .match_summury_container>div {
-        height: 100px;
-    }
-
-    .match_summury_result {
-        width: 80px;
-        padding: 0px;
-        padding-left: 10px;
-        padding-top: 7px;
-    }
-
-    .match_summury_img {
-        width: 100px;
-        padding: 0;
-        padding-left: 10px;
-    }
-
-    .match_summury_img {
-        width: 100px;
-    }
-
-    .match_summury_img img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .match_summury_img div {
-        font-size: 12px;
-        padding: 3px;
-        bottom: 8px;
-        right: 8px;
-    }
-
     .match_summury_info {
         width: 250px;
-    }
-
-    .match_summury_info>div {
-        position: absolute;
-        top: 0;
-        transform: translate(0, 0);
-    }
-
-    .match_summury_info_spell {
-        display: flex;
-        height: 40%;
-        margin-top: 10px;
     }
 
     .match_summury_info_spell img {
@@ -440,6 +388,70 @@
     }
 
     .match_summury_parti {
+        display: flex;
+        width: 320px;
+    }
+
+    .match_summury_parti>div {
+        width: 160px;
+        margin: 5px 0px;
+    }
+
+    .match_detail_btn {
+        width: 20px;
+    }
+}
+
+@media (max-width :855px) {
+    .match_summury_parti {
+        display: flex;
+        width: 260px;
+    }
+
+    .match_summury_parti>div {
+        width: 130px;
+        margin: 5px 0px;
+    }
+
+    .match_detail_btn {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile_box img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .match_summury_container>div {
+        height: 100px;
+    }
+
+    .match_summury_result {
+        width: 80px;
+        padding-top: 7px;
+    }
+
+    .match_summury_img {
+        width: 100px;
+        padding: 0;
+        padding-left: 10px;
+    }
+
+    .match_summury_img img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .match_summury_img div {
+        font-size: 12px;
+        padding: 3px;
+        bottom: 8px;
+        right: 8px;
+    }
+
+    .match_summury_parti {
         display: block;
         width: 150px;
         padding-top: 5px;
@@ -459,10 +471,6 @@
         width: 25px;
         height: 25px;
         margin-right: 0;
-    }
-
-    .match_detail_btn {
-        display: none;
     }
 }
 

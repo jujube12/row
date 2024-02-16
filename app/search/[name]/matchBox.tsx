@@ -39,11 +39,14 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
             if (i < 5) { summonerTeam = 'blue' }
             else { summonerTeam = 'red' }
         }
+        let name
+        matchInfo.info.participants[i].riotIdGameName ? name = matchInfo.info.participants[i].riotIdGameName
+            : name = matchInfo.info.participants[i].summonerName
         if (i < 5) {
-            blueParti.push({ name: matchInfo.info.participants[i].riotIdGameName, champ: matchInfo.info.participants[i].championName })
+            blueParti.push({ name: name, champ: matchInfo.info.participants[i].championName })
             blueKill += matchInfo.info.participants[i].kills
         } else {
-            redParti.push({ name: matchInfo.info.participants[i].riotIdGameName, champ: matchInfo.info.participants[i].championName })
+            redParti.push({ name: name, champ: matchInfo.info.participants[i].championName })
             redKill += matchInfo.info.participants[i].kills
         }
     }
