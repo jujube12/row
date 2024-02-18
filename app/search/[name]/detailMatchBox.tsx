@@ -55,22 +55,25 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string, 
                                 <div>{team.champLevel}</div>
                             </div>
                             <div className={style.match_user_info}>
-                                {team.summonerName == ''
+                                {team.riotIdGameName
                                     ? <div>{team.riotIdGameName}</div>
                                     : <div>{team.summonerName}</div>
                                 }
-                                <div>{team.kills} / {team.deaths} / {team.assists}</div>
                                 <div>
-                                    <span className='gray_dark2'>kda </span>
-                                    {
-                                        team.deaths == 0
-                                            ? <span className='fw700 red'>perfect</span>
-                                            : <span>
-                                                {(Math.round((team.kills + team.assists) / team.deaths)).toFixed(2)}
-                                            </span>
-                                    }
+                                    <div>{team.kills} / {team.deaths} / {team.assists}</div>
+                                    <div>
+                                        <span className='gray_dark2'>kda </span>
+                                        {
+                                            team.deaths == 0
+                                                ? <span className='fw700 red'>perfect</span>
+                                                : <span>
+                                                    {(Math.round((team.kills + team.assists) / team.deaths)).toFixed(2)}
+                                                </span>
+                                        }
+                                    </div>
                                 </div>
                             </div>
+                            <div className={style.match_width}></div>
                             <div className={style.match_user_cs}>
                                 <div>CS</div>
                                 <div>{team.totalMinionsKilled + team.neutralMinionsKilled}</div>
@@ -89,6 +92,7 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string, 
                                     </div>
                                 </div>
                             </div>
+                            <div className={style.match_width}></div>
                             <div className={style.match_user_item}>
                                 {
                                     itemKeys.map((a, i) => {

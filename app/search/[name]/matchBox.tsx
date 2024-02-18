@@ -59,7 +59,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
     itemKeys.push(summoner.item5)
     itemKeys.push(summoner.item6)
     let gameResult: boolean = summoner.win
-    let [detail, setDetail] = useState(true)
+    let [detail, setDetail] = useState(false)
     let matchTime: { min: number, sec: number } = duringTime(matchInfo.info.gameDuration)
     return (
         <div className={style.match_container}>

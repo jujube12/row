@@ -286,15 +286,11 @@
     width: 130px;
 }
 
-.match_user_info div:nth-child(1) {
+.match_user_info>div:nth-child(1) {
     font-size: 14px;
 }
 
-.match_user_info div:nth-child(2) {
-    font-size: 12px;
-}
-
-.match_user_info div:nth-child(3) {
+.match_user_info>div:nth-child(2) div {
     font-size: 12px;
 }
 
@@ -362,8 +358,6 @@
     border-radius: 3px;
     margin: 0.5px;
 }
-
-.match_user_name {}
 
 @media (max-width: 1400px) {
     .search_container {
@@ -484,6 +478,109 @@
     .match_detail_btn {
         width: 20px;
     }
+
+    /* detail */
+    .match_box {
+        display: block;
+    }
+
+    .match_box_blue {
+        width: 100%;
+    }
+
+    .match_box_red {
+        width: 100%;
+    }
+
+    .match_user_box {
+        height: 50px;
+    }
+
+    .match_user_img {
+        width: 70px;
+    }
+
+    .match_user_img>img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .match_user_img div:nth-child(2) {
+        border-radius: 5px;
+    }
+
+    .match_user_img div:nth-child(2)>img {
+        width: 15px;
+    }
+
+    .match_user_img div:nth-child(3) {
+        width: 15px;
+        height: 15px;
+        font-size: 10px;
+        top: 30px;
+        left: 30px;
+    }
+
+    .match_user_info {
+        display: flex;
+        width: 200px;
+    }
+
+    .match_user_info>div:nth-child(1) {
+        width: 120px;
+        font-size: 14px;
+    }
+
+    .match_user_info>div:nth-child(2) {
+        width: 80px;
+    }
+
+    .match_user_info div:nth-child(2) div {
+        font-size: 14px;
+    }
+
+    .match_width {
+        flex-grow: 1;
+    }
+
+    .match_user_cs {
+        width: 100px;
+    }
+
+    .match_user_damage {
+        display: flex;
+        width: 160px;
+        justify-content: space-around;
+    }
+
+    .match_user_damage_bar {
+        width: 70px;
+    }
+
+    .match_user_damage_taken_bar {
+        width: 70px;
+    }
+
+    .match_user_item {
+        display: flex;
+        width: 220px;
+        margin: 10px;
+    }
+
+    .match_user_item img {
+        width: 30px;
+        height: 30px;
+        border-radius: 3px;
+        margin: 0.5px;
+    }
+
+    .match_user_item p {
+        width: 30px;
+        height: 30px;
+        background-color: var(--color-black);
+        border-radius: 3px;
+        margin: 0.5px;
+    }
 }
 
 @media (max-width :855px) {
@@ -495,6 +592,18 @@
     .match_summury_parti>div {
         width: 130px;
         margin: 5px 0px;
+    }
+
+    .match_user_damage {
+        width: 110px;
+    }
+
+    .match_user_damage_bar {
+        width: 50px;
+    }
+
+    .match_user_damage_taken_bar {
+        width: 50px;
     }
 
     .match_detail_btn {
@@ -547,6 +656,32 @@
         right: 8px;
     }
 
+    .match_width {
+        display: none;
+    }
+
+    .match_user_info {
+        display: flex;
+        width: 170px;
+    }
+
+    .match_user_info>div:nth-child(1) {
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .match_user_info>div:nth-child(2) {
+        width: 70px;
+    }
+
+    .match_user_info div:nth-child(2) div {
+        font-size: 12px;
+    }
+
+    .match_user_cs {
+        width: 50px;
+    }
+
     .match_summury_parti {
         display: block;
         width: 150px;
@@ -570,10 +705,64 @@
     }
 }
 
-@media (max-width: 628px) {
+@media (max-width: 700px) {
+    .match_user_item {
+        width: 150px;
+        margin: 5px;
+        margin-top: 15px;
+    }
+
+    .match_user_item img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .match_user_item p {
+        width: 20px;
+        height: 20px;
+    }
+
+    .match_user_cs {
+        width: 80px;
+    }
+}
+
+@media (max-width: 680px) {
     .match_summury_parti {
         display: none
     }
+
+    .match_user_cs {
+        width: 50px;
+    }
+}
+
+@media (max-width: 644px) {
+    .match_user_damage {
+        display: block;
+        font-size: 12px;
+    }
+
+    .match_user_damage_bar {
+        height: 3px;
+    }
+
+    .match_user_damage_taken_bar {
+        height: 3px;
+    }
+
+    .match_user_damage_bar div {
+        height: 3px;
+    }
+
+    .match_user_damage_taken_bar div {
+        height: 3px;
+    }
+
+    .match_user_cs div:nth-child(2) {
+        font-size: 12px;
+    }
+
 }
 
 @media (max-width: 576px) {
@@ -583,5 +772,24 @@
 
     .match_detail_btn {
         display: none;
+    }
+
+    .match_user_info {
+        display: block;
+        width: 120px;
+    }
+
+    .match_user_info>div:nth-child(2) {
+        display: flex;
+        width: 120px;
+    }
+
+    .match_user_info>div:nth-child(2) div {
+        width: 50px;
+        font-size: 10px;
+    }
+
+    .match_user_info>div:nth-child(2) div:nth-child(2) {
+        width: 70px;
     }
 }
