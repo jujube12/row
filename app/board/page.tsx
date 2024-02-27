@@ -12,6 +12,7 @@ export default function Board() {
             <div>
                 <WriteBox></WriteBox>
             </div>
+            <div style={{ margin: '10px' }}></div>
             <PostList></PostList>
         </div>
     )

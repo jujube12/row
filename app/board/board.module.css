@@ -4,11 +4,80 @@
     height: 100%;
 }
 
-
 /* ============= write box ============= */
-.write_container {}
+.write_container {
+    position: relative;
+}
+
+.write_box {
+    background-color: var(--color-white);
+    border-radius: 5px;
+    border: 3px solid var(--color-gold)
+}
+
+.write_container input {
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 5px;
+}
+
+.write_title {
+    padding-top: 5px;
+    margin: 5px;
+    border-bottom: 1px solid var(--color-gray);
+}
+
+.write_post {
+    padding: 5px;
+}
+
+.write_post input {
+    height: 100px;
+    padding-bottom: 90px;
+}
+
+.write_container button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 5px 15px;
+    border: 3px solid var(--color-gold);
+    border-radius: 5px;
+    background-color: var(--color-gold-light2);
+}
 
 /* ============= post box ============= */
 .post_container {
+    height: 800px;
+}
+
+.post_list_box {
+    height: 700px;
     background-color: var(--color-white);
+    border-radius: 5px;
+    border: 3px solid var(--color-gold);
+}
+
+.post_box {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid var(--color-gray);
+}
+
+.post_title {
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-gray);
+}
+
+.post_body {
+    margin: 3px;
+    font-size: small;
+}
+
+@media (max-width: 576px) {
+    .board_container {
+        width: 90%;
+    }
+
 }

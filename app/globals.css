@@ -15,6 +15,7 @@
   --color-red-gray: #aa9090;
   --color-gold: #d0b173;
   --color-gold-light: #f6d89d;
+  --color-gold-light2: #fff4de;
   --color-gold-dark1: #a78b55;
   --color-gold-dark2: #895e08;
 }
@@ -49,6 +50,10 @@ body::-webkit-scrollbar-track {
 }
 
 div {
+  box-sizing: border-box;
+}
+
+input {
   box-sizing: border-box;
 }
 
