@@ -4,10 +4,13 @@ import { useRouter } from 'next/navigation'
 export default function BoardBox() {
     let router = useRouter()
     return (
-        <div className={style.board_box_container} onClick={() => {
-            router.push('/board')
-        }}>
-            게시판 이동 버튼
-        </div>
+        <>
+            <div className={style.board_box_container} onClick={() => {
+                router.push('/board')
+            }}>
+                게시판 이동 버튼
+
+            </div>
+        </>
     )
 }
