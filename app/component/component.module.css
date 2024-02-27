@@ -1,3 +1,4 @@
+/* ===== search box ===== */
 .search_box_container {
     width: 100%;
     text-align: center;
@@ -27,6 +28,13 @@
     background: white;
     font-weight: 500;
     color: var(--color-gold-dark2);
+}
+
+/* ===== board box ===== */
+.board_box_container {
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-white);
 }
 
 /* 992px 이하 */

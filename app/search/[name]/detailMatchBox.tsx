@@ -1,5 +1,4 @@
 import style from '../search.module.css'
-import { matchDate, duringTime } from '@/app/function/timeCal'
 
 export default function DetailMatchBox(props: { matchInfo: match, spell: any, summonerInfo: summoner }) {
     let match: match = props.matchInfo

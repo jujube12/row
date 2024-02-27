@@ -1,0 +1,14 @@
+.board_container {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+}
+
+
+/* ============= write box ============= */
+.write_container {}
+
+/* ============= post box ============= */
+.post_container {
+    background-color: var(--color-white);
+}
