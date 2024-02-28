@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 import { JWT } from "next-auth/jwt";
 import { Session } from "next-auth";
 
-export default NextAuth({
+export const authOptions: any = {
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -14,7 +14,7 @@ export default NextAuth({
                 password: { label: "password", type: "password" },
             },
             async authorize(credentials) {
-                if (credentials != null) {
+                if (credentials != undefined) {
                     let db = (await connectDB).db('row');
                     let user = await db.collection('user').findOne({ email: credentials.email })
                     if (!user) {
@@ -33,7 +33,6 @@ export default NextAuth({
             }
         })
     ],
-
     session: {
         strategy: 'jwt',
         maxAge: 24 * 60 * 60
@@ -44,15 +43,16 @@ export default NextAuth({
             token.user = {};
             token.user.id = user.id
             token.user.email = user.email
-
-            return token;
         },
-        //5. 유저 세션이 조회될 때 마다 실행되는 코드
         session: async ({ session, token }: { session: Session, token: JWT }) => {
             session.user = token.user;
             return session;
         },
     },
-
+    pages: {
+        signIn: '/login'
+    },
     secret: process.env.NEXTAUTH_SECRET
-});
+};
+
+export default NextAuth(authOptions);
