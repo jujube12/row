@@ -2,6 +2,7 @@
 import { signIn } from 'next-auth/react'
 import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
+import style from './login.module.css'
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -15,12 +16,16 @@ export default function Login() {
             password: password,
             redirect: false,
         }).then((result) => {
-            if (result?.ok)
+            if (result?.ok) {
                 router.push('/')
+            }
         });
     }
     return (
-        <div >
+        <div className={style.login_container}>
+            <div className={style.login_title}>
+                Row
+            </div>
             <form onSubmit={onSubmit}>
                 <input name="email" type="text" placeholder="아이디"
                     onChange={(e) => {
@@ -31,6 +36,7 @@ export default function Login() {
                         setPassword(e.target.value)
                     }} />
                 <button type="submit">로그인</button>
+                <div className={style.login_register} onClick={() => { router.push('/register') }}>회원가입</div>
             </form>
         </div>
     )

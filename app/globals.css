@@ -57,6 +57,10 @@ input {
   box-sizing: border-box;
 }
 
+textarea {
+  box-sizing: border-box;
+}
+
 /* bg */
 .bg_gray {
   background-color: var(--color-gray);

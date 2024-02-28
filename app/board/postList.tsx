@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import style from './board.module.css'
 import { connectDB } from '@/util/database'
 import { post } from './d'
@@ -13,7 +14,11 @@ export default async function PostList() {
                         return (
                             <div className={style.post_box} key={i}>
                                 <div className={style.post_title}>{a.title}</div>
-                                <div className={style.post_body}>{a.post}</div>
+                                <div className={style.post_body}>
+                                    <div>
+                                        {a.post}
+                                    </div>
+                                </div>
                             </div>
                         )
                     })

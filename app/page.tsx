@@ -1,7 +1,7 @@
 import SearchBox from './component/searchBox'
 import BoardBox from './component/boardBox';
-import LoginBtn from './component/loginBtn';
 import style from './main.module.css'
+
 export default function Home() {
   return (
     <main>
@@ -12,7 +12,6 @@ export default function Home() {
         <SearchBox></SearchBox>
         <div style={{ height: '20px' }}></div>
         <BoardBox></BoardBox>
-        <LoginBtn></LoginBtn>
       </div>
     </main>
   );
