@@ -4,15 +4,21 @@ import { post, propsPost } from './d'
 import { useRouter } from 'next/navigation'
 export default function PostBox(props: { post: propsPost }) {
     let router = useRouter()
-    let post: post = { _id: JSON.parse(props.post._id), title: props.post.title, post: props.post.post }
+    let post = props.post
+    let postDetail: string = ''
+    if (post.post.length > 30) {
+        postDetail = post.post.substr(0, 30) + '...'
+    } else {
+        postDetail = post.post
+    }
     return (
         <div className={style.post_box} onClick={() => {
-            router.push(`/board/detail/${post._id}`)
+            router.push(`/board/detail/${JSON.parse(post._id)}`)
         }}>
             <div className={style.post_title}>{post.title}</div>
             <div className={style.post_body}>
                 <div>
-                    {post.post}
+                    {postDetail}
                 </div>
             </div>
         </div>

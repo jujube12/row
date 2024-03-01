@@ -5,7 +5,7 @@ import { post } from './d'
 import PostBox from './postBox'
 export default async function PostList() {
     let db = (await connectDB).db('row')
-    let postList: post[] = await db.collection<post>('post').find().sort({ _id: -1 }).toArray();
+    let postList: post[] = await db.collection<post>('post').find().limit(9).sort({ _id: -1 }).toArray();
     return (
         <div className={style.post_container}>
             <div className={style.post_list_box}>

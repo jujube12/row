@@ -1,8 +1,29 @@
-import { urlParam } from "../../d"
-export default function postDetail(props: urlParam) {
+import { ObjectId } from "mongodb"
+import { urlParam, post } from "../../d"
+import { connectDB } from "@/util/database"
+import style from '../../board.module.css'
+import DeleteBtn from "../deleteBtn"
+
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import { getServerSession } from 'next-auth'
+export default async function postDetail(props: urlParam) {
+    let session: any = await getServerSession(authOptions)
+    let db = (await connectDB).db('row')
+    let postDetail: post | null = await db.collection<post>('post').findOne({ _id: new ObjectId(props.params.id) })
     return (
-        <div>
-            디테일ㅁ
+        <div className={style.detail_container}>
+            <div className={style.detail_box}>
+                <div className={style.detail_title}>
+                    <div>{postDetail?.title}</div>
+                    <div>작성자: {postDetail?.name}</div>
+                </div>
+                <div className={style.detail_post}>{postDetail?.post}</div>
+                {
+                    session?.user.name == postDetail?.name
+                        ? <DeleteBtn id={JSON.stringify(postDetail?._id)}></DeleteBtn>
+                        : <div></div>
+                }
+            </div>
         </div>
     )
 }

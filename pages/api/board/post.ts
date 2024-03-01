@@ -1,10 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { connectDB } from '@/util/database'
-
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import { getServerSession } from 'next-auth'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         if (req.method == 'POST') {
+            let session: any = await getServerSession(req, res, authOptions)
             let db = (await connectDB).db('row');
+            req.body.name = session.user.name
             await db.collection('post').insertOne(req.body)
             res.redirect(302, '/board')
         } else {
