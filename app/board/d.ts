@@ -5,3 +5,14 @@ export type post = {
     title: string,
     post: string,
 }
+
+export type propsPost = {
+    _id: string,
+    title: string,
+    post: string,
+}
+
+export type urlParam = {
+    params: { id: string },
+    searchParams: {},
+}
