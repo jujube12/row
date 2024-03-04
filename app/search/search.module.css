@@ -360,10 +360,6 @@
 }
 
 @media (max-width: 1400px) {
-    .search_container {
-        width: 90%;
-    }
-
     .match_user_damage {
         width: 60px;
     }
