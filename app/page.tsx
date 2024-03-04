@@ -12,6 +12,7 @@ export default function Home() {
         <SearchBox></SearchBox>
         <div style={{ height: '20px' }}></div>
         <BoardBox></BoardBox>
+        <div style={{ height: '20px' }}></div>
       </div>
     </main>
   );

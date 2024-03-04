@@ -1,3 +1,19 @@
+.logged_container {
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logged_container>div:nth-child(1) {
+    background-color: var(--color-white);
+    height: 200px;
+    padding-top: 50px;
+    border-radius: 5px;
+    border: solid 3px var(--color-gold);
+}
+
 .login_container {
     width: 50%;
     height: 100vh;
