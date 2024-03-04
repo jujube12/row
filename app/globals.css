@@ -123,6 +123,10 @@ textarea {
   color: var(--color-red);
 }
 
+.red_light {
+  color: var(--color-red-light);
+}
+
 .blue {
   color: var(--color-blue);
 }
@@ -202,6 +206,11 @@ textarea {
 
 .p10 {
   padding: 10px;
+}
+
+/* hight */
+.h30 {
+  height: 30px;
 }
 
 /* ================================================ */

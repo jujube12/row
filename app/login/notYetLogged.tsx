@@ -7,6 +7,7 @@ import style from './login.module.css'
 export default function NotYetLogged() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    let [ok, setOk] = useState(false)
     let router = useRouter()
 
     async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -18,6 +19,8 @@ export default function NotYetLogged() {
         }).then((result) => {
             if (result?.ok) {
                 router.push('/')
+            } else {
+                setOk(true)
             }
         });
     }
@@ -27,11 +30,12 @@ export default function NotYetLogged() {
                 Row
             </div>
             <form onSubmit={onSubmit}>
-                <input name="email" type="text" placeholder="아이디"
+                {ok ? <div className='gold p4 f14px'>이메일 또는 비밀번호를 잘못입력하셨습니다.</div> : <div style={{ visibility: 'hidden' }}>.</div>}
+                <input name="email" type="text" placeholder="email"
                     onChange={(e) => {
                         setEmail(e.target.value)
                     }} />
-                <input name="password" type="password" placeholder="비밀번호"
+                <input name="password" type="password" placeholder="password"
                     onChange={(e) => {
                         setPassword(e.target.value)
                     }} />
