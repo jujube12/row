@@ -119,6 +119,10 @@
     .search_box_input {
         width: 70%;
     }
+
+    .board_write_check {
+        width: 80%;
+    }
 }
 
 @media (max-width: 576px) {

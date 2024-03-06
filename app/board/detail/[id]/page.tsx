@@ -6,6 +6,7 @@ import DeleteBtn from "../deleteBtn"
 
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
+import EditBtn from "../editBtn"
 export default async function postDetail(props: urlParam) {
     let session: any = await getServerSession(authOptions)
     let db = (await connectDB).db('row')
@@ -20,7 +21,10 @@ export default async function postDetail(props: urlParam) {
                 <div className={style.detail_post}>{postDetail?.post}</div>
                 {
                     session?.user.name == postDetail?.name
-                        ? <DeleteBtn id={JSON.stringify(postDetail?._id)}></DeleteBtn>
+                        ? <div className={style.detail_edit_box}>
+                            <DeleteBtn id={JSON.stringify(postDetail?._id)}></DeleteBtn>
+                            <EditBtn id={JSON.stringify(postDetail?._id)}></EditBtn>
+                        </div>
                         : <div></div>
                 }
             </div>
