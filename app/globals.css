@@ -208,6 +208,15 @@ textarea {
   padding: 10px;
 }
 
+/* padding-top */
+.pt5 {
+  padding-top: 5px;
+}
+
+.pt10 {
+  padding-top: 10px;
+}
+
 /* hight */
 .h30 {
   height: 30px;
@@ -261,6 +270,17 @@ textarea {
   width: 80%;
   height: 100vh;
   margin: auto;
+}
+
+.btn {
+  border-radius: 5px;
+  border: 3px solid var(--color-gold);
+  background-color: var(--color-gold-light2);
+  padding: 3px 5px;
+}
+
+.btn:hover {
+  background-color: var(--color-gold);
 }
 
 @media (max-width: 1120px) {

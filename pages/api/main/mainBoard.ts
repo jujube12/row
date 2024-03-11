@@ -4,8 +4,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
         if (req.method == 'POST') {
             let db = (await connectDB).db('row')
-            let result = await db.collection('post').find().sort({ '_id': -1 }).limit(5)
-            console.log(result)
+            let result = await db.collection('post').find().sort({ _id: -1 }).limit(5).toArray()
             res.status(200).json(result)
         } else {
             res.status(500)
