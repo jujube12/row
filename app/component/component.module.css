@@ -32,10 +32,18 @@
 
 /* ===== board box ===== */
 .board_box_container {
-    width: 100%;
-    text-align: center;
+    width: 80%;
+    margin: auto;
+    padding: 10px;
     background-color: var(--color-white);
     height: 200px;
+}
+
+.board_box_list>div:nth-child(1) {
+    font-weight: 700;
+    font-size: 14px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-gray);
 }
 
 /* ===== board write btn ===== */
