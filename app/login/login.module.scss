@@ -1,0 +1,39 @@
+@use '../reset';
+
+// aready logged //
+.logged_container {
+    @include reset.container();
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logged_container>div:nth-child(1) {
+    @include reset.box(80%, 12rem, 1rem);
+    padding-top: 3rem;
+}
+
+// not yet logged //
+.login_container {
+    @include reset.container();
+    position: relative;
+}
+
+.login_title {
+    @include reset.title();
+}
+
+.login_container form {
+    @include reset.logForm();
+}
+
+.login_container input {
+    @include reset.box(100%, auto, 0.8rem);
+    margin: 0.2rem;
+}
+
+.login_register {
+    @include reset.btn(reset.$color-gold3, reset.$color-gold2);
+    width: 100%;
+    margin: 0.2rem;
+    font-size: 1rem;
+}

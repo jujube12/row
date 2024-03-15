@@ -60,7 +60,7 @@
 }
 
 .post_write_btn {
-    @include reset.btn();
+    @include reset.btn(reset.$color-gold1, reset.$color-gold3);
     width: 5rem;
     font-size: 0.8rem;
     float: right;
@@ -94,7 +94,7 @@
 }
 
 .post_write_session_btn div {
-    @include reset.btn();
+    @include reset.btn(reset.$color-gold1, reset.$color-gold3);
     font-size: 1rem;
     width: 6rem;
     text-align: center;
@@ -102,5 +102,7 @@
 
 /* ===== logout btn ===== */
 .logout_btn {
-    @include reset.btn();
+    @include reset.btn(reset.$color-gold1, reset.$color-gold3);
+    width: 6rem;
+    margin: auto;
 }

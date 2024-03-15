@@ -135,6 +135,8 @@
   padding: 0.3rem 0.8rem;
   background-color: #fff4de;
   text-align: center;
+  width: 6rem;
+  margin: auto;
 }
 .logout_btn:hover {
   background-color: #d0b173;

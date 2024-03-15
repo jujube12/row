@@ -1,0 +1,39 @@
+@use '../reset';
+
+.register_container {
+    @include reset.container();
+}
+
+.register_title {
+    @include reset.title();
+}
+
+.register_container form {
+    @include reset.logForm();
+}
+
+.register_container input {
+    @include reset.box(100%, auto, 0.8rem);
+    margin: 0.2rem;
+}
+
+.register_container button {
+    width: 400px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--color-gold);
+    border: none;
+    font-size: 16px;
+}
+
+.register_container button:hover {
+    background-color: var(--color-gold-light);
+}
+
+.register_box_btn {
+    @include reset.btn(reset.$color-gold3, reset.$color-gold2);
+    width: 100%;
+    margin: 0.2rem;
+    font-size: 1rem;
+}

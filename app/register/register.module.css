@@ -1,60 +1,69 @@
 .register_container {
-    margin-top: 30px;
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+}
+@media (max-width: 992px) {
+  .register_container {
+    width: 100%;
+  }
 }
 
 .register_title {
-    width: 400px;
-    margin: auto;
-    padding: 70px 0;
-    text-align: center;
-    font-size: 60px;
-    font-weight: 700;
-    background: linear-gradient(to right, var(--color-gold-dark2), var(--color-gold));
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(3px 3px 1px var(--color-gray-dark3));
+  padding: 5rem 0;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #895e08, #f6d89d);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem #2f2f2f);
 }
 
 .register_container form {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%);
-    width: 400px;
-    margin: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 25rem;
 }
 
 .register_container input {
-    display: block;
-    padding: 15px 10px;
-    width: 400px;
-    margin: 5px;
-    border-radius: 5px;
-    outline: none;
-    border: 3px solid var(--color-gold);
+  width: 100%;
+  height: auto;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  border: #d0b173 solid 0.15rem;
+  background-color: #ffffff;
+  margin: auto;
+  margin: 0.2rem;
 }
 
 .register_container button {
-    width: 400px;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: var(--color-gold);
-    border: none;
-    font-size: 16px;
+  width: 400px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--color-gold);
+  border: none;
+  font-size: 16px;
 }
 
 .register_container button:hover {
-    background-color: var(--color-gold-light);
+  background-color: var(--color-gold-light);
 }
 
 .register_box_btn {
-    text-align: center;
-    width: 400px;
-    margin: 10px 5px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: var(--color-gold);
-    border: none;
-    font-size: 16px;
+  border-radius: 0.5rem;
+  border: #d0b173 solid 0.15rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #d0b173;
+  text-align: center;
+  width: 100%;
+  margin: 0.2rem;
+  font-size: 1rem;
 }
+.register_box_btn:hover {
+  background-color: #f6d89d;
+}/*# sourceMappingURL=register.module.css.map */

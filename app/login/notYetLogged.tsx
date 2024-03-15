@@ -39,7 +39,7 @@ export default function NotYetLogged() {
                     onChange={(e) => {
                         setPassword(e.target.value)
                     }} />
-                <button type="submit">로그인</button>
+                <button type="submit" className={style.login_register}>로그인</button>
                 <div className={style.login_register} onClick={() => { router.push('/register') }}>회원가입</div>
             </form>
         </div>

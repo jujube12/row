@@ -48,14 +48,22 @@ $color-gold5: #895e08;
     filter: drop-shadow(0.2rem 0.2rem 0.1rem $color-gray4);
 }
 
-@mixin btn() {
+@mixin btn($bg, $hoverBg) {
     border-radius: 0.5rem;
     border: $color-gold3 solid 0.15rem;
     padding: 0.3rem 0.8rem;
-    background-color: $color-gold1;
+    background-color: $bg;
     text-align: center;
 
     &:hover {
-        background-color: $color-gold3;
+        background-color: $hoverBg;
     }
+}
+
+@mixin logForm() {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25rem;
 }
