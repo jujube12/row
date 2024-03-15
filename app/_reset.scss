@@ -16,3 +16,46 @@ $color-gold2: #f6d89d;
 $color-gold3: #d0b173;
 $color-gold4: #a78b55;
 $color-gold5: #895e08;
+
+@mixin container {
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+
+    @media (max-width: 992px) {
+        width: 100%;
+    }
+}
+
+@mixin box($w, $h, $p) {
+    width: $w;
+    height: $h;
+    padding: $p;
+    border-radius: 1rem;
+    border: $color-gold3 solid 0.15rem;
+    background-color: $color-white;
+    margin: auto;
+}
+
+@mixin title {
+    padding: 5rem 0;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(to right, $color-gold5, $color-gold2);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0.2rem 0.2rem 0.1rem $color-gray4);
+}
+
+@mixin btn() {
+    border-radius: 0.5rem;
+    border: $color-gold3 solid 0.15rem;
+    padding: 0.3rem 0.8rem;
+    background-color: $color-gold1;
+    text-align: center;
+
+    &:hover {
+        background-color: $color-gold3;
+    }
+}

@@ -55,6 +55,18 @@ div {
 
 input {
   box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+button {
+  border: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -153,6 +165,10 @@ textarea {
   width: 40px;
 }
 
+.w100 {
+  width: 100px;
+}
+
 /* font-size */
 .f10px {
   font-size: 10px;
@@ -208,6 +224,15 @@ textarea {
   padding: 10px;
 }
 
+/* margin */
+.m10 {
+  margin: 10px;
+}
+
+.m20 {
+  margin: 20px;
+}
+
 /* padding-top */
 .pt5 {
   padding-top: 5px;
@@ -237,72 +262,9 @@ textarea {
   transform: translate(-50%, -50%);
 }
 
-/* detail_btn */
-.red_btn {
-  width: 0px;
-  height: 0px;
-  border-top: 20px solid transparent;
-  border-right: 20px solid var(--color-red);
-}
-
-.blue_btn {
-  width: 0px;
-  height: 0px;
-  border-top: 20px solid transparent;
-  border-right: 20px solid var(--color-blue);
-}
-
 /* loading */
 .loading {
   width: 100vw;
   height: 100vh;
   cursor: url('../asset/load01.gif'), wait;
-}
-
-/* default ui */
-.box {
-  border-radius: 5px;
-  border: 3px solid var(--color-gold);
-  background-color: var(--color-white);
-}
-
-.container {
-  width: 80%;
-  height: 100vh;
-  margin: auto;
-}
-
-.btn {
-  border-radius: 5px;
-  border: 3px solid var(--color-gold);
-  background-color: var(--color-gold-light2);
-  padding: 3px 5px;
-}
-
-.linkBtn {
-  border-radius: 5px;
-  border: 3px solid var(--color-gold);
-  background-color: var(--color-gold-light2);
-  color: var(--color-black);
-  padding: 3px 5px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background-color: var(--color-gold);
-}
-
-.linkBtn:hover {
-  background-color: var(--color-gold);
-}
-
-.link {
-  color: var(--color-black);
-  text-decoration: none;
-}
-
-@media (max-width: 1120px) {
-  .container {
-    width: 90%
-  }
 }

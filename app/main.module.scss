@@ -1,0 +1,10 @@
+@use '../app/reset';
+
+.main_container {
+    @include reset.container();
+    position: relative;
+}
+
+.main_title {
+    @include reset.title();
+}

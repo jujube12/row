@@ -1,0 +1,106 @@
+@use '../../app/reset';
+
+/* ===== search box ===== */
+.search_box_wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.search_box_input {
+    @include reset.box(80%, auto, 0.6rem);
+    padding-left: 1rem;
+    display: flex;
+    box-shadow: reset.$color-gray3 1px 1px 5px;
+}
+
+.search_box_input input {
+    flex-grow: 1;
+}
+
+.search_box_input button {
+    width: 5rem;
+    background: white;
+    font-weight: 500;
+    color: reset.$color-gold5;
+}
+
+/* ===== board box ===== */
+.board_box_wrapper {
+    @include reset.box(80%, auto, 1rem);
+}
+
+.board_list {
+    >div:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--color-gray);
+
+        a {
+            color: reset.$color-gold5;
+        }
+    }
+}
+
+.board_list_box {
+    height: 15rem;
+}
+
+.board_post {
+    display: flex;
+    height: 3rem;
+    padding: 0.8rem 0;
+}
+
+/* ===== post write btn ===== */
+.post_write_btn_wrapper {
+    width: 100%;
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.post_write_btn {
+    @include reset.btn();
+    width: 5rem;
+    font-size: 0.8rem;
+    float: right;
+}
+
+.post_write_check {
+    @include reset.box(50%, 12rem, 0.5rem);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+}
+
+.post_write_close_btn {
+    float: right;
+}
+
+.post_write_check>div:nth-child(2) {
+    clear: both;
+    text-align: center;
+    height: 60%;
+    padding: 0.5rem 0 1.5rem 0;
+}
+
+.post_write_session_btn {
+    display: flex;
+    justify-content: space-around;
+}
+
+.post_write_session_btn div {
+    @include reset.btn();
+    font-size: 1rem;
+    width: 6rem;
+    text-align: center;
+}
+
+/* ===== logout btn ===== */
+.logout_btn {
+    @include reset.btn();
+}
