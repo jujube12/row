@@ -7,18 +7,16 @@ export default async function PostList() {
     let db = (await connectDB).db('row')
     let postList: post[] = await db.collection<post>('post').find().limit(9).sort({ _id: -1 }).toArray();
     return (
-        <div className={style.post_container}>
-            <div className={style.post_list_box}>
-                {
-                    postList.map((a, i) => {
-                        let copy: any = { ...a }
-                        copy._id = JSON.stringify(a._id)
-                        return (
-                            <PostBox post={copy} key={i} ></PostBox>
-                        )
-                    })
-                }
-            </div>
+        <div className={style.post_wrapper}>
+            {
+                postList.map((a, i) => {
+                    let copy: any = { ...a }
+                    copy._id = JSON.stringify(a._id)
+                    return (
+                        <PostBox post={copy} key={i} ></PostBox>
+                    )
+                })
+            }
         </div >
     )
 }
