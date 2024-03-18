@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 export default function DeleteBtn(props: { id: string }) {
     let router = useRouter()
     return (
-        <div className={style.delete_btn} onClick={() => {
+        <div className={style.edit_btn} onClick={() => {
             fetch('/api/board/delete', { method: 'DELETE', body: props.id })
                 .then(() => {
                     router.push('/board')

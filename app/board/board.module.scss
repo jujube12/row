@@ -2,59 +2,45 @@
 
 .board_container {
     @include reset.container();
-    margin-top: 20px;
+    padding-top: 2rem;
 }
 
 /* ============= write box ============= */
 .write_container {
-    width: 80%;
-    margin: auto;
-    margin-top: 30px;
-    height: 100vh;
+    @include reset.container();
+    padding-top: 2rem;
     position: relative;
 }
 
 .write_box {
-    background-color: var(--color-white);
-    border-radius: 5px;
-    border: 3px solid var(--color-gold)
+    @include reset.box(90%, auto, 1rem);
 }
 
 .write_title {
-    padding-top: 5px;
-    margin: 5px;
-    border-bottom: 1px solid var(--color-gray);
+    padding-top: 0.5rem;
+    margin: 0.3rem;
+    border-bottom: 0.08rem solid reset.$color-gray1;
 }
 
 .write_title input {
-    outline: none;
-    border: none;
     width: 100%;
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 .write_post {
-    padding: 5px;
-    height: 500px;
+    padding: 0.3rem;
+    height: 30rem;
 }
 
 .write_post textarea {
-    outline: none;
-    border: none;
     width: 100%;
-    padding: 5px;
-    resize: none;
-    font-family: Arial, Helvetica, sans-serif;
+    height: 20rem;
+    padding: 0.3rem;
 }
 
 .write_container button {
-    position: absolute;
-    right: 0px;
-    margin-top: 10px;
-    padding: 5px 25px;
-    border: 3px solid var(--color-gold);
-    border-radius: 5px;
-    background-color: var(--color-gold-light2);
+    float: right;
+    @include reset.btn(reset.$color-gold1, reset.$color-gold3);
 }
 
 /* ============= post box ============= */
@@ -63,90 +49,59 @@
 }
 
 .post_box {
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid var(--color-gray);
+    margin: 0.3rem;
+    padding: 0.5rem;
+    border: 0.08rem solid reset.$color-gray1;
 }
 
-.post_title {
-    font-weight: 700;
-    border-bottom: 1px solid var(--color-gray);
-}
+.post_info {
+    display: flex;
 
-.post_body {
-    margin: 3px;
-    font-size: small;
+    >div:nth-child(1) {
+        width: 5rem;
+        flex-grow: 1;
+    }
+
+    >div:nth-child(2) {
+        width: 3rem;
+    }
 }
 
 /* ============= detail ============= */
 .detail_container {
-    width: 80%;
-    margin: auto;
-    height: 800px;
+    @include reset.container();
+    padding-top: 2rem;
 }
 
 .detail_box {
-    margin-top: 30px;
-    padding: 10px;
-    height: 600px;
-    background-color: var(--color-white);
-    border-radius: 5px;
-    border: 3px solid var(--color-gold);
+    @include reset.box(90%, auto, 1rem);
 }
 
 .detail_title {
     display: flex;
     justify-content: space-between;
-    margin: 5px;
-    border-bottom: 1px solid var(--color-gray);
-    padding-bottom: 5px;
-}
-
-.detail_title div:nth-child(1) {
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.detail_title div:nth-child(2) {
-    font-size: 14px;
-    padding-top: 10px;
+    margin: 0.3rem;
+    border-bottom: 0.08px solid var(--color-gray);
+    padding-bottom: 0.5rem;
 }
 
 .detail_post {
-    margin: 5px;
-    padding: 5px;
-    height: 490px;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    height: 30rem;
 }
 
 .detail_edit_box {
     display: flex;
     justify-content: flex-end;
+    font-size: 0.8rem;
 }
 
 .detail_edit_box>div {
-    margin: 0 10px;
-}
-
-.delete_btn {
-    width: 80px;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 3px solid var(--color-gold);
-}
-
-.delete_btn:hover {
-    background-color: var(--color-gold);
+    margin: 0 0.5rem;
 }
 
 .edit_btn {
-    width: 80px;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 3px solid var(--color-gold);
-}
-
-.edit_btn:hover {
-    background-color: var(--color-gold);
+    @include reset.btn(reset.$color-white, reset.$color-gold3);
+    width: 4rem;
 }

@@ -15,8 +15,8 @@ export default async function postDetail(props: urlParam) {
         <div className={style.detail_container}>
             <div className={style.detail_box}>
                 <div className={style.detail_title}>
-                    <div>{postDetail?.title}</div>
-                    <div>작성자: {postDetail?.name}</div>
+                    <div className="fw700 f18px">{postDetail?.title}</div>
+                    <div className="f12px">작성자: {postDetail?.name}</div>
                 </div>
                 <div className={style.detail_post}>{postDetail?.post}</div>
                 {

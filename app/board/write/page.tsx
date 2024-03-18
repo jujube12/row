@@ -9,7 +9,8 @@ export default function Write() {
                 <div className={style.write_post}>
                     <textarea name='post' placeholder='글을 입력하세요'></textarea>
                 </div>
-                <button type='submit'>post</button>
+                <button type='submit'>저장</button>
+                <div style={{ clear: 'both' }}></div>
             </form>
         </div>
     )

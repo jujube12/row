@@ -15,11 +15,9 @@ export default function PostBox(props: { post: propsPost }) {
         <div className={style.post_box} onClick={() => {
             router.push(`/board/detail/${JSON.parse(post._id)}`)
         }}>
-            <div className={style.post_title}>{post.title}</div>
-            <div className={style.post_body}>
-                <div>
-                    {postDetail}
-                </div>
+            <div className={style.post_info}>
+                <div>{post.title}</div>
+                <div>{post.name}</div>
             </div>
         </div>
     )
