@@ -28,24 +28,19 @@ export default async function Search(props: param) {
     return (
         summonerInfo ?
             <div className={style.search_container}>
-                <div style={{ margin: '20px' }}></div>
                 <SearchBox></SearchBox>
-                <div className={style.profile_container}>
-                    <div className={style.profile_box}>
-                        <div>
-                            <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/profileicon/${summonerInfo.profileIconId}.png`}></img>
-                        </div>
-                        <div className={style.profile_info}>
-                            <div>{summonerInfo.name}</div>
-                            <div>level: {summonerInfo.summonerLevel}</div>
-                            {
-                                summonerLeague &&
-                                <>
-                                    <div><span>{summonerLeague.tier}</span> <span>{summonerLeague.leaguePoints}점</span></div>
-                                    <div><span>{summonerLeague.wins + summonerLeague.losses}전</span> <span>{summonerLeague.wins}승</span> <span>{summonerLeague.losses}패</span></div>
-                                </>
-                            }
-                        </div>
+                <div className={style.profile_wrapper}>
+                    <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/profileicon/${summonerInfo.profileIconId}.png`}></img>
+                    <div>
+                        <div className='fw500 f18px'>{summonerInfo.name}</div>
+                        <div>level: {summonerInfo.summonerLevel}</div>
+                        {
+                            summonerLeague &&
+                            <>
+                                <div className='f14px pt20'><span>{summonerLeague.tier}</span> <span>{summonerLeague.leaguePoints}점</span></div>
+                                <div className='f12px'><span>{summonerLeague.wins + summonerLeague.losses}전</span> <span>{summonerLeague.wins}승</span> <span>{summonerLeague.losses}패</span></div>
+                            </>
+                        }
                     </div>
                 </div>
                 {

@@ -62,22 +62,20 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
     let [detail, setDetail] = useState(false)
     let matchTime: { min: number, sec: number } = duringTime(matchInfo.info.gameDuration)
     return (
-        <div className={style.match_container}>
+        <div className={style.match_wrapper}>
             <div>
-                <div className={`${style.match_summury_container} ${gameResult ? 'bg_blue_gradiant' : 'bg_red_gradiant'}`} onClick={() => {
+                <div className={`${style.match_summury_wrapper} ${gameResult ? 'bg_blue_gradiant' : 'bg_red_gradiant'}`} onClick={() => {
                     if (detail == false) { setDetail(true) }
                     else { setDetail(false) }
                 }}>
                     <div className={style.match_summury_result}>
-                        <div>
-                            <div className={gameResult == true ? 'black fw700' : 'black fw700'}>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
-                            <div className='f14px'>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
-                            <div></div>
-                            <div className='f14px fw700 gold'>
-                                {gameResult == true ? '승리' : '패배'}
-                            </div>
-                            <div className='f14px'>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
+                        <div className='black fw700'>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
+                        <div className='f14px'>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
+                        <div className='p10'></div>
+                        <div className='f14px fw700 gold'>
+                            {gameResult == true ? '승리' : '패배'}
                         </div>
+                        <div className='f14px'>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
                     </div>
                     <div className={style.match_summury_img}>
                         <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${summoner.championName}.png`}></img>
@@ -147,7 +145,6 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                             }
                         </div>
                     </div>
-                    <div style={{ flexGrow: '1' }}></div>
                     <div className={style.match_detail_btn}>
                         <div className={gameResult ? 'blue_btn' : 'red_btn'}></div>
                     </div>

@@ -1,25 +1,4 @@
-:root {
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-gray: #dadada;
-  --color-gray-dark1: #939393;
-  --color-gray-dark2: #5c5c5c;
-  --color-gray-dark3: #2f2f2f;
-  --color-purple: #a54cc2;
-  --color-purple-light: #cb91de;
-  --color-purple-dark: #793f8d;
-  --color-blue: #4d42e1;
-  --color-blue-light: #d9dfff;
-  --color-red: #dd3a3a;
-  --color-red-light: #ffe6e6;
-  --color-red-gray: #aa9090;
-  --color-gold: #d0b173;
-  --color-gold-light: #f6d89d;
-  --color-gold-light2: #fff4de;
-  --color-gold-dark1: #a78b55;
-  --color-gold-dark2: #895e08;
-}
-
+/* ================== css reset ================== */
 * {
   cursor: url('../asset/cursor.png'), auto;
 }
@@ -36,6 +15,39 @@ body {
     radial-gradient(at bottom left, #47519c, transparent);
 }
 
+div {
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+form {
+  box-sizing: border-box;
+}
+
+input {
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+textarea {
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  resize: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  border: none;
+}
+
+/* ================== scroll setting ================== */
 body::-webkit-scrollbar {
   width: 5px;
 }
@@ -49,125 +61,7 @@ body::-webkit-scrollbar-track {
   background: linear-gradient(#5f9176, #1e3143);
 }
 
-div {
-  box-sizing: border-box;
-}
-
-input {
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-}
-
-button {
-  border: none;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-textarea {
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  resize: none;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-form {
-  box-sizing: border-box;
-}
-
-/* bg */
-.bg_gray {
-  background-color: var(--color-gray);
-}
-
-.bg_gold {
-  background-color: var(--color-gold);
-}
-
-.bg_red {
-  background-color: var(--color-red);
-}
-
-.bg_blue {
-  background-color: var(--color-blue);
-}
-
-.bg_red_light {
-  background-color: var(--color-red-light);
-}
-
-.bg_blue_light {
-  background-color: var(--color-blue-light);
-}
-
-.bg_blue_gradiant {
-  background-image:
-    linear-gradient(1.25turn, var(--color-blue), var(--color-gold))
-}
-
-.bg_red_gradiant {
-  background-image:
-    radial-gradient(at bottom right, var(--color-gold-dark1), transparent),
-    radial-gradient(at top right, var(--color-gold), transparent),
-    radial-gradient(at top left, var(--color-red), transparent);
-}
-
-.bg_match_gradiant_blue_win {
-  background-image:
-    linear-gradient(1.25turn, var(--color-blue-light), var(--color-blue-light), var(--color-gold-light))
-}
-
-.bg_match_gradiant_blue_lose {
-  background-image:
-    linear-gradient(1.25turn, var(--color-red-light), var(--color-red-light), var(--color-gold-light))
-}
-
-.bg_match_gradiant_red_win {
-  background-image:
-    linear-gradient(1.25turn, var(--color-gold-light), var(--color-blue-light), var(--color-blue-light))
-}
-
-.bg_match_gradiant_red_lose {
-  background-image:
-    linear-gradient(1.25turn, var(--color-red-light), var(--color-gold-light), var(--color-red-light))
-}
-
-/* color */
-.red {
-  color: var(--color-red);
-}
-
-.red_light {
-  color: var(--color-red-light);
-}
-
-.blue {
-  color: var(--color-blue);
-}
-
-.gold_border {
-  color: var(--color-black);
-  text-shadow: #5f9176 1px 1px;
-}
-
-.gold {
-  color: var(--color-gold);
-}
-
-.black {
-  color: var(--color-black);
-}
-
-.gray_dark2 {
-  color: var(--color-gray-dark2);
-}
-
+/* ================== css setting ================== */
 /* width */
 .w40 {
   width: 40px;
@@ -232,15 +126,6 @@ form {
   padding: 10px;
 }
 
-/* margin */
-.m10 {
-  margin: 10px;
-}
-
-.m20 {
-  margin: 20px;
-}
-
 /* padding-top */
 .pt5 {
   padding-top: 5px;
@@ -250,29 +135,20 @@ form {
   padding-top: 10px;
 }
 
-/* hight */
-.h30 {
-  height: 30px;
+.pt20 {
+  padding-top: 20px;
 }
 
-/* ================================================ */
-/* sort */
-.s_mid {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+/* margin */
+.m10 {
+  margin: 10px;
 }
 
-.a_mid {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.m20 {
+  margin: 20px;
 }
 
-/* loading */
-.loading {
-  width: 100vw;
-  height: 100vh;
-  cursor: url('../asset/load01.gif'), wait;
+/* margin-left */
+.ml5 {
+  margin-left: 5px;
 }
