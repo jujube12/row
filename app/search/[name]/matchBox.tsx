@@ -3,7 +3,8 @@ import style from '../search.module.css'
 import DetailMatchBox from './detailMatchBox'
 import { kill } from '../../function/game'
 import { gameDate, duringTime } from '../../function/timeCal'
-import { useState } from 'react';
+import { userName } from '../../function/info'
+import { useRef, useState } from 'react';
 export default function MatchBox(props: { matchInfo: match, summonerInfo: summoner }) {
     let spell = {
         21: 'SummonerBarrier',
@@ -68,6 +69,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                     if (detail == false) { setDetail(true) }
                     else { setDetail(false) }
                 }}>
+                    {/* match result */}
                     <div className={style.match_summury_result}>
                         <div className='black fw700'>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
                         <div className='f14px'>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
@@ -77,49 +79,50 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                         </div>
                         <div className='f14px'>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
                     </div>
+                    {/* match img */}
                     <div className={style.match_summury_img}>
                         <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${summoner.championName}.png`}></img>
                         <div>{summoner.champLevel}</div>
                     </div>
+                    {/* match summury */}
                     <div className={style.match_summury_info}>
-                        <div>
+                        <div className={style.match_summury_info_default}>
                             <div className={style.match_summury_info_spell}>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner1Id as keyof typeof spell]}.png`}></img>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner2Id as keyof typeof spell]}.png`}></img>
+                            </div>
+                            <div className={style.match_summury_kda}>
+                                <div className='f18px'>{summoner.kills} / {summoner.deaths} / {summoner.assists}</div>
                                 <div>
-                                    <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner1Id as keyof typeof spell]}.png`}></img>
-                                    <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner2Id as keyof typeof spell]}.png`}></img>
-                                </div>
-                                <div className={style.match_summury_kda}>
-                                    <div className='f18px'>{summoner.kills} / {summoner.deaths} / {summoner.assists}</div>
-                                    <div className='gray_dark'>
-                                        <span>kda </span>
-                                        {
-                                            summoner.deaths == 0
-                                                ? <span>perfect</span>
-                                                : <span>
-                                                    {(Math.round((summoner.kills + summoner.assists) / summoner.deaths)).toFixed(2)}
-                                                </span>
-                                        }
-                                    </div>
-                                </div>
-                                <div className={`${style.match_summury_extra} f14px`}>
-                                    <div><span>킬관여</span> {summonerTeam == 'blue' ? kill(blueKill, summoner.kills + summoner.assists) : kill(redKill, summoner.kills + summoner.assists)}</div>
-                                    <div><span>CS</span> {summoner.neutralMinionsKilled + summoner.totalMinionsKilled}</div>
+                                    <span>kda </span>
+                                    {
+                                        summoner.deaths == 0
+                                            ? <span>perfect</span>
+                                            : <span>
+                                                {(Math.round((summoner.kills + summoner.assists) / summoner.deaths)).toFixed(2)}
+                                            </span>
+                                    }
                                 </div>
                             </div>
-                            <div className={style.match_summury_info_item}>
-                                {
-                                    itemKeys.map((a, i) => {
-                                        return (
-                                            a != 0
-                                                ? <img key={i} src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/item/${a}.png`}></img>
-                                                : <p key={i}></p>
-                                        )
-                                    })
-                                }
+                            <div className={`${style.match_summury_extra} f14px`}>
+                                <div><span>킬관여</span> {summonerTeam == 'blue' ? kill(blueKill, summoner.kills + summoner.assists) : kill(redKill, summoner.kills + summoner.assists)}</div>
+                                <div><span>CS</span> {summoner.neutralMinionsKilled + summoner.totalMinionsKilled}</div>
                             </div>
                         </div>
+                        <div className={style.match_summury_info_item}>
+                            {
+                                itemKeys.map((a, i) => {
+                                    return (
+                                        a != 0
+                                            ? <img key={i} src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/item/${a}.png`}></img>
+                                            : <p key={i}></p>
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
-                    <div className={`${style.match_summury_parti} f14px`}>
+                    {/* match parti */}
+                    <div className={style.match_summury_parti}>
                         <div>
                             {
                                 blueParti.map((b, i) => {
@@ -144,9 +147,6 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                                 })
                             }
                         </div>
-                    </div>
-                    <div className={style.match_detail_btn}>
-                        <div className={gameResult ? 'blue_btn' : 'red_btn'}></div>
                     </div>
                 </div>
                 {

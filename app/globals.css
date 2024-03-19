@@ -25,6 +25,10 @@ a {
   box-sizing: border-box;
 }
 
+img {
+  display: block;
+}
+
 form {
   box-sizing: border-box;
 }
