@@ -4,7 +4,7 @@ import DetailMatchBox from './detailMatchBox'
 import { kill } from '../../function/game'
 import { gameDate, duringTime } from '../../function/timeCal'
 import { userName } from '../../function/info'
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 export default function MatchBox(props: { matchInfo: match, summonerInfo: summoner }) {
     let spell = {
         21: 'SummonerBarrier',
@@ -51,17 +51,10 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
             redKill += matchInfo.info.participants[i].kills
         }
     }
-    let itemKeys: number[] = []
-    itemKeys.push(summoner.item0)
-    itemKeys.push(summoner.item1)
-    itemKeys.push(summoner.item2)
-    itemKeys.push(summoner.item3)
-    itemKeys.push(summoner.item4)
-    itemKeys.push(summoner.item5)
-    itemKeys.push(summoner.item6)
+    let itemKeys: number[] = [summoner.item0, summoner.item1, summoner.item2, summoner.item3, summoner.item4, summoner.item5, summoner.item6]
     let gameResult: boolean = summoner.win
-    let [detail, setDetail] = useState(false)
     let matchTime: { min: number, sec: number } = duringTime(matchInfo.info.gameDuration)
+    let [detail, setDetail] = useState(false)
     return (
         <div className={style.match_wrapper}>
             <div>

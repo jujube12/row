@@ -17,13 +17,13 @@ export default function DetailMatchBox(props: { matchInfo: match, spell: any, su
     let maxDamage = Math.max(...damageTo)
     let maxTakenDamage = Math.max(...damageTake)
     return (
-        <div className={style.match_box}>
-            <div className={`${style.match_box_blue} ${blueTeam[0].win == true ? 'bg_match_gradiant_blue_win' : 'bg_match_gradiant_blue_lose'}`}>
-                <div className={blueTeam[0].win == true ? 'fw700 blue' : 'fw700 red'}>{blueTeam[0].win == true ? '승리' : '패배'} (블루팀)</div>
+        <div className={style.match_detail_wrapper}>
+            <div className={style.match_detail_team}>
+                <div className='fw700'>{blueTeam[0].win == true ? '승리' : '패배'} (블루팀)</div>
                 <TeamBox team={blueTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
-            <div className={`${style.match_box_red} ${redTeam[0].win == true ? 'bg_match_gradiant_red_win' : 'bg_match_gradiant_red_lose'}`}>
-                <div className={redTeam[0].win == true ? 'fw700 blue' : 'fw700 red'}>{redTeam[0].win == true ? '승리' : '패배'} (레드팀)</div>
+            <div className={style.match_detail_team}>
+                <div className='fw700'>{redTeam[0].win == true ? '승리' : '패배'} (레드팀)</div>
                 <TeamBox team={redTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
         </div>
@@ -32,20 +32,13 @@ export default function DetailMatchBox(props: { matchInfo: match, spell: any, su
 
 function TeamBox(props: { team: participants[], spell: any, summonerid: string, maxDamage: number, maxTakenDamage: number }) {
     return (
-        <div className={style.match_box_team}>
+        <div>
             {
                 props.team.map((team, i) => {
-                    let itemKeys: number[] = []
-                    itemKeys.push(team.item0)
-                    itemKeys.push(team.item1)
-                    itemKeys.push(team.item2)
-                    itemKeys.push(team.item3)
-                    itemKeys.push(team.item4)
-                    itemKeys.push(team.item5)
-                    itemKeys.push(team.item6)
+                    let itemKeys: number[] = [team.item0, team.item1, team.item2, team.item3, team.item4, team.item5, team.item6]
                     return (
-                        <div key={i} className={props.summonerid == team.summonerId ? `${style.match_user_box} bg_gold` : style.match_user_box}>
-                            <div className={style.match_user_img}>
+                        <div key={i} className={style.match_detail_user_box}>
+                            <div className={style.match_detail_user_img}>
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${team.championName}.png`}></img>
                                 <div>
                                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${props.spell[team.summoner1Id as keyof typeof props.spell]}.png`}></img>
@@ -53,18 +46,20 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string, 
                                 </div>
                                 <div>{team.champLevel}</div>
                             </div>
-                            <div className={style.match_user_info}>
-                                {team.riotIdGameName
-                                    ? <div>{team.riotIdGameName}</div>
-                                    : <div>{team.summonerName}</div>
-                                }
-                                <div>
+                            <div className={style.match_detail_user_info}>
+                                <div className='f12px'>
+                                    {team.riotIdGameName
+                                        ? <span>{team.riotIdGameName}</span>
+                                        : <span>{team.summonerName}</span>
+                                    }
+                                </div>
+                                <div className='f12px'>
                                     <div>{team.kills} / {team.deaths} / {team.assists}</div>
                                     <div>
-                                        <span className='gray_dark2'>kda </span>
+                                        <span className=''>kda </span>
                                         {
                                             team.deaths == 0
-                                                ? <span className='fw700 red'>perfect</span>
+                                                ? <span className='fw700'>perfect</span>
                                                 : <span>
                                                     {(Math.round((team.kills + team.assists) / team.deaths)).toFixed(2)}
                                                 </span>
@@ -72,12 +67,11 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string, 
                                     </div>
                                 </div>
                             </div>
-                            <div className={style.match_width}></div>
-                            <div className={style.match_user_cs}>
+                            <div className={style.match_detail_user_cs}>
                                 <div>CS</div>
                                 <div>{team.totalMinionsKilled + team.neutralMinionsKilled}</div>
                             </div>
-                            <div className={style.match_user_damage}>
+                            <div className={style.match_detail_user_damage}>
                                 <div>
                                     <div>{team.totalDamageDealtToChampions}</div>
                                     <div className={style.match_user_damage_bar}>
@@ -91,8 +85,7 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string, 
                                     </div>
                                 </div>
                             </div>
-                            <div className={style.match_width}></div>
-                            <div className={style.match_user_item}>
+                            <div className={style.match_detail_user_item}>
                                 {
                                     itemKeys.map((a, i) => {
                                         return (
