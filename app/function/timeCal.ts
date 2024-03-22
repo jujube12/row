@@ -27,7 +27,7 @@ export function gameDate(unixTime: number): string {
     const now = new Date();
     const game = new Date(unixTime);
     const diff = now.getTime() - game.getTime()
-    console.log(diff)
+
     let result: string = ''
     if (diff >= (30 * 24 * 60 * 60 * 1000)) {
         result = '오래전'  // 30일 이상

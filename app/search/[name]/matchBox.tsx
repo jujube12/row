@@ -80,6 +80,10 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                     {/* match summury */}
                     <div className={style.match_summury_info}>
                         <div className={style.match_summury_info_default}>
+                            <div className={style.match_summury_mobile_img}>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${summoner.championName}.png`}></img>
+                                <div>{summoner.champLevel}</div>
+                            </div>
                             <div className={style.match_summury_info_spell}>
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner1Id as keyof typeof spell]}.png`}></img>
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner2Id as keyof typeof spell]}.png`}></img>

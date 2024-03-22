@@ -75,6 +75,11 @@
   bottom: 10px;
   right: 10px;
 }
+@media (max-width: 576px) {
+  .match_summury_img {
+    display: none;
+  }
+}
 
 .match_summury_info {
   width: 18rem;
@@ -84,6 +89,32 @@
 .match_summury_info_default {
   display: flex;
   height: 60%;
+}
+
+.match_summury_mobile_img {
+  position: relative;
+  display: none;
+}
+@media (max-width: 576px) {
+  .match_summury_mobile_img {
+    display: inline;
+    width: 4rem;
+  }
+  .match_summury_mobile_img img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 10%;
+  }
+  .match_summury_mobile_img div {
+    position: absolute;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 20%;
+    padding: 0.2rem;
+    bottom: 0.7rem;
+    right: 0.1rem;
+    font-size: 0.8rem;
+  }
 }
 
 .match_summury_info_spell {
@@ -97,17 +128,33 @@
   border-radius: 20%;
   background-color: #000000;
 }
+@media (max-width: 576px) {
+  .match_summury_info_spell img {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
 
 .match_summury_kda {
   width: 45%;
   text-align: center;
   padding-top: 0.8rem;
 }
+@media (max-width: 576px) {
+  .match_summury_kda {
+    padding-top: 0.5rem;
+  }
+}
 
 .match_summury_extra {
   width: 40%;
   text-align: center;
   padding-top: 0.8rem;
+}
+@media (max-width: 576px) {
+  .match_summury_extra {
+    padding-top: 0.5rem;
+  }
 }
 
 .match_summury_info_item {
@@ -247,6 +294,12 @@
   text-align: center;
   font-size: 0.8rem;
 }
+@media (max-width: 576px) {
+  .match_detail_user_damage {
+    flex-grow: 0;
+    width: 5rem;
+  }
+}
 
 .match_user_damage_bar {
   width: 80%;
@@ -289,4 +342,9 @@
   border-radius: 10%;
   margin: 0.05rem;
   background-color: #000000;
+}
+@media (max-width: 576px) {
+  .match_detail_user_item {
+    display: none;
+  }
 }/*# sourceMappingURL=search.module.css.map */
