@@ -7,6 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (req.method == 'POST') {
             let session: any = await getServerSession(req, res, authOptions)
             let db = (await connectDB).db('row');
+            const date = new Date()
+            req.body.writeDate = date
             req.body.name = session.user.name
             await db.collection('post').insertOne(req.body)
             res.redirect(302, '/board')
