@@ -3,10 +3,10 @@ import { urlParam, post } from "../../d"
 import { connectDB } from "@/util/database"
 import style from '../../board.module.css'
 import DeleteBtn from "../deleteBtn"
-
+import EditBtn from "../editBtn"
+import { unixDate } from "@/app/function/board"
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
-import EditBtn from "../editBtn"
 export default async function postDetail(props: urlParam) {
     let session: any = await getServerSession(authOptions)
     let db = (await connectDB).db('row')
@@ -16,7 +16,10 @@ export default async function postDetail(props: urlParam) {
             <div className={style.detail_box}>
                 <div className={style.detail_title}>
                     <div className="fw700 f18px">{postDetail?.title}</div>
-                    <div className="f12px">작성자: {postDetail?.name}</div>
+                    <div>
+                        <div className="f12px">작성자: {postDetail?.name}</div>
+                        <div className="f12px">작성일: {unixDate(postDetail?.writeDate, postDetail?.editDate)}</div>
+                    </div>
                 </div>
                 <div className={style.detail_post}>{postDetail?.post}</div>
                 {

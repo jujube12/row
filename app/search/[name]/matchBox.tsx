@@ -1,9 +1,7 @@
 'use client'
 import style from '../search.module.css'
 import DetailMatchBox from './detailMatchBox'
-import { kill } from '../../function/game'
-import { gameDate, duringTime } from '../../function/timeCal'
-import { userName } from '../../function/info'
+import { kill, gameDate, duringTime } from '../../function/match'
 import { useState } from 'react';
 export default function MatchBox(props: { matchInfo: match, summonerInfo: summoner }) {
     let spell = {

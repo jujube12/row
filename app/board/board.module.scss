@@ -65,6 +65,11 @@
     >div:nth-child(2) {
         width: 3rem;
     }
+
+    >div:nth-child(3) {
+        width: 3rem;
+        font-size: 0.8rem
+    }
 }
 
 /* ============= detail ============= */
@@ -78,11 +83,16 @@
 }
 
 .detail_title {
-    display: flex;
     justify-content: space-between;
     margin: 0.3rem;
-    border-bottom: 0.08px solid var(--color-gray);
+    border-bottom: 0.08rem solid reset.$color-gray1 ;
     padding-bottom: 0.5rem;
+
+    >div:nth-child(2) {
+        padding-top: 0.3rem;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .detail_post {

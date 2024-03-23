@@ -1,7 +1,8 @@
 'use client'
 import style from './board.module.css'
-import { post, propsPost } from './d'
+import { propsPost } from './d'
 import { useRouter } from 'next/navigation'
+import { writeDate } from '../function/board'
 export default function PostBox(props: { post: propsPost }) {
     let router = useRouter()
     let post = props.post
@@ -18,6 +19,7 @@ export default function PostBox(props: { post: propsPost }) {
             <div className={style.post_info}>
                 <div>{post.title}</div>
                 <div>{post.name}</div>
+                <div>{writeDate(post.writeDate)}</div>
             </div>
         </div>
     )

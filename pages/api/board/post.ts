@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let session: any = await getServerSession(req, res, authOptions)
             let db = (await connectDB).db('row');
             const date = new Date()
-            req.body.writeDate = date
+            req.body.writeDate = date.getTime()
             req.body.name = session.user.name
             await db.collection('post').insertOne(req.body)
             res.redirect(302, '/board')

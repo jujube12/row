@@ -1,20 +1,8 @@
-export function matchDate(unixTime: number): date {
-    const time = new Date(unixTime);
-    const year = time.getFullYear();
-    const month = time.getMonth() + 1;
-    const day = time.getDate();
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
-
-    let obj = {
-        year: time.getFullYear(),
-        month: time.getMonth() + 1,
-        day: time.getDate(),
-        hours: time.getHours(),
-        minutes: time.getMinutes(),
-    }
-    return obj
+// 킬 관여율
+export function kill(teamKill: number, userkillassi: number): string {
+    return ((userkillassi / teamKill) * 100).toFixed() + '%'
 }
+
 // 게임 진행 시간
 export function duringTime(unixTime: number): { min: number, sec: number } {
     let time = unixTime / 60

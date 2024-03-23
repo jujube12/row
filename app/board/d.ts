@@ -4,14 +4,18 @@ export type post = {
     _id: ObjectId,
     title: string,
     post: string,
-    name: string
+    name: string,
+    writeDate: number,
+    editDate: number
 }
 
 export type propsPost = {
     _id: string,
     title: string,
     post: string,
-    name: string
+    name: string,
+    writeDate: number,
+    editDate: number
 }
 
 export type urlParam = {
