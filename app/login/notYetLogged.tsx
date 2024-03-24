@@ -18,7 +18,7 @@ export default function NotYetLogged() {
             redirect: false,
         }).then((result) => {
             if (result?.ok) {
-                router.push('/')
+                window.location.replace('/')
             } else {
                 setOk(true)
             }

@@ -1,7 +1,6 @@
 import style from '../board.module.css'
 export default function Write() {
     return (
-
         <div className={style.write_container}>
             <form className={style.write_box} action='/api/board/post' method='POST'>
                 <div className={style.write_title}>

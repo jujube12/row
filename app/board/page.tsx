@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic'
 import style from './board.module.css'
 import SearchBox from '../component/searchBox'
 import PostList from './postList'
