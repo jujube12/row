@@ -1,3 +1,4 @@
+// 글 작성 시간
 export function writeDate(date: number) {
     if (date == undefined) {
         return '오래 전';
@@ -12,7 +13,7 @@ export function writeDate(date: number) {
         }
     }
 }
-
+// 글 수정 여부
 export function unixDate(date: number | undefined, editDate: number | undefined) {
     if (date == undefined) {
         return ''

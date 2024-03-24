@@ -56,19 +56,19 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
     return (
         <div className={style.match_wrapper}>
             <div>
-                <div className={`${style.match_summury_wrapper} ${gameResult ? 'bg_blue_gradiant' : 'bg_red_gradiant'}`} onClick={() => {
+                <div className={style.match_summury_wrapper} onClick={() => {
                     if (detail == false) { setDetail(true) }
                     else { setDetail(false) }
                 }}>
                     {/* match result */}
                     <div className={style.match_summury_result}>
-                        <div className='black fw700'>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
-                        <div className='f14px'>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
-                        <div className='p10'></div>
-                        <div className='f14px fw700 gold'>
+                        <div>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
+                        <div>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
+                        <div></div>
+                        <div>
                             {gameResult == true ? '승리' : '패배'}
                         </div>
-                        <div className='f14px'>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
+                        <div>{`${matchTime.min}분 ${matchTime.sec}초`}</div>
                     </div>
                     {/* match img */}
                     <div className={style.match_summury_img}>
@@ -87,7 +87,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[summoner.summoner2Id as keyof typeof spell]}.png`}></img>
                             </div>
                             <div className={style.match_summury_kda}>
-                                <div className='f18px'>{summoner.kills} / {summoner.deaths} / {summoner.assists}</div>
+                                <div>{summoner.kills} / {summoner.deaths} / {summoner.assists}</div>
                                 <div>
                                     <span>kda </span>
                                     {
@@ -99,7 +99,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                                     }
                                 </div>
                             </div>
-                            <div className={`${style.match_summury_extra} f14px`}>
+                            <div className={style.match_summury_extra}>
                                 <div><span>킬관여</span> {summonerTeam == 'blue' ? kill(blueKill, summoner.kills + summoner.assists) : kill(redKill, summoner.kills + summoner.assists)}</div>
                                 <div><span>CS</span> {summoner.neutralMinionsKilled + summoner.totalMinionsKilled}</div>
                             </div>

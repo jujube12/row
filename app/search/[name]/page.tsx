@@ -32,13 +32,13 @@ export default async function Search(props: param) {
                 <div className={style.profile_wrapper}>
                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/profileicon/${summonerInfo.profileIconId}.png`}></img>
                     <div>
-                        <div className='fw500 f18px'>{summonerInfo.name}</div>
+                        <div >{summonerInfo.name}</div>
                         <div>level: {summonerInfo.summonerLevel}</div>
                         {
                             summonerLeague &&
                             <>
-                                <div className='f14px pt20'><span>{summonerLeague.tier}</span> <span>{summonerLeague.leaguePoints}점</span></div>
-                                <div className='f12px'><span>{summonerLeague.wins + summonerLeague.losses}전</span> <span>{summonerLeague.wins}승</span> <span>{summonerLeague.losses}패</span></div>
+                                <div><span>{summonerLeague.tier}</span> <span>{summonerLeague.leaguePoints}점</span></div>
+                                <div><span>{summonerLeague.wins + summonerLeague.losses}전</span> <span>{summonerLeague.wins}승</span> <span>{summonerLeague.losses}패</span></div>
                             </>
                         }
                     </div>

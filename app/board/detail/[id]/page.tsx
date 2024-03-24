@@ -15,10 +15,10 @@ export default async function postDetail(props: urlParam) {
         <div className={style.detail_container}>
             <div className={style.detail_box}>
                 <div className={style.detail_title}>
-                    <div className="fw700 f18px">{postDetail?.title}</div>
+                    <div>{postDetail?.title}</div>
                     <div>
-                        <div className="f12px">작성자: {postDetail?.name}</div>
-                        <div className="f12px">작성일: {unixDate(postDetail?.writeDate, postDetail?.editDate)}</div>
+                        <div>작성자: {postDetail?.name}</div>
+                        <div>작성일: {unixDate(postDetail?.writeDate, postDetail?.editDate)}</div>
                     </div>
                 </div>
                 <div className={style.detail_post}>{postDetail?.post}</div>

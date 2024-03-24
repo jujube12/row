@@ -19,11 +19,11 @@ export default function DetailMatchBox(props: { matchInfo: match, spell: any, su
     return (
         <div className={style.match_detail_wrapper}>
             <div className={style.match_detail_team}>
-                <div className='fw700'>{blueTeam[0].win == true ? '승리' : '패배'} (블루팀)</div>
+                <div>{blueTeam[0].win == true ? '승리' : '패배'} (블루팀)</div>
                 <TeamBox team={blueTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
             <div className={style.match_detail_team}>
-                <div className='fw700'>{redTeam[0].win == true ? '승리' : '패배'} (레드팀)</div>
+                <div>{redTeam[0].win == true ? '승리' : '패배'} (레드팀)</div>
                 <TeamBox team={redTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
         </div>
@@ -47,19 +47,19 @@ function TeamBox(props: { team: participants[], spell: any, summonerid: string, 
                                 <div>{team.champLevel}</div>
                             </div>
                             <div className={style.match_detail_user_info}>
-                                <div className='f12px'>
+                                <div>
                                     {team.riotIdGameName
                                         ? <span>{team.riotIdGameName}</span>
                                         : <span>{team.summonerName}</span>
                                     }
                                 </div>
-                                <div className='f12px'>
+                                <div>
                                     <div>{team.kills} / {team.deaths} / {team.assists}</div>
                                     <div>
                                         <span className=''>kda </span>
                                         {
                                             team.deaths == 0
-                                                ? <span className='fw700'>perfect</span>
+                                                ? <span>perfect</span>
                                                 : <span>
                                                     {(Math.round((team.kills + team.assists) / team.deaths)).toFixed(2)}
                                                 </span>
