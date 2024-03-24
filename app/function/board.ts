@@ -4,10 +4,11 @@ export function writeDate(date: number) {
     } else {
         let now = new Date();
         let ago = new Date(date);
-        if (now.getFullYear() == ago.getFullYear() && now.getDate() == ago.getDate()) {
-            return ago.getHours() + ":" + ago.getMinutes();
+        if (now.getFullYear() == ago.getFullYear() && now.getMonth() == ago.getMonth() && now.getDate() == ago.getDate()) {
+            let len = ago.getMinutes().toString().length == 1 ? '0' : ''
+            return ago.getHours() + ":" + len + ago.getMinutes();
         } else {
-            return ago.getMonth() + ":" + ago.getDate();
+            return ago.getMonth() + 1 + "/" + ago.getDate();
         }
     }
 }
@@ -17,7 +18,7 @@ export function unixDate(date: number | undefined, editDate: number | undefined)
         return ''
     } else {
         let writeDate = new Date(date);
-        let edit = editDate && ' (수정됨)'
+        let edit = editDate ? ' (수정됨)' : '';
         return writeDate.toLocaleDateString() + ' ' + writeDate.getHours() + ':' + writeDate.getMinutes() + edit;
     }
 }
