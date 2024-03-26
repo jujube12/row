@@ -1,0 +1,58 @@
+@use '../reset';
+
+.champ_container {
+    @include reset.container()
+}
+
+.champList_wrapper {
+    @include reset.box(90%, auto, 0);
+
+}
+
+.champList_toggle_btn {
+    display: flex;
+    border-bottom: 0.2rem solid reset.$color-gold3;
+
+    >div {
+        flex-grow: 1;
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+}
+
+.champList_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    @media (min-width: 768px) {}
+}
+
+.champInfo_box {
+    position: relative;
+    width: 5rem;
+    margin: auto;
+
+    img {
+        width: 100%;
+        padding: 0.5rem 0rem;
+    }
+
+    >div {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        color: reset.$color-white;
+        bottom: 0.3rem;
+        background-color: reset.$color-black;
+        font-size: 0.8rem;
+        height: 20%;
+    }
+
+    @media (min-width: 768px) {
+        width: 8rem;
+    }
+
+    @media (min-width: 1200px) {
+        width: 10rem;
+    }
+}

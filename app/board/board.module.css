@@ -1,7 +1,7 @@
 .board_container {
   width: 80%;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 2rem;
 }
 @media (max-width: 992px) {
@@ -14,7 +14,7 @@
 .write_container {
   width: 80%;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 2rem;
 }
 @media (max-width: 992px) {
@@ -103,7 +103,7 @@
 .detail_container {
   width: 80%;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 2rem;
 }
 @media (max-width: 992px) {

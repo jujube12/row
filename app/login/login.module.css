@@ -1,7 +1,7 @@
 .logged_container {
   width: 80%;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   margin-top: 20px;
 }
@@ -25,7 +25,7 @@
 .login_container {
   width: 80%;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 @media (max-width: 992px) {

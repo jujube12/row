@@ -1,5 +1,7 @@
+@use './reset';
+
 * {
-  cursor: url("../asset/cursor.png"), auto;
+  cursor: url('../asset/cursor.png'), auto;
 }
 
 body {
@@ -8,7 +10,10 @@ body {
   height: 100%;
   position: relative;
   overflow-x: hidden;
-  background-image: radial-gradient(at top left, #1e3143, transparent), radial-gradient(at top right, #5f9176, transparent), radial-gradient(at bottom left, #47519c, transparent);
+  background-image:
+    radial-gradient(at top left, reset.$color-green5, transparent),
+    radial-gradient(at top right, reset.$color-green4, transparent),
+    radial-gradient(at bottom left, reset.$color-blue2, transparent);
 }
 
 div {
@@ -16,7 +21,7 @@ div {
 }
 
 a {
-  color: #000000;
+  color: reset.$color-black;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -53,10 +58,10 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(#d0b173, #895e08);
+  background: linear-gradient(reset.$color-gold3, reset.$color-gold5);
   border-radius: 3rem;
 }
 
 body::-webkit-scrollbar-track {
-  background: linear-gradient(#5f9176, #1e3143);
-}/*# sourceMappingURL=globals.css.map */
+  background: linear-gradient(reset.$color-green4, reset.$color-green5);
+}

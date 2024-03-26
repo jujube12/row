@@ -8,7 +8,8 @@ $color-purple1: #cb91de;
 $color-purple2: #a54cc2;
 $color-purple3: #793f8d;
 $color-blue1: #d9dfff;
-$color-blue2: #4d42e1;
+$color-blue2: #47519c;
+$color-blue3: #4d42e1;
 $color-red1: #ffe6e6;
 $color-red2: #dd3a3a;
 $color-gold1: #fff4de;
@@ -16,11 +17,16 @@ $color-gold2: #f6d89d;
 $color-gold3: #d0b173;
 $color-gold4: #a78b55;
 $color-gold5: #895e08;
+$color-green1: #c4ffdf;
+$color-green2: #82caa4;
+$color-green3: #67ba8e;
+$color-green4: #5f9176;
+$color-green5: #1e3143;
 
 @mixin container {
     width: 80%;
     margin: auto;
-    height: 100vh;
+    min-height: 100vh;
 
     @media (max-width: 992px) {
         width: 100%;
@@ -66,4 +72,10 @@ $color-gold5: #895e08;
     left: 50%;
     transform: translate(-50%);
     width: 25rem;
+}
+
+@mixin textOverflow() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

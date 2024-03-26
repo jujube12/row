@@ -64,7 +64,6 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                     <div className={style.match_summury_result}>
                         <div>{matchInfo.info.gameMode == 'CLASSIC' ? '솔랭' : matchInfo.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
                         <div>{gameDate(matchInfo.info.gameStartTimestamp)}</div>
-                        <div></div>
                         <div>
                             {gameResult == true ? '승리' : '패배'}
                         </div>

@@ -1,0 +1,64 @@
+.champ_container {
+  width: 80%;
+  margin: auto;
+  min-height: 100vh;
+}
+@media (max-width: 992px) {
+  .champ_container {
+    width: 100%;
+  }
+}
+
+.champList_wrapper {
+  width: 90%;
+  height: auto;
+  padding: 0;
+  border-radius: 1rem;
+  border: #d0b173 solid 0.15rem;
+  background-color: #ffffff;
+  margin: auto;
+}
+
+.champList_toggle_btn {
+  display: flex;
+  border-bottom: 0.2rem solid #d0b173;
+}
+.champList_toggle_btn > div {
+  flex-grow: 1;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.champList_box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.champInfo_box {
+  position: relative;
+  width: 5rem;
+  margin: auto;
+}
+.champInfo_box img {
+  width: 100%;
+  padding: 0.5rem 0rem;
+}
+.champInfo_box > div {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  color: #ffffff;
+  bottom: 0.3rem;
+  background-color: #000000;
+  font-size: 0.8rem;
+  height: 20%;
+}
+@media (min-width: 768px) {
+  .champInfo_box {
+    width: 8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .champInfo_box {
+    width: 10rem;
+  }
+}/*# sourceMappingURL=champ.module.css.map */
