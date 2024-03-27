@@ -4,25 +4,42 @@
     @include reset.container()
 }
 
+.champ_title {
+    @include reset.title();
+    padding: 2rem 0;
+
+    @media (min-width: 768px) {
+        @include reset.title();
+    }
+}
+
 .champList_wrapper {
     @include reset.box(90%, auto, 0);
-
+    overflow: hidden;
 }
 
 .champList_toggle_btn {
     display: flex;
-    border-bottom: 0.2rem solid reset.$color-gold3;
+    background-color: reset.$color-gold3;
+    font-size: 0.8rem;
 
     >div {
         flex-grow: 1;
-        padding: 0.5rem 0;
+        padding: 0.7rem 0;
         text-align: center;
     }
+}
+
+.toggle_btn_selected {
+    background-color: reset.$color-white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .champList_box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 0.5rem 0;
 
     @media (min-width: 768px) {}
 }
@@ -32,12 +49,16 @@
     width: 5rem;
     margin: auto;
 
-    img {
-        width: 100%;
-        padding: 0.5rem 0rem;
+    >div:nth-child(1) {
+        height: 6rem;
+
+        img {
+            width: 100%;
+            padding: 0.5rem 0rem;
+        }
     }
 
-    >div {
+    >div:nth-child(2) {
         width: 100%;
         position: absolute;
         z-index: 1;
@@ -52,7 +73,5 @@
         width: 8rem;
     }
 
-    @media (min-width: 1200px) {
-        width: 10rem;
-    }
+    @media (min-width: 1200px) {}
 }

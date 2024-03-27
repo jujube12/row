@@ -9,6 +9,32 @@
   }
 }
 
+.champ_title {
+  padding: 5rem 0;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #895e08, #f6d89d);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem #2f2f2f);
+  padding: 2rem 0;
+}
+@media (min-width: 768px) {
+  .champ_title {
+    padding: 5rem 0;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #895e08, #f6d89d);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0.2rem 0.2rem 0.1rem #2f2f2f);
+  }
+}
+
 .champList_wrapper {
   width: 90%;
   height: auto;
@@ -17,32 +43,44 @@
   border: #d0b173 solid 0.15rem;
   background-color: #ffffff;
   margin: auto;
+  overflow: hidden;
 }
 
 .champList_toggle_btn {
   display: flex;
-  border-bottom: 0.2rem solid #d0b173;
+  background-color: #d0b173;
+  font-size: 0.8rem;
 }
 .champList_toggle_btn > div {
   flex-grow: 1;
-  padding: 0.5rem 0;
+  padding: 0.7rem 0;
   text-align: center;
+}
+
+.toggle_btn_selected {
+  background-color: #ffffff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .champList_box {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.5rem 0;
 }
 .champInfo_box {
   position: relative;
   width: 5rem;
   margin: auto;
 }
-.champInfo_box img {
+.champInfo_box > div:nth-child(1) {
+  height: 6rem;
+}
+.champInfo_box > div:nth-child(1) img {
   width: 100%;
   padding: 0.5rem 0rem;
 }
-.champInfo_box > div {
+.champInfo_box > div:nth-child(2) {
   width: 100%;
   position: absolute;
   z-index: 1;
@@ -55,10 +93,5 @@
 @media (min-width: 768px) {
   .champInfo_box {
     width: 8rem;
-  }
-}
-@media (min-width: 1200px) {
-  .champInfo_box {
-    width: 10rem;
   }
 }/*# sourceMappingURL=champ.module.css.map */
