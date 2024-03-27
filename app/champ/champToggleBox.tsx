@@ -1,6 +1,7 @@
 'use client'
 import style from './champ.module.css'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 export default function ChampToggleBox() {
     let champPosition = [[
         'Akali', 'Ekko', 'Evelynn',
@@ -75,13 +76,13 @@ export default function ChampToggleBox() {
         'Zac'
     ]]
     let [position, setPosition] = useState(0)
-
+    let router = useRouter()
     function champImg(position: any) {
         let arr = champPosition[position]
         return (
             champPosition[position].map((a, i) => {
                 return (
-                    <div key={i} className={style.champInfo_box}>
+                    <div key={i} className={style.champInfo_box} onClick={() => { router.push(`champ/${a}`) }}>
                         <div>
                             <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${a}.png`}></img>
                         </div>

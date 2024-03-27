@@ -1,3 +1,4 @@
+/** ================= champList =================*/
 .champ_container {
   width: 80%;
   margin: auto;
@@ -48,7 +49,7 @@
 
 .champList_toggle_btn {
   display: flex;
-  background-color: #d0b173;
+  background: linear-gradient(#d0b173, #a78b55);
   font-size: 0.8rem;
 }
 .champList_toggle_btn > div {
@@ -65,33 +66,53 @@
 
 .champList_box {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 0.5rem 0;
 }
+@media (min-width: 768px) {
+  .champList_box {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
 .champInfo_box {
   position: relative;
   width: 5rem;
-  margin: auto;
+  margin: 0.5rem auto;
 }
-.champInfo_box > div:nth-child(1) {
-  height: 6rem;
-}
-.champInfo_box > div:nth-child(1) img {
+.champInfo_box img {
   width: 100%;
-  padding: 0.5rem 0rem;
 }
 .champInfo_box > div:nth-child(2) {
   width: 100%;
-  position: absolute;
   z-index: 1;
   color: #ffffff;
-  bottom: 0.3rem;
+  text-align: center;
   background-color: #000000;
   font-size: 0.8rem;
   height: 20%;
 }
+.champInfo_box:hover {
+  transform: scale(1.1);
+  transition-duration: 500ms;
+}
+.champInfo_box:hover img {
+  filter: brightness(130%);
+}
 @media (min-width: 768px) {
   .champInfo_box {
-    width: 8rem;
+    width: 6rem;
+  }
+}
+
+/** ================= champDetail =================*/
+.champ_detail_container {
+  width: 80%;
+  margin: auto;
+  min-height: 100vh;
+}
+@media (max-width: 992px) {
+  .champ_detail_container {
+    width: 100%;
   }
 }/*# sourceMappingURL=champ.module.css.map */

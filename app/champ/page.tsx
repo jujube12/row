@@ -1,5 +1,4 @@
 import style from './champ.module.css'
-import { connectDB } from '@/util/database'
 import ChampToggleBox from './champToggleBox'
 export default async function champ() {
     return (

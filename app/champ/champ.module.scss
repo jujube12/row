@@ -1,5 +1,6 @@
 @use '../reset';
 
+/** ================= champList =================*/
 .champ_container {
     @include reset.container()
 }
@@ -20,7 +21,7 @@
 
 .champList_toggle_btn {
     display: flex;
-    background-color: reset.$color-gold3;
+    background: linear-gradient(reset.$color-gold3, reset.$color-gold4);
     font-size: 0.8rem;
 
     >div {
@@ -38,40 +39,50 @@
 
 .champList_box {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 0.5rem 0;
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
 }
 
 .champInfo_box {
     position: relative;
     width: 5rem;
-    margin: auto;
+    margin: 0.5rem auto;
 
-    >div:nth-child(1) {
-        height: 6rem;
-
-        img {
-            width: 100%;
-            padding: 0.5rem 0rem;
-        }
+    img {
+        width: 100%;
     }
 
     >div:nth-child(2) {
         width: 100%;
-        position: absolute;
         z-index: 1;
         color: reset.$color-white;
-        bottom: 0.3rem;
+        text-align: center;
         background-color: reset.$color-black;
         font-size: 0.8rem;
         height: 20%;
     }
 
-    @media (min-width: 768px) {
-        width: 8rem;
+    &:hover {
+        transform: scale(1.1);
+        transition-duration: 500ms;
+
+        img {
+            filter: brightness(130%);
+        }
     }
 
-    @media (min-width: 1200px) {}
+    @media (min-width: 768px) {
+        width: 6rem;
+    }
 }
+
+/** ================= champDetail =================*/
+.champ_detail_container {
+    @include reset.container();
+}
+
+.champ_detail_wrapper {}
