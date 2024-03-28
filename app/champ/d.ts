@@ -5,6 +5,13 @@ export type champUrlParam = {
     searchParams: {},
 }
 
+export type skin = {
+    id: string,
+    num: number,
+    name: string,
+    chromas: boolean
+}
+
 export interface champData {
     _id: ObjectId,
     name: string,
@@ -26,12 +33,7 @@ export interface champData {
                 w: number,
                 h: number
             },
-            skins: {
-                id: string,
-                num: number,
-                name: string,
-                chromas: boolean
-            }[],
+            skins: skin[],
             lore: string
             blurb: string,
             allytips: string[],

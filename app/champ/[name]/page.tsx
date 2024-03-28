@@ -1,10 +1,12 @@
 import style from '../champ.module.css'
 import { connectDB } from '@/util/database'
 import { champUrlParam, champData } from '../d'
+import SkinCarousel from './skinCarousel'
 export default async function champInfo(props: champUrlParam) {
     const champName = props.params.name
     const db = (await connectDB).db(process.env.NEXT_DB_NAME)
     const champData: champData | null = await db.collection<champData>('champInfo').findOne({ name: champName })
+    console.log(champData?.data[champName].skins)
     return (
         <div className={style.champ_detail_container}>
             {champData ?
@@ -15,7 +17,8 @@ export default async function champInfo(props: champUrlParam) {
                     </div>
                     <div className={style.champ_detail_name}>{champName}</div>
                     <div className={style.champ_detail_blurb}>{champData?.data[champName].lore}</div>
-                    <div></div>
+                    <div className={style.champ_detail_blurb}>{champData?.data[champName].blurb}</div>
+                    <SkinCarousel champName={champName} skinList={champData?.data[champName].skins}></SkinCarousel>
                 </div>
                 : <></>
             }

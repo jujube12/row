@@ -63,5 +63,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-track {
-  background: linear-gradient(reset.$color-green4, reset.$color-green5);
+  // background: linear-gradient(reset.$color-green4, reset.$color-green5);
+  background: reset.$color-black;
 }
