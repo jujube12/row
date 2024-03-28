@@ -1,16 +1,19 @@
 import { connectDB } from "@/util/database"
 
 export default async function Test() {
-    fetch('https://ddragon.leagueoflegends.com/cdn/14.6.1/data/en_US/champion.json')
-        .then((r) => r.json())
-        .then(async (result) => {
-            for (const [] of Object.entries(result.data)) {
-                // 
-            }
-        })
-
-    // let db = (await connectDB).db(env.process.NEXT_DB_NAME)
+    // let db = (await connectDB).db(process.env.NEXT_DB_NAME)
     // let a = await db.collection('champ').find().toArray()
+
+    // a.map((t, i) => {
+    //     console.log(t.champName)
+    //     fetch(`https://ddragon.leagueoflegends.com/cdn/14.6.1/data/en_US/champion/${t.champName}.json`)
+    //         .then((r) => r.json())
+    //         .then(async (result) => {
+    //             result.name = t.champName
+    //             await db.collection('champInfo').insertOne(result)
+    //         })
+    // })
+
     // let Fighter: any = new Set([])
     // let Assassin: any = new Set([])
     // let Mage: any = new Set([])

@@ -82,7 +82,40 @@
 
 /** ================= champDetail =================*/
 .champ_detail_container {
-    @include reset.container();
+    width: 100%;
+    min-height: 100vh;
+    background-color: reset.$color-black;
+    color: reset.$color-white;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.champ_detail_wrapper {}
+.champ_detail_wrapper {
+    width: 100%;
+    margin: auto;
+    position: relative;
+
+    @media (min-width:1200px) {
+        width: 80%;
+    }
+}
+
+.champ_detail_bg {
+    img {
+        mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        width: 100%;
+    }
+}
+
+.champ_detail_name {
+    position: absolute;
+    font-style: italic;
+    top: 10rem;
+    right: 3rem;
+    font-size: 5rem;
+}
+
+.champ_detail_blurb {
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+}
