@@ -84,6 +84,7 @@
 .champ_detail_container {
     width: 100%;
     min-height: 100vh;
+    padding-bottom: 0.1rem;
     background-color: reset.$color-black;
     color: reset.$color-white;
     font-family: 'Times New Roman', Times, serif;
@@ -114,36 +115,50 @@
     font-size: 5rem;
 }
 
-.champ_detail_blurb {
+.champ_detail_text {
     width: 80%;
-    margin: auto;
-    margin-top: 1rem;
+    margin: 1rem auto;
 }
 
 /** skin carousel */
 .champ_skinList_wrapper {
     width: 100%;
     overflow: hidden;
-    margin: auto;
+    margin: 2rem auto;
+    position: relative;
 
     @media (min-width:768px) {
-        mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
         width: 80%;
+    }
+
+    &:hover {
+        >div:nth-child(1) {
+            div {
+                display: block;
+            }
+        }
+
+        img {
+            mask-image: radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7));
+        }
     }
 }
 
 .champ_skinList {
-    position: relative;
-    width: 100%;
-    margin: 5rem 0;
-}
-
-.champ_skinList_img {
     display: flex;
     width: 100%;
 
+    div {
+        position: absolute;
+        z-index: 1;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        display: none;
+        font-style: italic;
+    }
+
     img {
-        mask-image: radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
         width: 100%;
         transition: all 300ms;
     }
