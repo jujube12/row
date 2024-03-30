@@ -113,11 +113,56 @@
     top: 10rem;
     right: 3rem;
     font-size: 5rem;
+    @include reset.textGradiant(reset.$color-gold1, reset.$color-gold4);
+}
+
+.border {
+    width: 80%;
+    margin: auto;
+    border-bottom: 0.1rem solid reset.$color-gold3;
 }
 
 .champ_detail_text {
     width: 80%;
     margin: 1rem auto;
+
+    &::first-letter {
+        color: reset.$color-gold3;
+        font-size: 1.2rem;
+        padding-left: 0.5rem;
+    }
+}
+
+.champ_detail_position {
+    width: 80%;
+    margin: 1rem auto;
+    border: 0.1rem solid reset.$color-gold3;
+    padding: 3rem 0;
+    text-align: center;
+    position: relative;
+
+    >div:nth-child(1) {
+        position: absolute;
+        top: -1rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 0.5rem;
+        background-color: reset.$color-black;
+        color: reset.$color-gold3;
+    }
+}
+
+/** spell */
+.champ_detail_spell {
+    width: 80%;
+    margin: 1rem auto;
+    display: flex;
+
+    >div {
+        >div:nth-child(2) {
+            text-align: center;
+        }
+    }
 }
 
 /** skin carousel */

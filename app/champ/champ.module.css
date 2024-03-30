@@ -138,11 +138,54 @@
   top: 10rem;
   right: 3rem;
   font-size: 5rem;
+  background-clip: text;
+  background: linear-gradient(to right, #fff4de, #a78b55);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border {
+  width: 80%;
+  margin: auto;
+  border-bottom: 0.1rem solid #d0b173;
 }
 
 .champ_detail_text {
   width: 80%;
   margin: 1rem auto;
+}
+.champ_detail_text::first-letter {
+  color: #d0b173;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+}
+
+.champ_detail_position {
+  width: 80%;
+  margin: 1rem auto;
+  border: 0.1rem solid #d0b173;
+  padding: 3rem 0;
+  text-align: center;
+  position: relative;
+}
+.champ_detail_position > div:nth-child(1) {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 0.5rem;
+  background-color: #000000;
+  color: #d0b173;
+}
+
+/** spell */
+.champ_detail_spell {
+  width: 80%;
+  margin: 1rem auto;
+  display: flex;
+}
+.champ_detail_spell > div > div:nth-child(2) {
+  text-align: center;
 }
 
 /** skin carousel */

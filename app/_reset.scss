@@ -79,3 +79,10 @@ $color-green5: #1e3143;
     white-space: nowrap;
     overflow: hidden;
 }
+
+@mixin textGradiant($color1, $color2) {
+    background-clip: text;
+    background: linear-gradient(to right, $color1, $color2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
