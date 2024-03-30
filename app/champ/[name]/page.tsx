@@ -24,7 +24,7 @@ export default async function champInfo(props: champUrlParam) {
                         <div>{champData.data[champName].tags[0]}</div>
                         <div>{champData.data[champName].tags[1]}</div>
                     </div>
-                    <SpellList passive={champData.data[champName].passive} spellList={champData.data[champName].spells}></SpellList>
+                    <SpellList passive={champData.data[champName].passive} spellList={champData.data[champName].spells} champKey={champData.data[champName].key}></SpellList>
                     <SkinCarousel champName={champName} skinList={champData?.data[champName].skins}></SkinCarousel>
                 </div>
                 : <></>
