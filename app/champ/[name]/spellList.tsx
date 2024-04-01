@@ -10,12 +10,11 @@ export default function SpellList(props: { passive: passive, spellList: spell[],
     const champKey = ('000' + props.champKey).slice(-4)
     const spellVideoArr = ['P1', 'Q1', 'W1', 'E1', 'R1']
     let [spell, setSpell] = useState('P1')
-    const vRef = useRef<HTMLVideoElement>()
+    const vRef = useRef<(HTMLVideoElement | null)[]>([])
     function pausevideo() {
-        if (vRef.current) {
-            console.log(vRef.current)
-            vRef.current.pause();
-        }
+        vRef.current.map((video) => {
+            video?.pause();
+        })
     }
     return (
         <div className={style.champ_spellList_wrapper}>
@@ -40,7 +39,7 @@ export default function SpellList(props: { passive: passive, spellList: spell[],
                 {
                     spellVideoArr.map((key, i) => {
                         return (
-                            <video ref={vRef} key={i} controls style={key == spell ? { opacity: '1', position: 'static' } : { opacity: '0' }}>
+                            <video ref={e => vRef.current[i] = e} key={i} controls style={key == spell ? { opacity: '1', position: 'static' } : { opacity: '0' }}>
                                 <source src={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${champKey}/ability_${champKey}_${key}.webm`} type="video/webm" />
                             </video>
                         )
