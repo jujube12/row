@@ -1,6 +1,7 @@
 .search_container {
   width: 80%;
   margin: auto;
+  padding-bottom: 2rem;
   min-height: 100vh;
   padding-top: 2rem;
 }

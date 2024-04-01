@@ -4,8 +4,6 @@
 
 body {
   margin: 0;
-  width: 100vw;
-  height: 100%;
   position: relative;
   overflow-x: hidden;
   background-image: radial-gradient(at top left, #1e3143, transparent), radial-gradient(at top right, #5f9176, transparent), radial-gradient(at bottom left, #47519c, transparent);

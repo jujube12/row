@@ -35,6 +35,8 @@
     background-color: reset.$color-white;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    border: 0.1rem solid reset.$color-gold3;
+    border-bottom: none;
 }
 
 .champList_box {
@@ -44,6 +46,10 @@
 
     @media (min-width: 768px) {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 1200px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
@@ -57,6 +63,7 @@
     }
 
     >div:nth-child(2) {
+        @include reset.textOverflow();
         width: 100%;
         z-index: 1;
         color: reset.$color-white;
@@ -64,6 +71,7 @@
         background-color: reset.$color-black;
         font-size: 0.8rem;
         height: 20%;
+
     }
 
     &:hover {
@@ -82,9 +90,8 @@
 
 /** ================= champDetail =================*/
 .champ_detail_container {
+    @include reset.container();
     width: 100%;
-    min-height: 100vh;
-    padding-bottom: 0.1rem;
     background-color: reset.$color-black;
     color: reset.$color-white;
     font-family: 'Times New Roman', Times, serif;
@@ -95,25 +102,45 @@
     margin: auto;
     position: relative;
 
-    @media (min-width:1200px) {
-        width: 80%;
-    }
 }
 
 .champ_detail_bg {
+    position: relative;
+    font-style: italic;
+
+    >div {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 10%;
+
+        >div:nth-child(1) {
+            font-size: 5rem;
+            @include reset.textGradiant(reset.$color-gold1, reset.$color-gold4);
+
+        }
+
+        >div:nth-child(2) {
+            font-size: 1.5rem;
+            @include reset.textGradiant(reset.$color-gray1, reset.$color-gray2);
+        }
+
+    }
+
     img {
-        mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+        mask-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
         width: 100%;
     }
-}
 
-.champ_detail_name {
-    position: absolute;
-    font-style: italic;
-    top: 10rem;
-    right: 3rem;
-    font-size: 5rem;
-    @include reset.textGradiant(reset.$color-gold1, reset.$color-gold4);
+    @media (min-width:768px) {
+        >div {
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+    }
+
 }
 
 .border {
@@ -124,7 +151,7 @@
 
 .champ_detail_text {
     width: 80%;
-    margin: 1rem auto;
+    margin: 2rem auto;
 
     &::first-letter {
         color: reset.$color-gold3;
@@ -140,6 +167,8 @@
     padding: 3rem 0;
     text-align: center;
     position: relative;
+    display: flex;
+    justify-content: space-around;
 
     >div:nth-child(1) {
         position: absolute;
@@ -159,21 +188,12 @@
 }
 
 .champ_spellLsit_box {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
     font-size: 0.8rem;
     padding-top: 1.5rem;
     padding-bottom: 0.7rem;
     border-bottom: 0.1rem solid reset.$color-gold3;
     border-top: 0.1rem solid reset.$color-gold3;
     position: relative;
-
-    >div {
-        >div {
-            padding-top: 0.5rem;
-        }
-    }
 
     >div:nth-child(1) {
         font-size: 1rem;
@@ -186,25 +206,38 @@
         transform: translate(-50%, 0);
     }
 
-    img {
-        border: 0.1rem solid reset.$color-gold3;
-        border-radius: 1rem;
-        width: 3rem;
+    >div:nth-child(2) {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+        img {
+            border: 0.1rem solid reset.$color-gold3;
+            border-radius: 1rem;
+            width: 3rem;
+        }
+    }
+
+    @media (min-width:1200px) {
+        >div:nth-child(2) {
+            width: 50%;
+            margin: auto;
+        }
     }
 }
 
 .champ_spellVideo_box {
     width: 100%;
-    margin-top: 2rem;
+    margin: 2rem auto;
     position: relative;
-    padding-bottom: 1rem;
-    border-bottom: 0.1rem solid reset.$color-gold3;
 
     video {
+        border: 0.1rem solid reset.$color-gold3;
         width: 100%;
-        position: absolute;
-        opacity: 0;
-        transition: all 1000ms;
+    }
+
+    @media (min-width:1200px) {
+        width: 70%;
     }
 }
 
@@ -216,7 +249,7 @@
     position: relative;
 
     @media (min-width:768px) {
-        width: 80%;
+        width: 70%;
     }
 
     &:hover {
@@ -250,6 +283,7 @@
         width: 100%;
         transition: all 300ms;
     }
+
 }
 
 .champ_skinList_btn {

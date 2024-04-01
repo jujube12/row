@@ -3,7 +3,7 @@ import style from './champ.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 export default function ChampToggleBox() {
-    let champPosition = [[
+    const champPosition = [[
         'Akali', 'Ekko', 'Evelynn',
         'Kassadin', 'Katarina', 'Khazix',
         'Fizz', 'MasterYi', 'Naafiri',
@@ -75,10 +75,10 @@ export default function ChampToggleBox() {
         'Sion', 'Rell',
         'Zac'
     ]]
+    const positionList = ['암살자', '전사', '마법사', '원거리딜러', '서포터', '탱커']
     let [position, setPosition] = useState(0)
     let router = useRouter()
     function champImg(position: any) {
-        let arr = champPosition[position]
         return (
             champPosition[position].map((a, i) => {
                 return (
@@ -95,12 +95,13 @@ export default function ChampToggleBox() {
     return (
         <div className={style.champList_wrapper}>
             <div className={style.champList_toggle_btn}>
-                <div className={position == 0 ? style.toggle_btn_selected : ''} onClick={() => { setPosition(0) }}>암살자</div>
-                <div className={position == 1 ? style.toggle_btn_selected : ''} onClick={() => { setPosition(1) }}>전사</div>
-                <div className={position == 2 ? style.toggle_btn_selected : ''} onClick={() => { setPosition(2) }}>마법사</div>
-                <div className={position == 3 ? style.toggle_btn_selected : ''} onClick={() => { setPosition(3) }}>원거리딜러</div>
-                <div className={position == 4 ? style.toggle_btn_selected : ''} onClick={() => { setPosition(4) }}>서포터</div>
-                <div className={position == 5 ? style.toggle_btn_selected : ''} onClick={() => { setPosition(5) }}>탱커</div>
+                {
+                    positionList.map((p, i) => {
+                        return (
+                            <div className={position == i ? style.toggle_btn_selected : ''} onClick={() => { setPosition(i) }}>{p}</div>
+                        )
+                    })
+                }
             </div>
             <div className={style.champList_box}>{champImg(position)}</div>
         </div>

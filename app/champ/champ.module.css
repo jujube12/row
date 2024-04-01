@@ -2,6 +2,7 @@
 .champ_container {
   width: 80%;
   margin: auto;
+  padding-bottom: 2rem;
   min-height: 100vh;
 }
 @media (max-width: 992px) {
@@ -62,6 +63,8 @@
   background-color: #ffffff;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  border: 0.1rem solid #d0b173;
+  border-bottom: none;
 }
 
 .champList_box {
@@ -74,6 +77,11 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
+@media (min-width: 1200px) {
+  .champList_box {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
 
 .champInfo_box {
   position: relative;
@@ -84,6 +92,9 @@
   width: 100%;
 }
 .champInfo_box > div:nth-child(2) {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   width: 100%;
   z-index: 1;
   color: #ffffff;
@@ -107,12 +118,19 @@
 
 /** ================= champDetail =================*/
 .champ_detail_container {
-  width: 100%;
+  width: 80%;
+  margin: auto;
+  padding-bottom: 2rem;
   min-height: 100vh;
-  padding-bottom: 0.1rem;
+  width: 100%;
   background-color: #000000;
   color: #ffffff;
   font-family: "Times New Roman", Times, serif;
+}
+@media (max-width: 992px) {
+  .champ_detail_container {
+    width: 100%;
+  }
 }
 
 .champ_detail_wrapper {
@@ -120,28 +138,43 @@
   margin: auto;
   position: relative;
 }
-@media (min-width: 1200px) {
-  .champ_detail_wrapper {
-    width: 80%;
-  }
-}
 
-.champ_detail_bg img {
-  -webkit-mask-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
-          mask-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
-  width: 100%;
-}
-
-.champ_detail_name {
-  position: absolute;
+.champ_detail_bg {
+  position: relative;
   font-style: italic;
-  top: 10rem;
-  right: 3rem;
+}
+.champ_detail_bg > div {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 10%;
+}
+.champ_detail_bg > div > div:nth-child(1) {
   font-size: 5rem;
   background-clip: text;
   background: linear-gradient(to right, #fff4de, #a78b55);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.champ_detail_bg > div > div:nth-child(2) {
+  font-size: 1.5rem;
+  background-clip: text;
+  background: linear-gradient(to right, #dadada, #939393);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.champ_detail_bg img {
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+          mask-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .champ_detail_bg > div {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
 }
 
 .border {
@@ -152,7 +185,7 @@
 
 .champ_detail_text {
   width: 80%;
-  margin: 1rem auto;
+  margin: 2rem auto;
 }
 .champ_detail_text::first-letter {
   color: #d0b173;
@@ -167,6 +200,8 @@
   padding: 3rem 0;
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: space-around;
 }
 .champ_detail_position > div:nth-child(1) {
   position: absolute;
@@ -185,18 +220,12 @@
 }
 
 .champ_spellLsit_box {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
   font-size: 0.8rem;
   padding-top: 1.5rem;
   padding-bottom: 0.7rem;
   border-bottom: 0.1rem solid #d0b173;
   border-top: 0.1rem solid #d0b173;
   position: relative;
-}
-.champ_spellLsit_box > div > div {
-  padding-top: 0.5rem;
 }
 .champ_spellLsit_box > div:nth-child(1) {
   font-size: 1rem;
@@ -208,24 +237,36 @@
   top: -10%;
   transform: translate(-50%, 0);
 }
-.champ_spellLsit_box img {
+.champ_spellLsit_box > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.champ_spellLsit_box > div:nth-child(2) img {
   border: 0.1rem solid #d0b173;
   border-radius: 1rem;
   width: 3rem;
 }
+@media (min-width: 1200px) {
+  .champ_spellLsit_box > div:nth-child(2) {
+    width: 50%;
+    margin: auto;
+  }
+}
 
 .champ_spellVideo_box {
   width: 100%;
-  margin-top: 2rem;
+  margin: 2rem auto;
   position: relative;
-  padding-bottom: 1rem;
-  border-bottom: 0.1rem solid #d0b173;
 }
 .champ_spellVideo_box video {
+  border: 0.1rem solid #d0b173;
   width: 100%;
-  position: absolute;
-  opacity: 0;
-  transition: all 1000ms;
+}
+@media (min-width: 1200px) {
+  .champ_spellVideo_box {
+    width: 70%;
+  }
 }
 
 /** skin carousel */
@@ -237,7 +278,7 @@
 }
 @media (min-width: 768px) {
   .champ_skinList_wrapper {
-    width: 80%;
+    width: 70%;
   }
 }
 .champ_skinList_wrapper:hover > div:nth-child(1) div {

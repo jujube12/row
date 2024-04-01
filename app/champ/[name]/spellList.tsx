@@ -20,26 +20,28 @@ export default function SpellList(props: { passive: passive, spellList: spell[],
         <div className={style.champ_spellList_wrapper}>
             <div className={style.champ_spellLsit_box}>
                 <div>spell</div>
-                <div onClick={() => { setSpell('P1') }}>
-                    <img src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/passive/${passive.image.full}`}></img>
-                    <div>Passive</div>
+                <div>
+                    <div onClick={() => { setSpell('P1') }}>
+                        <img src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/passive/${passive.image.full}`}></img>
+                        <div>Passive</div>
+                    </div>
+                    {
+                        spellList.map((spell, i) => {
+                            return (
+                                <div key={i} onClick={() => { setSpell(spellVideoArr[i + 1]); pausevideo() }}>
+                                    <img src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/spell/${spell.image.full}`}></img>
+                                    <div>{spellKeyArr[i]}</div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
-                {
-                    spellList.map((spell, i) => {
-                        return (
-                            <div key={i} onClick={() => { setSpell(spellVideoArr[i + 1]); pausevideo() }}>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/spell/${spell.image.full}`}></img>
-                                <div>{spellKeyArr[i]}</div>
-                            </div>
-                        )
-                    })
-                }
             </div>
             <div className={style.champ_spellVideo_box}>
                 {
                     spellVideoArr.map((key, i) => {
                         return (
-                            <video ref={e => vRef.current[i] = e} key={i} controls style={key == spell ? { opacity: '1', position: 'static' } : { opacity: '0' }}>
+                            <video ref={e => vRef.current[i] = e} key={i} controls muted style={key == spell ? { margin: 'auto' } : { display: 'none' }}>
                                 <source src={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${champKey}/ability_${champKey}_${key}.webm`} type="video/webm" />
                             </video>
                         )

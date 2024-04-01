@@ -12,19 +12,22 @@ export default async function champInfo(props: champUrlParam) {
             {champData ?
                 <div className={style.champ_detail_wrapper}>
                     <div className={style.champ_detail_bg}>
+                        <div>
+                            <div>{champName}</div>
+                            <div>{champData?.data[champName].title}</div>
+                        </div>
                         <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champName}_0.jpg`}></img>
                     </div>
-                    <div className={style.champ_detail_name}>{champName}</div>
                     <div className={style.border}></div>
                     <div className={style.champ_detail_text}>{champData?.data[champName].lore}</div>
                     <div className={style.champ_detail_text}>{champData?.data[champName].blurb}</div>
-                    <div className={style.border}></div>
                     <div className={style.champ_detail_position}>
                         <div>position</div>
                         <div>{champData.data[champName].tags[0]}</div>
                         <div>{champData.data[champName].tags[1]}</div>
                     </div>
                     <SpellList passive={champData.data[champName].passive} spellList={champData.data[champName].spells} champKey={champData.data[champName].key}></SpellList>
+                    <div className={style.border}></div>
                     <SkinCarousel champName={champName} skinList={champData?.data[champName].skins}></SkinCarousel>
                 </div>
                 : <></>
