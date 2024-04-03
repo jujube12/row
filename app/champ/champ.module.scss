@@ -202,9 +202,7 @@
 }
 
 .champ_spellLsit_box {
-    font-size: 0.8rem;
     padding-top: 1.5rem;
-    padding-bottom: 0.7rem;
     border-bottom: 0.1rem solid reset.$color-gold3;
     border-top: 0.1rem solid reset.$color-gold3;
     position: relative;
@@ -216,7 +214,7 @@
         background-color: reset.$color-black;
         padding: 0 2rem;
         left: 50%;
-        top: -10%;
+        top: -5%;
         transform: translate(-50%, 0);
     }
 
@@ -224,11 +222,34 @@
         display: flex;
         justify-content: space-between;
         text-align: center;
+        font-size: 0.8rem;
 
         img {
             border: 0.1rem solid reset.$color-gold3;
             border-radius: 1rem;
-            width: 3rem;
+            width: 2.8rem;
+        }
+
+        >div {
+            >div {
+                padding-top: 0.3rem;
+            }
+        }
+    }
+
+    >div:nth-child(3) {
+        padding-top: 1.5rem;
+        text-align: center;
+        height: 8rem;
+
+        >div:nth-child(1) {
+            color: reset.$color-gold3;
+            font-size: 1rem;
+            padding: 0.2rem 0;
+        }
+
+        >div:nth-child(2) {
+            font-size: 0.8rem;
         }
     }
 
@@ -237,6 +258,23 @@
             width: 50%;
             margin: auto;
         }
+    }
+}
+
+.none_selected_spell {
+    img {
+        opacity: 0.5;
+    }
+}
+
+.selected_spell {
+    color: reset.$color-gold3;
+    transition: all 500ms;
+
+    >img {
+        opacity: 1;
+        transform: scale(1.1);
+        transition: all 500ms;
     }
 }
 

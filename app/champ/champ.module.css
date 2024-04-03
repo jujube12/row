@@ -231,9 +231,7 @@
 }
 
 .champ_spellLsit_box {
-  font-size: 0.8rem;
   padding-top: 1.5rem;
-  padding-bottom: 0.7rem;
   border-bottom: 0.1rem solid #d0b173;
   border-top: 0.1rem solid #d0b173;
   position: relative;
@@ -245,24 +243,55 @@
   background-color: #000000;
   padding: 0 2rem;
   left: 50%;
-  top: -10%;
+  top: -5%;
   transform: translate(-50%, 0);
 }
 .champ_spellLsit_box > div:nth-child(2) {
   display: flex;
   justify-content: space-between;
   text-align: center;
+  font-size: 0.8rem;
 }
 .champ_spellLsit_box > div:nth-child(2) img {
   border: 0.1rem solid #d0b173;
   border-radius: 1rem;
-  width: 3rem;
+  width: 2.8rem;
+}
+.champ_spellLsit_box > div:nth-child(2) > div > div {
+  padding-top: 0.3rem;
+}
+.champ_spellLsit_box > div:nth-child(3) {
+  padding-top: 1.5rem;
+  text-align: center;
+  height: 8rem;
+}
+.champ_spellLsit_box > div:nth-child(3) > div:nth-child(1) {
+  color: #d0b173;
+  font-size: 1rem;
+  padding: 0.2rem 0;
+}
+.champ_spellLsit_box > div:nth-child(3) > div:nth-child(2) {
+  font-size: 0.8rem;
 }
 @media (min-width: 1200px) {
   .champ_spellLsit_box > div:nth-child(2) {
     width: 50%;
     margin: auto;
   }
+}
+
+.none_selected_spell img {
+  opacity: 0.5;
+}
+
+.selected_spell {
+  color: #d0b173;
+  transition: all 500ms;
+}
+.selected_spell > img {
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 500ms;
 }
 
 .champ_spellVideo_box {

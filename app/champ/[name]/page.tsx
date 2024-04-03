@@ -24,7 +24,6 @@ export default async function champInfo(props: champUrlParam) {
                     <div className={style.champ_detail_text}>{champData?.data[champName].blurb}</div>
                     <Position tags={champData?.data[champName].tags} champName={champName}></Position>
                     <SpellList passive={champData.data[champName].passive} spellList={champData.data[champName].spells} champKey={champData.data[champName].key}></SpellList>
-                    <div className={style.border}></div>
                     <SkinCarousel champName={champName} skinList={champData?.data[champName].skins}></SkinCarousel>
                 </div>
                 : <></>
