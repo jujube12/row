@@ -160,15 +160,13 @@
     }
 }
 
+/** position */
 .champ_detail_position {
     width: 80%;
     margin: 1rem auto;
     border: 0.1rem solid reset.$color-gold3;
-    padding: 3rem 0;
     text-align: center;
     position: relative;
-    display: flex;
-    justify-content: space-around;
 
     >div:nth-child(1) {
         position: absolute;
@@ -178,6 +176,22 @@
         padding: 0.5rem;
         background-color: reset.$color-black;
         color: reset.$color-gold3;
+    }
+
+    >div:nth-child(2) {
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    >div:nth-child(3) {
+        font-size: 0.8rem;
+        color: reset.$color-gray3;
+        padding: 1rem;
+
+        &:hover {
+            color: reset.$color-gray2;
+        }
     }
 }
 
