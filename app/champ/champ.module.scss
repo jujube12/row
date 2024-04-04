@@ -294,6 +294,18 @@
 }
 
 /** skin carousel */
+.skin_title {
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+    color: reset.$color-gold3;
+    background-color: reset.$color-black;
+    padding: 0 2rem;
+    left: 50%;
+    top: -0.9rem;
+    transform: translate(-50%, 0);
+}
+
 .champ_skinList_wrapper {
     width: 100%;
     overflow: hidden;

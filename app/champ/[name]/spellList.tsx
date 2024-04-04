@@ -10,7 +10,7 @@ export default function SpellList(props: { passive: passive, spellList: spell[],
     const champKey = ('000' + props.champKey).slice(-4)
     const spellVideoArr = ['P1', 'Q1', 'W1', 'E1', 'R1']
     let [seletedSpell, setSelectedSpell] = useState('P1')
-    let [spellDescription, setSpellDescription] = useState([passive.name, passive.description])
+    let [spellDescription, setSpellDescription] = useState([passive.name, passive.description.replace(/<br>/ig, '').replace(/<status>/ig, '').replace(/<\/status>/ig, '')])
     const vRef = useRef<(HTMLVideoElement | null)[]>([])
     function pausevideo() {
         vRef.current.map((video) => {
@@ -21,10 +21,10 @@ export default function SpellList(props: { passive: passive, spellList: spell[],
         let copy = [...spellDescription]
         if (seletedSpell == 'P1') {
             copy[0] = passive.name
-            copy[1] = passive.description
+            copy[1] = passive.description.replace(/<br>/ig, '').replace(/<status>/ig, '').replace(/<\/status>/ig, '')
         } else {
             copy[0] = spellList[spellVideoArr.indexOf(seletedSpell) - 1].name
-            copy[1] = spellList[spellVideoArr.indexOf(seletedSpell) - 1].description
+            copy[1] = spellList[spellVideoArr.indexOf(seletedSpell) - 1].description.replace(/<br>/ig, '').replace(/<status>/ig, '').replace(/<\/status>/ig, '')
         }
         setSpellDescription(copy)
     }, [seletedSpell])
