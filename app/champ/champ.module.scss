@@ -143,6 +143,41 @@
 
 }
 
+.champ_detail_sticky_header_wrapper {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: reset.$color-black;
+    position: sticky;
+    top: 0;
+    display: none;
+    z-index: 1;
+    border-bottom: 0.1rem solid reset.$color-gold3;
+
+    >div:nth-child(1) {
+        padding: 0 1rem;
+
+        img {
+            width: 5rem;
+        }
+    }
+
+    >div:nth-child(2) {
+        font-style: italic;
+
+        >div:nth-child(1) {
+            padding-top: 0.5rem;
+            padding-left: 0.3rem;
+        }
+
+        >div:nth-child(2) {
+            color: reset.$color-gold3;
+            font-size: 1.5rem;
+            padding: 0.8rem 0;
+        }
+
+    }
+}
+
 .border {
     width: 80%;
     margin: auto;
