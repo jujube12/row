@@ -140,18 +140,16 @@
             transform: translate(-50%, 0%);
         }
     }
-
 }
 
 .champ_detail_sticky_header_wrapper {
     width: 100%;
     padding: 1rem 0;
-    background-color: reset.$color-black;
+    background: linear-gradient(reset.$color-black, reset.$color-blackOpacity);
     position: sticky;
     top: 0;
     display: none;
     z-index: 1;
-    border-bottom: 0.1rem solid reset.$color-gold3;
 
     >div:nth-child(1) {
         padding: 0 1rem;

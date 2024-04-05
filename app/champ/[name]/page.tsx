@@ -14,6 +14,7 @@ export default async function champInfo(props: champUrlParam) {
             {champData ?
                 <div className={style.champ_detail_wrapper}>
                     <ChampTitle name={champName} title={champData.data[champName].title}></ChampTitle>
+                    <div className={style.border}></div>
                     <div className={style.champ_detail_text}>{champData?.data[champName].lore}</div>
                     <div className={style.champ_detail_text}>{champData?.data[champName].blurb}</div>
                     <Position tags={champData?.data[champName].tags} champName={champName}></Position>
