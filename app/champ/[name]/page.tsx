@@ -5,6 +5,7 @@ import SkinCarousel from './skinCarousel'
 import SpellList from './spellList'
 import Position from './position'
 import ChampTitle from './champTitle'
+import Error from '@/app/error'
 export default async function champInfo(props: champUrlParam) {
     const champName = props.params.name
     const db = (await connectDB).db(process.env.NEXT_DB_NAME)
@@ -23,7 +24,7 @@ export default async function champInfo(props: champUrlParam) {
                     <div className={style.skin_title}>skins</div>
                     <SkinCarousel champName={champName} skinList={champData?.data[champName].skins}></SkinCarousel>
                 </div>
-                : <></>
+                : <Error></Error>
             }
         </div>
     )

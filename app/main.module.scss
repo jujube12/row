@@ -8,3 +8,42 @@
 .main_title {
     @include reset.title();
 }
+
+// error page
+.error_container {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.error_wrapper {
+    width: 80%;
+    margin: auto;
+    padding-top: 10rem;
+    text-align: center;
+
+    >div:nth-child(1) {
+        font-size: 5rem;
+    }
+
+    >div:nth-child(2) {
+        font-size: 2rem;
+    }
+
+    >div:nth-child(3) {
+        font-size: 1.5rem;
+        width: 20rem;
+        margin: 3rem auto;
+        display: flex;
+        justify-content: space-around;
+
+        >button {
+            padding: 0.5rem 1rem;
+            border-radius: 5rem;
+
+            &:hover {
+                transition: all 500ms;
+                font-weight: 700;
+                background-color: reset.$color-gold3;
+            }
+        }
+    }
+}

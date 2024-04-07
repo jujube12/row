@@ -21,4 +21,37 @@
           background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0.2rem 0.2rem 0.1rem #2f2f2f);
+}
+
+.error_container {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.error_wrapper {
+  width: 80%;
+  margin: auto;
+  padding-top: 10rem;
+  text-align: center;
+}
+.error_wrapper > div:nth-child(1) {
+  font-size: 5rem;
+}
+.error_wrapper > div:nth-child(2) {
+  font-size: 2rem;
+}
+.error_wrapper > div:nth-child(3) {
+  font-size: 1.5rem;
+  width: 20rem;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: space-around;
+}
+.error_wrapper > div:nth-child(3) > button {
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+}
+.error_wrapper > div:nth-child(3) > button:hover {
+  transition: all 500ms;
+  font-weight: 700;
+  background-color: #d0b173;
 }/*# sourceMappingURL=main.module.css.map */
