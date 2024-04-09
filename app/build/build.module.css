@@ -1,0 +1,149 @@
+.build_container {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 2rem;
+  min-height: 100vh;
+}
+@media (max-width: 992px) {
+  .build_container {
+    width: 100%;
+  }
+}
+
+.build_wrapper {
+  width: 100%;
+}
+
+.build_champ_profile {
+  display: flex;
+  background-color: #ffffff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+.build_champ_profile img {
+  border-radius: 0.5rem;
+  width: 7rem;
+}
+
+.build_champ_profile_text {
+  padding: 0 1rem;
+}
+.build_champ_profile_text > div:nth-child(1) {
+  font-size: 2rem;
+  padding: 0.3rem 0;
+}
+.build_champ_profile_text > div:nth-child(2) {
+  width: 17rem;
+  border-radius: 0.5rem;
+  display: flex;
+  text-align: center;
+  border: 0.05rem solid #939393;
+  padding: 0.5rem;
+}
+.build_champ_profile_text > div:nth-child(2) > div:nth-child(2) {
+  border-left: 0.05rem solid #dadada;
+  border-right: 0.05rem solid #dadada;
+}
+.build_champ_profile_text > div:nth-child(2) > div {
+  flex-grow: 1;
+}
+.build_champ_profile_text > div:nth-child(2) > div > div:nth-child(1) {
+  font-weight: 600;
+}
+
+.build_champ_perks {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+.build_champ_perks > div {
+  flex-grow: 1;
+}
+.build_champ_perks > div > div {
+  display: flex;
+  justify-content: space-around;
+}
+.build_champ_perks > div > div > div {
+  width: 2rem;
+  height: 2rem;
+  background-color: #dadada;
+  margin: 0.1rem;
+  border-radius: 50%;
+}
+
+.build_champ_spells {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+.build_champ_spells > div {
+  display: flex;
+  flex-grow: 1;
+}
+.build_champ_spells > div > div:nth-child(1) {
+  display: flex;
+}
+.build_champ_spells > div > div:nth-child(1) > div {
+  width: 2rem;
+  height: 2rem;
+  background-color: #dadada;
+  margin: 0.1rem;
+}
+
+.build_champ_skills {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+.build_champ_skills > div > div {
+  display: flex;
+}
+.build_champ_skills > div > div > div {
+  width: 2rem;
+  height: 2rem;
+  background-color: #dadada;
+  margin: 0.1rem;
+}
+
+.build_champ_items {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+.build_champ_items > div > div {
+  display: flex;
+}
+.build_champ_items > div > div > div:nth-child(1) {
+  display: flex;
+}
+.build_champ_items > div > div > div:nth-child(1) > div {
+  width: 2rem;
+  height: 2rem;
+  background-color: #dadada;
+  margin: 0.1rem;
+}
+
+.build_champ_counter {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+.build_champ_counter > div {
+  display: flex;
+}
+.build_champ_counter > div > div > div:nth-child(1) {
+  width: 2rem;
+  height: 2rem;
+  background-color: #dadada;
+  margin: 0.1rem;
+}/*# sourceMappingURL=build.module.css.map */

@@ -1,0 +1,169 @@
+@use '../reset';
+
+.build_container {
+    @include reset.container();
+}
+
+.build_wrapper {
+    width: 100%;
+}
+
+.build_champ_profile {
+    display: flex;
+    background-color: reset.$color-white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+
+    img {
+        border-radius: 0.5rem;
+        width: 7rem;
+    }
+}
+
+.build_champ_profile_text {
+    padding: 0 1rem;
+
+    >div:nth-child(1) {
+        font-size: 2rem;
+        padding: 0.3rem 0;
+    }
+
+    >div:nth-child(2) {
+        width: 17rem;
+        border-radius: 0.5rem;
+        display: flex;
+        text-align: center;
+        border: 0.05rem solid reset.$color-gray2;
+        padding: 0.5rem;
+
+        >div:nth-child(2) {
+            border-left: 0.05rem solid reset.$color-gray1;
+            border-right: 0.05rem solid reset.$color-gray1;
+        }
+
+        >div {
+            flex-grow: 1;
+
+            >div:nth-child(1) {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.build_champ_perks {
+    background-color: reset.$color-white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+
+    >div {
+        flex-grow: 1;
+
+        >div {
+            display: flex;
+            justify-content: space-around;
+
+            >div {
+                width: 2rem;
+                height: 2rem;
+                background-color: reset.$color-gray1;
+                margin: 0.1rem;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.build_champ_spells {
+    background-color: reset.$color-white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+
+    >div {
+        display: flex;
+        flex-grow: 1;
+
+        >div:nth-child(1) {
+            display: flex;
+
+            >div {
+                width: 2rem;
+                height: 2rem;
+                background-color: reset.$color-gray1;
+                margin: 0.1rem;
+            }
+        }
+    }
+}
+
+.build_champ_skills {
+    background-color: reset.$color-white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+
+    >div {
+        >div {
+            display: flex;
+
+            >div {
+                width: 2rem;
+                height: 2rem;
+                background-color: reset.$color-gray1;
+                margin: 0.1rem;
+            }
+        }
+    }
+}
+
+.build_champ_items {
+    background-color: reset.$color-white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+
+    >div {
+        >div {
+            display: flex;
+
+            >div:nth-child(1) {
+                display: flex;
+
+                >div {
+                    width: 2rem;
+                    height: 2rem;
+                    background-color: reset.$color-gray1;
+                    margin: 0.1rem;
+                }
+            }
+        }
+    }
+}
+
+.build_champ_counter {
+    background-color: reset.$color-white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+
+    >div {
+        display: flex;
+
+        >div {
+
+            >div:nth-child(1) {
+                width: 2rem;
+                height: 2rem;
+                background-color: reset.$color-gray1;
+                margin: 0.1rem;
+            }
+        }
+    }
+}
