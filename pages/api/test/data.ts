@@ -2,7 +2,7 @@ import { connectDB } from "@/util/database"
 import { ObjectId } from "mongodb"
 import { matchData, matchInfo } from "./d"
 
-export default async function Test() {
+export default async function handler() {
     let db = (await connectDB).db(process.env.NEXT_DB_NAME)
     /** ===== champ list 수집 ===== */
     // let champs: string[] = []
@@ -95,9 +95,4 @@ export default async function Test() {
     //         console.log(result)
     //     })
 
-    return (
-        <div>
-            test page
-        </div>
-    )
-} 
+}
