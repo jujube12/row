@@ -6,7 +6,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let data = JSON.parse(req.body)
             let db = (await connectDB).db('row')
             let emailSearch = await db.collection('user').findOne({ email: data.email })
-            console.log(emailSearch)
             let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
             if (data.name.length == 0 && data.email.length == 0 && data.password.length == 0) {
                 res.status(500).json('')

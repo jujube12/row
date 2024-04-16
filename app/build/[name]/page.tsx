@@ -1,11 +1,10 @@
-import { champData } from '@/app/champ/d'
 import style from '../build.module.css'
-import { champUrlParam } from '../d'
+import { champUrlParam, matchInfo } from '../d'
 import { connectDB } from '@/util/database'
 export default async function ChampBuild(props: champUrlParam) {
     const champName: string = props.params.name
     const db = (await connectDB).db(process.env.NEXT_DB_NAME)
-    const champData = await db.collection<champData>('champInfo').findOne({ name: champName })
+    const champData = await db.collection<matchInfo>('matchInfo_14.7').findOne({ champName: champName })
 
     return (
         <div className={style.build_container}>
@@ -19,11 +18,11 @@ export default async function ChampBuild(props: champUrlParam) {
                         <div>
                             <div>
                                 <div>승률</div>
-                                <div>00.0%</div>
+                                <div>{champData ? champData?.winCount / champData?.pickCount * 100 : ''} %</div>
                             </div>
                             <div>
                                 <div>픽률</div>
-                                <div>00.0%</div>
+                                <div>{champData?.pickCount && champData.pickCount / 5} %</div>
                             </div>
                             <div>
                                 <div>밴률</div>

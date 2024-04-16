@@ -10,7 +10,6 @@ export default function CheckUserInfo() {
     let [submit, setSubmit] = useState(false)
     let [focus, setFocus] = useState('')
     useEffect(() => {
-
         fetch('api/user/checkUserInfo', { method: 'POST', body: JSON.stringify({ name: name, email: email, password: password, focus: focus }) }).then((r) => r.json())
             .then((result) => {
                 if (result === 'ok') {
