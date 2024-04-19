@@ -26,7 +26,7 @@ export default async function ChampBuild(props: champUrlParam) {
                             </div>
                             <div>
                                 <div>밴률</div>
-                                <div>00.0%</div>
+                                <div>{champData?.pickCount && champData.banCount / 5} %</div>
                             </div>
                         </div>
                     </div>

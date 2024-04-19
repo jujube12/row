@@ -20,7 +20,7 @@ export type matchData = {
         participants: participants[],
         platformId: string,
         queueId: number,
-        teams: [Object][],
+        teams: team[],
         tournamentCode: string
     }
 }

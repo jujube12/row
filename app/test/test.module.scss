@@ -1,0 +1,15 @@
+@use '../reset';
+
+.test_container {
+    @include reset.container();
+    color: reset.$color-white;
+    position: relative;
+    font-size: 2rem;
+
+    >div {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}

@@ -35,6 +35,26 @@ type league = {
     freshBlood: boolean,
     hotStreak: boolean
 }
+type team = {
+    bans: [
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number }
+    ],
+    objectives: {
+        baron: { first: boolean, kills: number },
+        champion: { first: boolean, kills: number },
+        dragon: { first: boolean, kills: number },
+        horde: { first: boolean, kills: number },
+        inhibitor: { first: boolean, kills: number },
+        riftHerald: { first: boolean, kills: number },
+        tower: { first: boolean, kills: number }
+    },
+    teamId: number,
+    win: boolean
+}
 type match = {
     metadata: {
         dataVersion: string,
@@ -55,9 +75,17 @@ type match = {
         participants: participants[],
         platformId: string,
         queueId: number,
-        teams: [Object][],
+        teams: team[],
         tournamentCode: string
     }
+}
+type perk = {
+    statPerks: { defense: number, flex: number, offense: number },
+    styles: {
+        description: string,
+        selections: { perk: number, var1: number, var2: number, var3: number }[]
+        style: number,
+    }[]
 }
 type participants = {
     allInPings: number,
@@ -200,10 +228,10 @@ type participants = {
     enemyMissingPings: number,
     enemyVisionPings: number,
     firstBloodAssist: true,
-    firstBloodKill: false,
-    firstTowerAssist: false,
-    firstTowerKill: false,
-    gameEndedInEarlySurrender: false,
+    firstBloodKill: boolean,
+    firstTowerAssist: boolean,
+    firstTowerKill: boolean,
+    gameEndedInEarlySurrender: boolean,
     gameEndedInSurrender: true,
     getBackPings: number,
     goldEarned: number,
@@ -241,10 +269,7 @@ type participants = {
     onMyWayPings: number,
     participantId: number,
     pentaKills: number,
-    perks: {
-        statPerks: { defense: number, flex: number, offense: number },
-        styles: [Object][]
-    },
+    perks: perk,
     physicalDamageDealt: number,
     physicalDamageDealtToChampions: number,
     physicalDamageTaken: number,
@@ -275,7 +300,7 @@ type participants = {
     summonerId: string,
     summonerLevel: number,
     summonerName: string,
-    teamEarlySurrendered: false,
+    teamEarlySurrendered: boolean,
     teamId: number,
     teamPosition: string,
     timeCCingOthers: number,
