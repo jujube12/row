@@ -156,7 +156,7 @@ export default async function dataHandler() {
         })
     }
 
-    async function getPerksData() {
+    async function getPerksCount() {
         let matchDataList = await db.collection<matchData>('match_14.7').find().toArray()
         // let mainPerk = 'peckCount.primaryStyle.perk.' + matchDataList[0].info.participants[0].perks.styles[0].style
         // let subPerk = 'peckCount.subStyle.perk.' + matchDataList[0].info.participants[0].perks.styles[1].style
@@ -196,7 +196,32 @@ export default async function dataHandler() {
                 }
                 await db.collection(matchInfoVersion).updateOne({ champName: summoner.championName }, { $inc: incItem })
             }))
-            console.log(i)
+        })
+    }
+
+    async function getSpellCount() {
+        let dataList = await db.collection<matchData>(matchVersion).find().toArray();
+        // console.log(dataList[0].info.participants[0].summoner1Id + '-' + dataList[0].info.participants[0].summoner2Id)
+        // let result = await db.collection(matchInfoVersion).findOne({ champName: dataList[0].info.participants[0].championName, 'champName.spellCount.id': '3-4' })
+        // console.log(result)
+
+        dataList.map((match, i) => {
+            Promise.all(match.info.participants.map(async (summoner) => {
+                const s = Math.min(summoner.summoner1Id, summoner.summoner2Id)
+                const l = Math.max(summoner.summoner1Id, summoner.summoner2Id)
+                const spellId = s + '-' + l
+                const chg = 'spellCount0.' + spellId + '.count'
+                const chgw = 'spellCount0.' + spellId + '.win'
+                const result = await db.collection<matchInfo>(matchInfoVersion).findOne({ champName: summoner.championName })
+                let count = summoner.win ? 1 : 0;
+                if (result?.spellsCount[spellId] != null) {
+                    await db.collection(matchInfoVersion).updateOne({ champName: summoner.championName }, { $inc: { [chg]: 1, [chgw]: count } })
+                } else {
+                    await db.collection(matchInfoVersion).updateOne({ champName: summoner.championName }, { $set: { [chg]: 1, [chgw]: count } })
+                }
+            })).then(() => {
+                console.log(i)
+            })
         })
     }
 

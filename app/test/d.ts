@@ -32,4 +32,10 @@ export type matchInfo = {
     banCount: number,
     winCount: number,
     defeatCount: number
+    spellsCount: {
+        [id: string]: {
+            count: number,
+            win: number
+        }
+    }
 }
