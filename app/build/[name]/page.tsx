@@ -1,6 +1,9 @@
 import style from '../build.module.css'
 import { champUrlParam, matchInfo } from '../d'
 import { connectDB } from '@/util/database'
+import ChampBox from './champBox'
+import PerkBox from './perkBox'
+import SpellBox from './spellBox'
 export default async function ChampBuild(props: champUrlParam) {
     const champName: string = props.params.name
     const db = (await connectDB).db(process.env.NEXT_DB_NAME)
@@ -9,113 +12,10 @@ export default async function ChampBuild(props: champUrlParam) {
     return (
         <div className={style.build_container}>
             <div className={style.bulid_wrapper}>
-                <div className={style.build_champ_profile}>
-                    <div>
-                        <img src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${champName}.png`}></img>
-                    </div>
-                    <div className={style.build_champ_profile_text}>
-                        <div>{champName}</div>
-                        <div>
-                            <div>
-                                <div>승률</div>
-                                <div>{champData ? champData?.winCount / champData?.pickCount * 100 : ''} %</div>
-                            </div>
-                            <div>
-                                <div>픽률</div>
-                                <div>{champData?.pickCount && champData.pickCount / 5} %</div>
-                            </div>
-                            <div>
-                                <div>밴률</div>
-                                <div>{champData?.pickCount && champData.banCount / 5} %</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <div className={style.build_nav_box}>nav</div> */}
-                <div className={style.build_champ_perks}>
-                    <div>
-                        <div>main</div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>serve</div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-                <div className={style.build_champ_spells}>
-                    <div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div>승률</div>
-                            <div>00.0%</div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div>승률</div>
-                            <div>00.0%</div>
-                        </div>
-                    </div>
-                </div>
-                <div className={style.build_champ_skills}>
+                <ChampBox champName={champName} champData={champData}></ChampBox>
+                <PerkBox champData={champData}></PerkBox>
+                <SpellBox champData={champData}></SpellBox>
+                {/* <div className={style.build_champ_skills}>
                     <div>
                         <div>
                             <div></div>
@@ -230,7 +130,7 @@ export default async function ChampBuild(props: champUrlParam) {
                             <div>00.0%</div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )

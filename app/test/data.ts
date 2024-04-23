@@ -3,7 +3,6 @@ import { matchData, matchInfo } from "./d"
 export default async function dataHandler() {
     const matchVersion = 'match_14.7'
     const matchInfoVersion = 'matchInfo_14.7'
-
     let db = (await connectDB).db(process.env.NEXT_DB_NAME)
 
     async function getChampList() {
