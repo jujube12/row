@@ -1,8 +1,11 @@
 import SearchBox from './component/searchBox'
-import BoardBox from './component/boardBox';
+import NavBox from './component/navBox';
+import { connectDB } from '@/util/database';
 import style from './main.module.css'
 
-export default function Home() {
+export default async function Home() {
+  let db = (await connectDB).db(process.env.NEXT_DB_NAME)
+  let postList = await db.collection('post').find().sort({ _id: -1 }).limit(5).toArray()
   return (
     <main>
       <div className={style.main_container}>
@@ -10,9 +13,7 @@ export default function Home() {
           Row
         </div>
         <SearchBox></SearchBox>
-        <div style={{ height: '20px' }}></div>
-        <BoardBox></BoardBox>
-        <div style={{ height: '20px' }}></div>
+        <NavBox postList={JSON.stringify(postList)}></NavBox>
       </div>
     </main>
   );

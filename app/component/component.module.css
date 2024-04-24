@@ -1,10 +1,5 @@
 /* ===== search box ===== */
 .search_box_wrapper {
-  width: 100%;
-  text-align: center;
-}
-
-.search_box_input {
   width: 80%;
   height: auto;
   padding: 0.6rem;
@@ -12,20 +7,57 @@
   border: #d0b173 solid 0.15rem;
   background-color: #ffffff;
   margin: auto;
-  padding-left: 1rem;
   display: flex;
+  margin: 0.5rem auto;
   box-shadow: #5c5c5c 1px 1px 5px;
 }
-
-.search_box_input input {
+.search_box_wrapper > input {
+  padding-left: 1rem;
   flex-grow: 1;
 }
-
-.search_box_input button {
+.search_box_wrapper > button {
   width: 5rem;
   background: white;
   font-weight: 500;
   color: #895e08;
+}
+
+/* ===== nav box ===== */
+.nav_box_wrapper {
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .nav_box_wrapper {
+    width: 80%;
+    display: flex;
+  }
+}
+
+/* ===== champ box ===== */
+.champ_box_wrapper {
+  width: 80%;
+  height: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: #d0b173 solid 0.15rem;
+  background-color: #ffffff;
+  margin: auto;
+  margin: 0.5rem auto;
+}
+.champ_box_wrapper > div:nth-child(1) {
+  font-weight: 700;
+  padding-bottom: 0.3rem;
+  border-bottom: 0.1rem solid #dadada;
+}
+.champ_box_wrapper > div:nth-child(2) {
+  height: 10rem;
+}
+@media (min-width: 768px) {
+  .champ_box_wrapper {
+    margin-top: 0;
+    margin-right: 0.2rem;
+    width: 40%;
+  }
 }
 
 /* ===== board box ===== */
@@ -37,15 +69,23 @@
   border: #d0b173 solid 0.15rem;
   background-color: #ffffff;
   margin: auto;
+  margin: 0.5rem auto;
+}
+@media (min-width: 768px) {
+  .board_box_wrapper {
+    margin-top: 0;
+    margin-left: 0.2rem;
+    width: 60%;
+  }
 }
 
 .board_list > div:nth-child(1) {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 0.3rem;
-  border-bottom: 0.1rem solid #dadada;
   font-size: 1rem;
   font-weight: 700;
+  padding-bottom: 0.3rem;
+  border-bottom: 0.1rem solid #dadada;
 }
 .board_list > div:nth-child(1) a {
   color: #895e08;

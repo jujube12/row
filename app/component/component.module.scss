@@ -2,41 +2,78 @@
 
 /* ===== search box ===== */
 .search_box_wrapper {
-    width: 100%;
-    text-align: center;
-}
-
-.search_box_input {
     @include reset.box(80%, auto, 0.6rem);
-    padding-left: 1rem;
     display: flex;
+    margin: 0.5rem auto;
     box-shadow: reset.$color-gray3 1px 1px 5px;
+
+    >input {
+        padding-left: 1rem;
+        flex-grow: 1;
+    }
+
+    >button {
+        width: 5rem;
+        background: white;
+        font-weight: 500;
+        color: reset.$color-gold5;
+    }
 }
 
-.search_box_input input {
-    flex-grow: 1;
+
+
+/* ===== nav box ===== */
+.nav_box_wrapper {
+    margin: auto;
+
+    @media (min-width: 768px) {
+        width: 80%;
+        display: flex;
+    }
 }
 
-.search_box_input button {
-    width: 5rem;
-    background: white;
-    font-weight: 500;
-    color: reset.$color-gold5;
+/* ===== champ box ===== */
+.champ_box_wrapper {
+    @include reset.box(80%, auto, 1rem);
+    margin: 0.5rem auto;
+
+    >div:nth-child(1) {
+        font-weight: 700;
+        padding-bottom: 0.3rem;
+        border-bottom: 0.1rem solid reset.$color-gray1;
+    }
+
+    >div:nth-child(2) {
+        height: 10rem;
+    }
+
+    @media (min-width: 768px) {
+        margin-top: 0;
+        margin-right: 0.2rem;
+        width: 40%;
+    }
 }
 
 /* ===== board box ===== */
 .board_box_wrapper {
     @include reset.box(80%, auto, 1rem);
+    margin: 0.5rem auto;
+
+    @media (min-width: 768px) {
+        margin-top: 0;
+        margin-left: 0.2rem;
+        width: 60%;
+    }
 }
 
 .board_list {
     >div:nth-child(1) {
         display: flex;
         justify-content: space-between;
-        padding-bottom: 0.3rem;
-        border-bottom: 0.1rem solid reset.$color-gray1;
         font-size: 1rem;
         font-weight: 700;
+        padding-bottom: 0.3rem;
+        border-bottom: 0.1rem solid reset.$color-gray1;
 
         a {
             color: reset.$color-gold5;
