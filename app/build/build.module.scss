@@ -60,20 +60,24 @@
     display: flex;
 
     >div {
-        flex-grow: 1;
+        width: 50%;
 
         >div {
             display: flex;
             justify-content: space-around;
+            padding: 0.3rem 0;
+        }
 
-            >div {
-                width: 2rem;
-                height: 2rem;
-                background-color: reset.$color-gray1;
-                margin: 0.1rem;
+        >div:nth-child(2) {
+            img {
                 border-radius: 50%;
+                background-color: reset.$color-black;
             }
         }
+    }
+
+    img {
+        width: 2rem;
     }
 }
 
@@ -91,12 +95,16 @@
         >div:nth-child(1) {
             display: flex;
 
-            >div {
+            img {
                 width: 2rem;
                 height: 2rem;
                 background-color: reset.$color-gray1;
                 margin: 0.1rem;
             }
+        }
+
+        >div:nth-child(2) {
+            display: flex;
         }
     }
 }

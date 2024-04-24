@@ -32,17 +32,19 @@ export default function PerkBox(props: { perkData: perkInfo }) {
 
         <div className={style.build_champ_perks}>
             <div>
-                <div>
-                    <div><img src={imgUrl + mainPerkInfo?.icon}></img></div>
-                </div>
+                <div><img src={imgUrl + mainPerkInfo?.icon}></img></div>
                 {
                     mainPerkInfo?.slots.map((slot) => {
                         return (
-                            slot.runes.map((a, i) => {
-                                return (
-                                    <div key={i}><img src={imgUrl + a.icon}></img></div>
-                                )
-                            })
+                            <div>
+                                {
+                                    slot.runes.map((a, i) => {
+                                        return (
+                                            <div key={i}><img src={imgUrl + a.icon}></img></div>
+                                        )
+                                    })
+                                }
+                            </div>
                         )
                     })
                 }
@@ -52,11 +54,15 @@ export default function PerkBox(props: { perkData: perkInfo }) {
                 {
                     subPerkInfo?.slots.map((slot) => {
                         return (
-                            slot.runes.map((a, i) => {
-                                return (
-                                    <div key={i}><img src={imgUrl + a.icon}></img></div>
-                                )
-                            })
+                            <div>
+                                {
+                                    slot.runes.map((a, i) => {
+                                        return (
+                                            <div key={i}><img src={imgUrl + a.icon}></img></div>
+                                        )
+                                    })
+                                }
+                            </div>
                         )
                     })
                 }

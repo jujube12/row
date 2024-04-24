@@ -12,124 +12,14 @@ export default async function ChampBuild(props: champUrlParam) {
         <div className={style.build_container}>
             <div className={style.bulid_wrapper}>
                 <ChampBox champName={champName} champData={champData}></ChampBox>
-                <PerkBox perkData={champData?.perkCount}></PerkBox>
-                <SpellBox spellData={champData?.spellCount}></SpellBox>
-                {/* <div className={style.build_champ_skills}>
-                    <div>
-                        <div>
-                            <div></div>
-                            →
-                            <div></div>
-                            →
-                            <div></div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>승률</div>
-                        <div>00.0%</div>
-                    </div>
-                </div>
-                <div className={style.build_champ_items}>
-                    <div>
-                        <div>
-                            <div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <div>
-                                <div>승률</div>
-                                <div>00.0%</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <div>
-                                <div>승률</div>
-                                <div>00.0%</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <div></div>
-                            </div>
-                            <div>
-                                <div>승률</div>
-                                <div>00.0%</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div></div>
-                            </div>
-                            <div>
-                                <div>승률</div>
-                                <div>00.0%</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className={style.build_champ_counter}>
-                    <div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                        <div>
-                            <div></div>
-                            <div>00.0%</div>
-                        </div>
-                    </div>
-                </div> */}
+                {
+                    champData
+                        ? <>
+                            <PerkBox perkData={champData?.perkCount}></PerkBox>
+                            <SpellBox spellData={champData?.spellCount}></SpellBox>
+                        </>
+                        : <></>
+                }
             </div>
         </div>
     )

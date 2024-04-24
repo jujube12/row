@@ -6,24 +6,19 @@ import { matchInfo, spellInfo } from '../d'
 export default function SpellBox(props: { spellData: spellInfo }) {
     const summonerSpell: spellInfo = props.spellData
     let count = Object.values(summonerSpell).map((i) => i.count)
-    console.log(count)
-    let summ: number
-    count.map((a) => {
-        summ += a
-    })
     count.sort()
-    let [s, setS] = useState(1)
-    useEffect(() => {
-        setS(summ)
-    }, [])
+    let sum = 0
+    count.map((a) => {
+        sum += a
+    })
     let max = count[0]
     let max2 = count[1]
     let first = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max))?.split('-')
     let seconde = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max2))?.split('-')
-    console.log(first)
-    console.log(seconde)
+    let winPer = [(max / sum * 100).toFixed(2) + ' %', (max2 / sum * 100).toFixed(2) + ' %']
+
     let imgUrl = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/spell/'
-    let spell = {
+    let spell: { [id: string]: string } = {
         21: 'SummonerBarrier',
         1: 'SummonerBoost',
         2202: 'SummonerCherryFlash',
@@ -48,22 +43,36 @@ export default function SpellBox(props: { spellData: spellInfo }) {
         <div className={style.build_champ_spells}>
             <div>
                 <div>
-                    <div><img src={imgUrl + spell[first[0]] + '.png'}></img></div>
-                    <div><img src={imgUrl + spell[first[1]] + '.png'}></img></div>
+                    {
+                        first
+                            ?
+                            <>
+                                <div><img src={imgUrl + spell[first[0] as keyof { [id: string]: string }] + '.png'}></img></div>
+                                <div><img src={imgUrl + spell[first[1] as keyof { [id: string]: string }] + '.png'}></img></div>
+                            </>
+                            : <></>
+                    }
                 </div>
                 <div>
                     <div>승률</div>
-                    <div>{count[0] / s}</div>
+                    <div>{winPer[0]}</div>
                 </div>
             </div>
             <div>
                 <div>
-                    <div><img src={imgUrl + spell[seconde[0]] + '.png'}></img></div>
-                    <div><img src={imgUrl + spell[seconde[1]] + '.png'}></img></div>
+                    {
+                        seconde
+                            ?
+                            <>
+                                <div><img src={imgUrl + spell[seconde[0] as keyof { [id: string]: string }] + '.png'}></img></div>
+                                <div><img src={imgUrl + spell[seconde[1] as keyof { [id: string]: string }] + '.png'}></img></div>
+                            </>
+                            : <></>
+                    }
                 </div>
                 <div>
                     <div>승률</div>
-                    <div>{count[0] / s}</div>
+                    <div>{winPer[1]}</div>
                 </div>
             </div>
         </div>

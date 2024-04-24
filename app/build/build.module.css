@@ -60,18 +60,19 @@
   display: flex;
 }
 .build_champ_perks > div {
-  flex-grow: 1;
+  width: 50%;
 }
 .build_champ_perks > div > div {
   display: flex;
   justify-content: space-around;
+  padding: 0.3rem 0;
 }
-.build_champ_perks > div > div > div {
-  width: 2rem;
-  height: 2rem;
-  background-color: #dadada;
-  margin: 0.1rem;
+.build_champ_perks > div > div:nth-child(2) img {
   border-radius: 50%;
+  background-color: #000000;
+}
+.build_champ_perks img {
+  width: 2rem;
 }
 
 .build_champ_spells {
@@ -88,11 +89,14 @@
 .build_champ_spells > div > div:nth-child(1) {
   display: flex;
 }
-.build_champ_spells > div > div:nth-child(1) > div {
+.build_champ_spells > div > div:nth-child(1) img {
   width: 2rem;
   height: 2rem;
   background-color: #dadada;
   margin: 0.1rem;
+}
+.build_champ_spells > div > div:nth-child(2) {
+  display: flex;
 }
 
 .build_champ_skills {
