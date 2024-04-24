@@ -8,13 +8,12 @@ export default async function ChampBuild(props: champUrlParam) {
     const champName: string = props.params.name
     const db = (await connectDB).db(process.env.NEXT_DB_NAME)
     const champData = await db.collection<matchInfo>('matchInfo_14.7').findOne({ champName: champName })
-
     return (
         <div className={style.build_container}>
             <div className={style.bulid_wrapper}>
                 <ChampBox champName={champName} champData={champData}></ChampBox>
-                <PerkBox champData={champData}></PerkBox>
-                <SpellBox champData={champData}></SpellBox>
+                <PerkBox perkData={champData?.perkCount}></PerkBox>
+                <SpellBox spellData={champData?.spellCount}></SpellBox>
                 {/* <div className={style.build_champ_skills}>
                     <div>
                         <div>

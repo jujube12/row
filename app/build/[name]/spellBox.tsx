@@ -1,27 +1,69 @@
+'use client'
+import { useEffect, useState } from 'react'
 import style from '../build.module.css'
-import { matchInfo } from '../d'
+import { matchInfo, spellInfo } from '../d'
 
-export default function SpellBox(props: { champData: matchInfo | null }) {
+export default function SpellBox(props: { spellData: spellInfo }) {
+    const summonerSpell: spellInfo = props.spellData
+    let count = Object.values(summonerSpell).map((i) => i.count)
+    console.log(count)
+    let summ: number
+    count.map((a) => {
+        summ += a
+    })
+    count.sort()
+    let [s, setS] = useState(1)
+    useEffect(() => {
+        setS(summ)
+    }, [])
+    let max = count[0]
+    let max2 = count[1]
+    let first = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max))?.split('-')
+    let seconde = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max2))?.split('-')
+    console.log(first)
+    console.log(seconde)
+    let imgUrl = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/spell/'
+    let spell = {
+        21: 'SummonerBarrier',
+        1: 'SummonerBoost',
+        2202: 'SummonerCherryFlash',
+        2201: 'SummonerCherryHold',
+        14: 'SummonerDot',
+        3: 'SummonerExhaust',
+        4: 'SummonerFlash',
+        6: 'SummonerHaste',
+        7: 'SummonerHeal',
+        13: 'SummonerMana',
+        30: 'SummonerPoroRecall',
+        31: 'SummonerPoroThrow',
+        11: 'SummonerSmite',
+        39: 'SummonerSnowURFSnowball_Mark',
+        32: 'SummonerSnowball',
+        12: 'SummonerTeleport',
+        54: 'Summoner_UltBookPlaceholder',
+        55: 'Summoner_UltBookSmitePlaceholder',
+    }
+
     return (
         <div className={style.build_champ_spells}>
             <div>
                 <div>
-                    <div></div>
-                    <div></div>
+                    <div><img src={imgUrl + spell[first[0]] + '.png'}></img></div>
+                    <div><img src={imgUrl + spell[first[1]] + '.png'}></img></div>
                 </div>
                 <div>
                     <div>승률</div>
-                    <div>00.0%</div>
+                    <div>{count[0] / s}</div>
                 </div>
             </div>
             <div>
                 <div>
-                    <div></div>
-                    <div></div>
+                    <div><img src={imgUrl + spell[seconde[0]] + '.png'}></img></div>
+                    <div><img src={imgUrl + spell[seconde[1]] + '.png'}></img></div>
                 </div>
                 <div>
                     <div>승률</div>
-                    <div>00.0%</div>
+                    <div>{count[0] / s}</div>
                 </div>
             </div>
         </div>

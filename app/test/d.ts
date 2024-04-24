@@ -31,7 +31,22 @@ export type matchInfo = {
     pickCount: number,
     banCount: number,
     winCount: number,
-    defeatCount: number
+    defeatCount: number,
+    perkCount: {
+        primaryStyle: {
+            [id: string]: string,
+            perk: string
+        },
+        subStyle: {
+            [id: string]: string,
+            perk: string
+        }
+        statPerks: {
+            defense: {},
+            flex: {},
+            offense: {}
+        }
+    }
     spellsCount: {
         [id: string]: {
             count: number,
