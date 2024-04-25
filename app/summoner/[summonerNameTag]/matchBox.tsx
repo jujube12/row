@@ -1,9 +1,9 @@
 'use client'
-import style from '../search.module.css'
+import style from '../summoner.module.css'
 import DetailMatchBox from './detailMatchBox'
 import { kill, gameDate, duringTime } from '../../function/match'
 import { useState } from 'react';
-export default function MatchBox(props: { matchInfo: match, summonerInfo: summoner }) {
+export default function MatchBox(props: { matchInfo: match, summonerAccountIds: summonerAccountIds }) {
     let spell = {
         21: 'SummonerBarrier',
         1: 'SummonerBoost',
@@ -33,7 +33,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
     let redKill: number = 0
     let summonerTeam: string = ''
     for (let i = 0; i < 10; i++) {
-        if (matchInfo.info.participants[i].summonerId == props.summonerInfo.id) {
+        if (matchInfo.info.participants[i].summonerId == props.summonerAccountIds.id) {
             summoner = matchInfo.info.participants[i]
             if (i < 5) { summonerTeam = 'blue' }
             else { summonerTeam = 'red' }
@@ -144,7 +144,7 @@ export default function MatchBox(props: { matchInfo: match, summonerInfo: summon
                     </div>
                 </div>
                 {
-                    detail == true ? <DetailMatchBox matchInfo={matchInfo} spell={spell} summonerInfo={props.summonerInfo}></DetailMatchBox> : <div></div>
+                    detail == true ? <DetailMatchBox matchInfo={matchInfo} spell={spell} summonerAccountIds={props.summonerAccountIds}></DetailMatchBox> : <div></div>
                 }
             </div>
         </div >

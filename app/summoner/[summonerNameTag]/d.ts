@@ -1,32 +1,28 @@
-type date = {
-    year: number,
-    month: number,
-    day: number,
-    hours: number,
-    minutes: number,
-}
-type param = {
+type summonerUrlParam = {
     params: {
-        name: string
+        summonerNameTag: string
     },
     searchParams: object
 }
-type summoner = {
+type summonerRiotAccount = {
+    puuid: string,
+    gameName: string,
+    tagLine: string
+}
+type summonerAccountIds = {
     id: string,
     accountId: string,
     puuid: string,
-    name: string,
     profileIconId: number,
     revisionDate: number,
     summonerLevel: number
 }
-type league = {
+type summonerAccountProfle = {
     leagueId: string,
     queueType: string,
     tier: string,
     rank: string,
     summonerId: string,
-    summonerName: string,
     leaguePoints: number,
     wins: number,
     losses: number,
@@ -34,26 +30,6 @@ type league = {
     inactive: boolean,
     freshBlood: boolean,
     hotStreak: boolean
-}
-type team = {
-    bans: [
-        { championId: number, pickTurn: number },
-        { championId: number, pickTurn: number },
-        { championId: number, pickTurn: number },
-        { championId: number, pickTurn: number },
-        { championId: number, pickTurn: number }
-    ],
-    objectives: {
-        baron: { first: boolean, kills: number },
-        champion: { first: boolean, kills: number },
-        dragon: { first: boolean, kills: number },
-        horde: { first: boolean, kills: number },
-        inhibitor: { first: boolean, kills: number },
-        riftHerald: { first: boolean, kills: number },
-        tower: { first: boolean, kills: number }
-    },
-    teamId: number,
-    win: boolean
 }
 type match = {
     metadata: {
@@ -79,6 +55,27 @@ type match = {
         tournamentCode: string
     }
 }
+type team = {
+    bans: [
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number },
+        { championId: number, pickTurn: number }
+    ],
+    objectives: {
+        baron: { first: boolean, kills: number },
+        champion: { first: boolean, kills: number },
+        dragon: { first: boolean, kills: number },
+        horde: { first: boolean, kills: number },
+        inhibitor: { first: boolean, kills: number },
+        riftHerald: { first: boolean, kills: number },
+        tower: { first: boolean, kills: number }
+    },
+    teamId: number,
+    win: boolean
+}
+
 type perk = {
     statPerks: { defense: number, flex: number, offense: number },
     styles: {

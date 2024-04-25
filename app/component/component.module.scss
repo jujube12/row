@@ -1,26 +1,62 @@
 @use '../../app/reset';
 
-/* ===== search box ===== */
-.search_box_wrapper {
-    @include reset.box(80%, auto, 0.6rem);
-    display: flex;
-    margin: 0.5rem auto;
+/* ===== summoner search box ===== */
+.summonerSearch_box_wrapper {
+    @include reset.box(90%, auto, 0.6rem);
     box-shadow: reset.$color-gray3 1px 1px 5px;
 
-    >input {
-        padding-left: 1rem;
-        flex-grow: 1;
+    >button {
+        width: 100%;
+        border-radius: 1rem;
+        text-align: center;
+        font-weight: 700;
+        color: reset.$color-gold5;
+        padding: 0.5rem;
+
+        &:hover {
+            background-color: reset.$color-gold1;
+        }
     }
 
-    >button {
-        width: 5rem;
-        background: white;
-        font-weight: 500;
-        color: reset.$color-gold5;
+    @media (min-width: 768px) {
+        width: 80%;
+        margin: auto;
+        display: flex;
+
+        >button {
+            width: 20%;
+            padding: 0;
+            margin: 0.2rem auto;
+        }
     }
 }
 
+.summonerSearch_input_box {
+    >input {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 0.2rem auto;
+        display: block;
+        border: 0.1rem solid reset.$color-gray1;
+        border-radius: 1rem;
+        font-size: 0.8rem;
+    }
 
+    @media (min-width: 768px) {
+        display: flex;
+        flex-grow: 1;
+
+        >input {
+            margin: 0.2rem 0.8rem;
+            border: none;
+        }
+
+        >input:nth-child(2) {
+            border-radius: 0;
+            border-left: 0.1rem solid reset.$color-gray1;
+        }
+    }
+}
 
 /* ===== nav box ===== */
 .nav_box_wrapper {
@@ -29,12 +65,13 @@
     @media (min-width: 768px) {
         width: 80%;
         display: flex;
+        margin-top: 0.5rem;
     }
 }
 
 /* ===== champ box ===== */
 .champ_box_wrapper {
-    @include reset.box(80%, auto, 1rem);
+    @include reset.box(90%, auto, 1rem);
     margin: 0.5rem auto;
 
     >div:nth-child(1) {
@@ -56,7 +93,7 @@
 
 /* ===== board box ===== */
 .board_box_wrapper {
-    @include reset.box(80%, auto, 1rem);
+    @include reset.box(90%, auto, 1rem);
     margin: 0.5rem auto;
 
     @media (min-width: 768px) {

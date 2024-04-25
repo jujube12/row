@@ -1,6 +1,6 @@
-import style from '../search.module.css'
+import style from '../summoner.module.css'
 
-export default function DetailMatchBox(props: { matchInfo: match, spell: any, summonerInfo: summoner }) {
+export default function DetailMatchBox(props: { matchInfo: match, spell: any, summonerAccountIds: summonerAccountIds }) {
     let match: match = props.matchInfo
     let blueTeam: participants[] = props.matchInfo.info.participants.slice(0, 5)
     let redTeam: participants[] = props.matchInfo.info.participants.slice(5, 10)
@@ -20,11 +20,11 @@ export default function DetailMatchBox(props: { matchInfo: match, spell: any, su
         <div className={style.match_detail_wrapper}>
             <div className={style.match_detail_team}>
                 <div>{blueTeam[0].win == true ? '승리' : '패배'} (블루팀)</div>
-                <TeamBox team={blueTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
+                <TeamBox team={blueTeam} spell={props.spell} summonerid={props.summonerAccountIds.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
             <div className={style.match_detail_team}>
                 <div>{redTeam[0].win == true ? '승리' : '패배'} (레드팀)</div>
-                <TeamBox team={redTeam} spell={props.spell} summonerid={props.summonerInfo.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
+                <TeamBox team={redTeam} spell={props.spell} summonerid={props.summonerAccountIds.id} maxDamage={maxDamage} maxTakenDamage={maxTakenDamage}></TeamBox>
             </div>
         </div>
     )

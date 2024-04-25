@@ -7,6 +7,12 @@
 
 .main_title {
     @include reset.title();
+    padding: 3rem 0;
+}
+
+// loading page
+.loading_container {
+    @include reset.container();
 }
 
 // error page

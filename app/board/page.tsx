@@ -1,5 +1,5 @@
 import style from './board.module.css'
-import SearchBox from '../component/searchBox'
+import SearchBox from '../component/summonerSearchBox'
 import PostList from './postList'
 import PostWriteBtn from '../component/postWriteBtn'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'

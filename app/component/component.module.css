@@ -1,25 +1,60 @@
-/* ===== search box ===== */
-.search_box_wrapper {
-  width: 80%;
+/* ===== summoner search box ===== */
+.summonerSearch_box_wrapper {
+  width: 90%;
   height: auto;
   padding: 0.6rem;
   border-radius: 1rem;
   border: #d0b173 solid 0.15rem;
   background-color: #ffffff;
   margin: auto;
-  display: flex;
-  margin: 0.5rem auto;
   box-shadow: #5c5c5c 1px 1px 5px;
 }
-.search_box_wrapper > input {
-  padding-left: 1rem;
-  flex-grow: 1;
-}
-.search_box_wrapper > button {
-  width: 5rem;
-  background: white;
-  font-weight: 500;
+.summonerSearch_box_wrapper > button {
+  width: 100%;
+  border-radius: 1rem;
+  text-align: center;
+  font-weight: 700;
   color: #895e08;
+  padding: 0.5rem;
+}
+.summonerSearch_box_wrapper > button:hover {
+  background-color: #fff4de;
+}
+@media (min-width: 768px) {
+  .summonerSearch_box_wrapper {
+    width: 80%;
+    margin: auto;
+    display: flex;
+  }
+  .summonerSearch_box_wrapper > button {
+    width: 20%;
+    padding: 0;
+    margin: 0.2rem auto;
+  }
+}
+
+.summonerSearch_input_box > input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.2rem auto;
+  display: block;
+  border: 0.1rem solid #dadada;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}
+@media (min-width: 768px) {
+  .summonerSearch_input_box {
+    display: flex;
+    flex-grow: 1;
+  }
+  .summonerSearch_input_box > input {
+    margin: 0.2rem 0.8rem;
+    border: none;
+  }
+  .summonerSearch_input_box > input:nth-child(2) {
+    border-radius: 0;
+    border-left: 0.1rem solid #dadada;
+  }
 }
 
 /* ===== nav box ===== */
@@ -30,12 +65,13 @@
   .nav_box_wrapper {
     width: 80%;
     display: flex;
+    margin-top: 0.5rem;
   }
 }
 
 /* ===== champ box ===== */
 .champ_box_wrapper {
-  width: 80%;
+  width: 90%;
   height: auto;
   padding: 1rem;
   border-radius: 1rem;
@@ -62,7 +98,7 @@
 
 /* ===== board box ===== */
 .board_box_wrapper {
-  width: 80%;
+  width: 90%;
   height: auto;
   padding: 1rem;
   border-radius: 1rem;
