@@ -1,6 +1,6 @@
 'use client'
 import style from './component.module.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 export default function SummonerSearchBox() {
     let router = useRouter()

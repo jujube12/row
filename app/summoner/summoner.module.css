@@ -1,4 +1,4 @@
-.search_container {
+.summoner_container {
   width: 80%;
   margin: auto;
   padding-bottom: 2rem;
@@ -6,13 +6,13 @@
   padding-top: 2rem;
 }
 @media (max-width: 992px) {
-  .search_container {
+  .summoner_container {
     width: 100%;
   }
 }
 
 /* ===================== profile ===================== */
-.profile_wrapper {
+.summoner_profile_wrapper {
   width: 90%;
   height: auto;
   padding: 1rem;
@@ -24,8 +24,7 @@
   display: flex;
   background: linear-gradient(#f6d89d, #d0b173, #895e08);
 }
-
-.profile_wrapper img {
+.summoner_profile_wrapper > img {
   width: 7rem;
   height: 7rem;
   border-radius: 10%;
@@ -370,5 +369,23 @@
 @media (max-width: 576px) {
   .match_detail_user_item {
     display: none;
+  }
+}
+
+.summoner_error_wrapper {
+  width: 90%;
+  height: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: #d0b173 solid 0.15rem;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .summoner_error_wrapper {
+    width: 80%;
+    padding: 3rem;
   }
 }/*# sourceMappingURL=summoner.module.css.map */

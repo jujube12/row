@@ -2,6 +2,7 @@ import style from '../summoner.module.css'
 import SearchBox from '@/app/component/summonerSearchBox'
 import MatchBox from './matchBox'
 import Error from '../../error'
+import NotFound from './notFound'
 
 export default async function Search(props: summonerUrlParam) {
     const summonerNameTag: string[] = props.params.summonerNameTag.split('-')
@@ -17,19 +18,19 @@ export default async function Search(props: summonerUrlParam) {
                 summonerAccount = result
             }
         })
-    summonerAccount.puuid && await fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerAccount.puuid}/ids?start=0&count=20&api_key=${process.env.NEXT_RIOT}`)
+    summonerAccount && await fetch(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerAccount.puuid}/ids?start=0&count=20&api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
             summonerMatchList = result
         })
 
-    summonerAccount.puuid && await fetch(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${summonerAccount.puuid}?api_key=${process.env.NEXT_RIOT}`)
+    summonerAccount && await fetch(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${summonerAccount.puuid}?api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
             summonerAccountIds = result
         })
 
-    summonerAccountIds.id && await fetch(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerAccountIds.id}?api_key=${process.env.NEXT_RIOT}`)
+    summonerAccountIds && await fetch(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerAccountIds.id}?api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
             summonerAccountProfle = result
@@ -38,9 +39,9 @@ export default async function Search(props: summonerUrlParam) {
 
     return (
         summonerAccount ?
-            <div className={style.search_container}>
+            <div className={style.summoner_container}>
                 <SearchBox></SearchBox>
-                <div className={style.profile_wrapper}>
+                <div className={style.summoner_profile_wrapper}>
                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/profileicon/${summonerAccountIds.profileIconId}.png`}></img>
                     <div>
                         <div >{summonerAccount.gameName} #{summonerAccount.tagLine}</div>
@@ -69,6 +70,6 @@ export default async function Search(props: summonerUrlParam) {
 
                 }
             </div>
-            : <Error></Error>
+            : <NotFound></NotFound>
     )
 }

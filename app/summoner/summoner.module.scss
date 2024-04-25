@@ -1,24 +1,25 @@
 @use '../reset';
 
-.search_container {
+.summoner_container {
     @include reset.container();
     padding-top: 2rem;
 }
 
 /* ===================== profile ===================== */
-.profile_wrapper {
+.summoner_profile_wrapper {
     @include reset.box(90%, auto, 1rem);
     margin-top: 1rem;
     display: flex;
     background: linear-gradient(reset.$color-gold2, reset.$color-gold3, reset.$color-gold5);
+
+    >img {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 10%;
+        margin-right: 0.5rem;
+    }
 }
 
-.profile_wrapper img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 10%;
-    margin-right: 0.5rem;
-}
 
 /* ===================== match ===================== */
 .match_wrapper {
@@ -359,5 +360,17 @@
 
     @media (max-width:576px) {
         display: none;
+    }
+}
+
+// error
+.summoner_error_wrapper {
+    @include reset.box(90%, auto, 2rem);
+    margin-top: 1rem;
+    text-align: center;
+
+    @media (min-width:768px) {
+        width: 80%;
+        padding: 3rem;
     }
 }
