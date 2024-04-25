@@ -7,19 +7,45 @@
 
 /* ===================== profile ===================== */
 .summoner_profile_wrapper {
-    @include reset.box(90%, auto, 1rem);
+    @include reset.box(90%, auto, 0.5rem);
     margin-top: 1rem;
     display: flex;
-    background: linear-gradient(reset.$color-gold2, reset.$color-gold3, reset.$color-gold5);
+    background: linear-gradient(reset.$color-gold3, reset.$color-gold4);
+    font-size: 0.8rem;
 
-    >img {
-        width: 7rem;
-        height: 7rem;
-        border-radius: 10%;
-        margin-right: 0.5rem;
+
+    >div:nth-child(1) {
+        >img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 10%;
+        }
+
+        >div {
+            width: 3rem;
+            text-align: center;
+        }
+    }
+
+    >div:nth-child(2) {
+        flex-grow: 1;
+        padding: 0 0.5rem;
+
+        >div:nth-child(1) {
+            >span:nth-child(1) {
+                font-weight: 600;
+            }
+        }
+
+        >div:nth-child(2) {
+            visibility: hidden;
+        }
+
+        >div:nth-child(3) {
+            font-size: 0.7rem;
+        }
     }
 }
-
 
 /* ===================== match ===================== */
 .match_wrapper {
@@ -30,86 +56,42 @@
 
 /* == summury == */
 .match_summury_wrapper {
-    @include reset.box(100%, 8rem, 0.5rem);
+    @include reset.box(100%, 6.5rem, 0.3rem);
     display: flex;
 }
 
 .match_summury_result {
-    width: 5rem;
+    width: 20%;
+    font-size: 0.7rem;
 
     >div:nth-child(1) {
         font-weight: 700;
     }
 
-    >div:nth-child(2) {
-        font-size: 0.9rem;
-    }
-
     >div:nth-child(3) {
         width: 90%;
-        margin-top: 1rem;
+        margin-top: 0.8rem;
         padding-top: 0.2rem;
         font-weight: 700;
         border-top: 0.01rem solid reset.$color-gray1;
-    }
-
-    >div:nth-child(4) {
-        font-size: 0.8rem;
     }
 }
 
 // img
 .match_summury_img {
-    position: relative;
-    width: 6rem;
-
-    img {
-        width: 5rem;
-        height: 5rem;
-        border-radius: 10%;
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-    }
-
-    div {
-        position: absolute;
-        background-color: reset.$color-black;
-        color: reset.$color-white;
-        border-radius: 20%;
-        padding: 0.2rem;
-        bottom: 10px;
-        right: 10px;
-    }
-
-    @media (max-width:576px) {
-        display: none;
-    }
-}
-
-// info
-.match_summury_info {
-    width: 18rem;
-    position: relative;
-}
-
-.match_summury_info_default {
-    display: flex;
-    height: 60%;
-}
-
-.match_summury_mobile_img {
-    position: relative;
     display: none;
 
-    @media (max-width:576px) {
-        display: inline;
-        width: 4rem;
+    @media (min-width:576px) {
+        position: relative;
+        width: 6rem;
 
         img {
-            width: 3rem;
-            height: 3rem;
+            width: 5rem;
+            height: 5rem;
             border-radius: 10%;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
         }
 
         div {
@@ -118,19 +100,52 @@
             color: reset.$color-white;
             border-radius: 20%;
             padding: 0.2rem;
-            bottom: 0.7rem;
-            right: 0.1rem;
-            font-size: 0.8rem;
+            bottom: 10px;
+            right: 10px;
         }
     }
 }
 
-.match_summury_info_spell {
-    width: 15%;
+// info
+.match_summury_info {
+    width: 80%;
+    position: relative;
+}
+
+.match_summury_info_default {
+    display: flex;
+}
+
+.match_summury_mobile_img {
+    position: relative;
+    display: inline;
+    width: 3.5rem;
 
     img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 10%;
+    }
+
+    div {
+        position: absolute;
+        background-color: reset.$color-black;
+        color: reset.$color-white;
+        border-radius: 20%;
+        padding: 0.2rem;
+        bottom: 0rem;
+        right: 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    @media (min-width:576px) {
+        display: none;
+    }
+}
+
+.match_summury_info_spell {
+    img {
         width: 1.5rem;
-        height: 1.5rem;
         margin: 0.1rem;
         padding: 0.1rem;
         border-radius: 20%;
@@ -140,45 +155,42 @@
     @media (max-width:576px) {
         img {
             width: 1.2rem;
-            height: 1.2rem;
         }
     }
 }
 
 .match_summury_kda {
-    width: 45%;
+    flex-grow: 1;
     text-align: center;
-    padding-top: 0.8rem;
+    padding: 0.5rem;
+    padding-bottom: 0;
 
-    @media (max-width:576px) {
-        padding-top: 0.5rem;
+    >div:nth-child(2) {
+        font-size: 0.8rem;
     }
 }
 
 .match_summury_extra {
+    display: none;
     width: 40%;
     text-align: center;
     padding-top: 0.8rem;
-
-    @media (max-width:576px) {
-        padding-top: 0.5rem;
-    }
 }
 
 .match_summury_info_item {
+    padding-top: 0.3rem;
     display: flex;
-    height: 40%;
 
     img {
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         border-radius: 20%;
         margin: 0.1rem;
     }
 
     p {
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         border-radius: 20%;
         margin: 0.1rem;
         display: inline-block;

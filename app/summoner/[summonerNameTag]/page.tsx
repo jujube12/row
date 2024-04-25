@@ -1,7 +1,6 @@
 import style from '../summoner.module.css'
 import SearchBox from '@/app/component/summonerSearchBox'
 import MatchBox from './matchBox'
-import Error from '../../error'
 import NotFound from './notFound'
 
 export default async function Search(props: summonerUrlParam) {
@@ -33,25 +32,26 @@ export default async function Search(props: summonerUrlParam) {
     summonerAccountIds && await fetch(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerAccountIds.id}?api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
-            summonerAccountProfle = result
+            summonerAccountProfle = result[0]
         })
-
-
     return (
         summonerAccount ?
             <div className={style.summoner_container}>
                 <SearchBox></SearchBox>
                 <div className={style.summoner_profile_wrapper}>
-                    <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/profileicon/${summonerAccountIds.profileIconId}.png`}></img>
                     <div>
-                        <div >{summonerAccount.gameName} #{summonerAccount.tagLine}</div>
+                        <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/profileicon/${summonerAccountIds.profileIconId}.png`}></img>
+                        <div>Lv. {summonerAccountIds.summonerLevel}</div>
+                    </div>
+                    <div>
+                        <div><span>{summonerAccount.gameName}</span><span> #{summonerAccount.tagLine}</span></div>
                         <div>level: {summonerAccountIds.summonerLevel}</div>
                         {
                             summonerAccountProfle &&
-                            <>
+                            <div>
                                 <div><span>{summonerAccountProfle.tier}</span> <span>{summonerAccountProfle.leaguePoints}점</span></div>
                                 <div><span>{summonerAccountProfle.wins + summonerAccountProfle.losses}전</span> <span>{summonerAccountProfle.wins}승</span> <span>{summonerAccountProfle.losses}패</span></div>
-                            </>
+                            </div>
                         }
                     </div>
                 </div>
@@ -62,7 +62,7 @@ export default async function Search(props: summonerUrlParam) {
                                 .then((r) => r.json())
                                 .then((result) => {
                                     return (
-                                        <MatchBox key={i} matchInfo={result} summonerAccountIds={summonerAccountIds}></MatchBox>
+                                        <MatchBox key={i} matchData={result} summonerAccountIds={summonerAccountIds}></MatchBox>
                                     )
                                 })
                         )

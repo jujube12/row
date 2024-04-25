@@ -1,9 +1,9 @@
 import style from '../summoner.module.css'
 
-export default function DetailMatchBox(props: { matchInfo: match, spell: any, summonerAccountIds: summonerAccountIds }) {
-    let match: match = props.matchInfo
-    let blueTeam: participants[] = props.matchInfo.info.participants.slice(0, 5)
-    let redTeam: participants[] = props.matchInfo.info.participants.slice(5, 10)
+export default function DetailMatchBox(props: { matchData: match, spell: any, summonerAccountIds: summonerAccountIds }) {
+    let match: match = props.matchData
+    let blueTeam: participants[] = props.matchData.info.participants.slice(0, 5)
+    let redTeam: participants[] = props.matchData.info.participants.slice(5, 10)
     let damageTo: number[] = []
     let damageTake: number[] = []
     blueTeam.map((a) => {
