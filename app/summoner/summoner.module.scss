@@ -61,11 +61,11 @@
 }
 
 .match_summury_result {
-    width: 20%;
     font-size: 0.7rem;
 
     >div:nth-child(1) {
         font-weight: 700;
+        white-space: pre-wrap;
     }
 
     >div:nth-child(3) {
@@ -75,14 +75,23 @@
         font-weight: 700;
         border-top: 0.01rem solid reset.$color-gray1;
     }
+
+    @media (min-width:768px) {
+        width: 5rem;
+
+        >div:nth-child(1) {
+            white-space: nowrap;
+        }
+    }
 }
 
 // img
 .match_summury_img {
     display: none;
 
-    @media (min-width:576px) {
+    @media (min-width:768px) {
         position: relative;
+        display: block;
         width: 6rem;
 
         img {
@@ -100,16 +109,21 @@
             color: reset.$color-white;
             border-radius: 20%;
             padding: 0.2rem;
-            bottom: 10px;
-            right: 10px;
+            bottom: 0.1rem;
+            right: 0.8rem;
         }
     }
 }
 
 // info
 .match_summury_info {
-    width: 80%;
+    padding-left: 1rem;
     position: relative;
+
+    @media (min-width:768px) {
+        padding-left: 0;
+        padding-right: 1rem;
+    }
 }
 
 .match_summury_info_default {
@@ -138,7 +152,7 @@
         font-size: 0.8rem;
     }
 
-    @media (min-width:576px) {
+    @media (min-width:768px) {
         display: none;
     }
 }
@@ -198,9 +212,16 @@
     }
 }
 
+.match_align_box {
+    @media (min-width:1200px) {
+        flex-grow: 1;
+    }
+}
+
 // parti
 .match_summury_parti {
     display: none;
+    width: auto;
 
     @media (min-width:768px) {
         flex-grow: 1;
@@ -222,12 +243,16 @@
 
                 >div {
                     display: block;
-                    text-overflow: ellipsis;
                     @include reset.textOverflow();
                 }
             }
         }
 
+    }
+
+    @media (min-width:1200px) {
+        flex-grow: 0;
+        width: 30rem;
     }
 }
 

@@ -53,6 +53,7 @@ export default function MatchBox(props: { matchData: match, summonerAccountIds: 
     let gameResult: boolean = searchedSummoner.win
     let matchTakenTime: { min: number, sec: number } = duringTime(matchData.info.gameDuration)
     let [showDetail, setShowDetail] = useState(false)
+
     return (
         <div className={style.match_wrapper}>
             <div>
@@ -62,7 +63,7 @@ export default function MatchBox(props: { matchData: match, summonerAccountIds: 
                 }}>
                     {/* match result */}
                     <div className={style.match_summury_result}>
-                        <div>{matchData.info.gameMode == 'CLASSIC' ? '솔랭' : matchData.info.gameMode == 'URF' ? 'U.R.F.' : '무작위 총력전'}</div>
+                        <div>{matchData.info.gameMode == 'CLASSIC' ? '솔랭' : matchData.info.gameMode == 'URF' ? 'U.R.F.' : '무작위\n총력전'}</div>
                         <div>{gameDate(matchData.info.gameStartTimestamp)}</div>
                         <div>
                             {gameResult == true ? '승리' : '패배'}
@@ -115,6 +116,7 @@ export default function MatchBox(props: { matchData: match, summonerAccountIds: 
                             }
                         </div>
                     </div>
+                    <div className={style.match_align_box}></div>
                     {/* match parti */}
                     <div className={style.match_summury_parti}>
                         <div>
