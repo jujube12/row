@@ -52,7 +52,7 @@ export default function MatchBox(props: { matchData: match, summonerAccountIds: 
     let itemKeys: number[] = [searchedSummoner.item0, searchedSummoner.item1, searchedSummoner.item2, searchedSummoner.item3, searchedSummoner.item4, searchedSummoner.item5, searchedSummoner.item6]
     let gameResult: boolean = searchedSummoner.win
     let matchTakenTime: { min: number, sec: number } = duringTime(matchData.info.gameDuration)
-    let [showDetail, setShowDetail] = useState(false)
+    let [showDetail, setShowDetail] = useState(true)
 
     return (
         <div className={style.match_wrapper}>
