@@ -77,7 +77,7 @@ export default async function Search(props: summonerUrlParam) {
                                 .then((r) => r.json())
                                 .then((result) => {
                                     return (
-                                        <MatchBox key={i} matchData={result} summonerAccountIds={summonerAccountIds}></MatchBox>
+                                        <MatchBox key={i} matchData={result} summonerAccountIds={summonerAccountIds} perkKeyAndImg={perkKeyAndImg}></MatchBox>
                                     )
                                 })
                         )

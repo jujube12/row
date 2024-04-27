@@ -175,6 +175,25 @@
     }
 }
 
+.match_summury_info_perk {
+    img {
+        width: 1.5rem;
+        margin: 0.1rem;
+        padding: 0.1rem;
+        border-radius: 50%;
+    }
+
+    >img:nth-child(1) {
+        background-color: reset.$color-black;
+    }
+
+    @media (max-width:576px) {
+        img {
+            width: 1.2rem;
+        }
+    }
+}
+
 .match_summury_kda {
     flex-grow: 1;
     text-align: center;
@@ -332,12 +351,15 @@
     >div:nth-child(3) {
         padding-top: 0.2rem;
 
-        >div {
-            background-color: aqua;
+        >img {
             width: 1rem;
             height: 1rem;
             margin: 0.1rem;
-            border-radius: 0.2rem;
+            border-radius: 50%;
+        }
+
+        >img:nth-child(1) {
+            background-color: reset.$color-black;
         }
     }
 

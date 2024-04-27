@@ -172,6 +172,21 @@
   }
 }
 
+.match_summury_info_perk img {
+  width: 1.5rem;
+  margin: 0.1rem;
+  padding: 0.1rem;
+  border-radius: 50%;
+}
+.match_summury_info_perk > img:nth-child(1) {
+  background-color: #000000;
+}
+@media (max-width: 576px) {
+  .match_summury_info_perk img {
+    width: 1.2rem;
+  }
+}
+
 .match_summury_kda {
   flex-grow: 1;
   text-align: center;
@@ -324,12 +339,14 @@
 .match_detail_user_img > div:nth-child(3) {
   padding-top: 0.2rem;
 }
-.match_detail_user_img > div:nth-child(3) > div {
-  background-color: aqua;
+.match_detail_user_img > div:nth-child(3) > img {
   width: 1rem;
   height: 1rem;
   margin: 0.1rem;
-  border-radius: 0.2rem;
+  border-radius: 50%;
+}
+.match_detail_user_img > div:nth-child(3) > img:nth-child(1) {
+  background-color: #000000;
 }
 .match_detail_user_info {
   font-size: 0.8rem;

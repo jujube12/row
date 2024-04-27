@@ -1,6 +1,6 @@
 import style from '../summoner.module.css'
 
-export default function DetailMatchBox(props: { matchData: match, spell: any, summonerAccountIds: summonerAccountIds }) {
+export default function DetailMatchBox(props: { matchData: match, spell: any, summonerAccountIds: summonerAccountIds, perkKeyAndImg: { [id: string]: string } }) {
     let matchData: match = props.matchData
     let blueTeam: participants[] = matchData.info.participants.slice(0, 5)
     let redTeam: participants[] = matchData.info.participants.slice(5, 10)
@@ -16,23 +16,23 @@ export default function DetailMatchBox(props: { matchData: match, spell: any, su
     })
     let maxDamageDealt = Math.max(...damageDealt)
     let maxDamageTaken = Math.max(...damageTaken)
-    const perkImgUrl = 'https://ddragon.leagueoflegends.com/cdn/img/'
 
     return (
         <div className={style.match_detail_wrapper}>
             <div className={style.match_detail_team}>
                 <div>{blueTeam[0].win == true ? '승리' : '패배'} (블루팀)</div>
-                <TeamBox teamMembers={blueTeam} spell={props.spell} searchedSummonerId={props.summonerAccountIds.id} maxDamageDealt={maxDamageDealt} maxDamageTaken={maxDamageTaken}></TeamBox>
+                <TeamBox teamMembers={blueTeam} spell={props.spell} searchedSummonerId={props.summonerAccountIds.id} maxDamageDealt={maxDamageDealt} maxDamageTaken={maxDamageTaken} perkKeyAndImg={props.perkKeyAndImg}></TeamBox>
             </div>
             <div className={style.match_detail_team}>
                 <div>{redTeam[0].win == true ? '승리' : '패배'} (레드팀)</div>
-                <TeamBox teamMembers={redTeam} spell={props.spell} searchedSummonerId={props.summonerAccountIds.id} maxDamageDealt={maxDamageDealt} maxDamageTaken={maxDamageTaken}></TeamBox>
+                <TeamBox teamMembers={redTeam} spell={props.spell} searchedSummonerId={props.summonerAccountIds.id} maxDamageDealt={maxDamageDealt} maxDamageTaken={maxDamageTaken} perkKeyAndImg={props.perkKeyAndImg}></TeamBox>
             </div>
         </div>
     )
 }
 
-function TeamBox(props: { teamMembers: participants[], spell: any, searchedSummonerId: string, maxDamageDealt: number, maxDamageTaken: number }) {
+function TeamBox(props: { teamMembers: participants[], spell: any, searchedSummonerId: string, maxDamageDealt: number, maxDamageTaken: number, perkKeyAndImg: { [id: string]: string } }) {
+    const perkImgUrl = 'https://ddragon.leagueoflegends.com/cdn/img/'
     return (
         <div>
             {
@@ -50,8 +50,8 @@ function TeamBox(props: { teamMembers: participants[], spell: any, searchedSummo
                                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${props.spell[summoner.summoner2Id]}.png`}></img>
                                 </div>
                                 <div>
-                                    <div>{summoner.perks.styles[0].selections[0].perk}</div>
-                                    <div>{summoner.perks.styles[1].style}</div>
+                                    <img src={perkImgUrl + props.perkKeyAndImg[summoner.perks.styles[0].selections[0].perk]}></img>
+                                    <img src={perkImgUrl + props.perkKeyAndImg[summoner.perks.styles[1].style]}></img>
                                 </div>
                             </div>
                             <div className={style.match_detail_user_info}>

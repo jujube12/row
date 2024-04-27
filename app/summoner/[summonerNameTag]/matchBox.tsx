@@ -3,7 +3,7 @@ import style from '../summoner.module.css'
 import DetailMatchBox from './detailMatchBox'
 import { kill, gameDate, duringTime } from '../../function/match'
 import { useState } from 'react';
-export default function MatchBox(props: { matchData: match, summonerAccountIds: summonerAccountIds }) {
+export default function MatchBox(props: { matchData: match, summonerAccountIds: summonerAccountIds, perkKeyAndImg: { [id: string]: string } }) {
     let spell = {
         21: 'SummonerBarrier',
         1: 'SummonerBoost',
@@ -54,6 +54,7 @@ export default function MatchBox(props: { matchData: match, summonerAccountIds: 
     let matchTakenTime: { min: number, sec: number } = duringTime(matchData.info.gameDuration)
     let [showDetail, setShowDetail] = useState(true)
 
+    const perkImgUrl = 'https://ddragon.leagueoflegends.com/cdn/img/'
     return (
         <div className={style.match_wrapper}>
             <div>
@@ -85,6 +86,10 @@ export default function MatchBox(props: { matchData: match, summonerAccountIds: 
                             <div className={style.match_summury_info_spell}>
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[searchedSummoner.summoner1Id as keyof typeof spell]}.png`}></img>
                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${spell[searchedSummoner.summoner2Id as keyof typeof spell]}.png`}></img>
+                            </div>
+                            <div className={style.match_summury_info_perk}>
+                                <img src={perkImgUrl + props.perkKeyAndImg[searchedSummoner.perks.styles[0].selections[0].perk]}></img>
+                                <img src={perkImgUrl + props.perkKeyAndImg[searchedSummoner.perks.styles[1].style]}></img>
                             </div>
                             <div className={style.match_summury_kda}>
                                 <div>{searchedSummoner.kills} / {searchedSummoner.deaths} / {searchedSummoner.assists}</div>
@@ -146,7 +151,7 @@ export default function MatchBox(props: { matchData: match, summonerAccountIds: 
                     </div>
                 </div>
                 {
-                    showDetail == true ? <DetailMatchBox matchData={matchData} spell={spell} summonerAccountIds={props.summonerAccountIds}></DetailMatchBox> : <div></div>
+                    showDetail == true ? <DetailMatchBox matchData={matchData} spell={spell} summonerAccountIds={props.summonerAccountIds} perkKeyAndImg={props.perkKeyAndImg}></DetailMatchBox> : <div></div>
                 }
             </div>
         </div >
