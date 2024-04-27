@@ -9,6 +9,8 @@ export default async function Search(props: summonerUrlParam) {
     let summonerAccountIds!: summonerAccountIds
     let summonerAccountProfle!: summonerAccountProfle
     let summonerMatchList!: string[]
+    let lolPerkJson!: perkJson[]
+    let perkKeyAndImg: { [id: string]: string } = {}
     await fetch(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${summonerNameTag[0]}/${summonerNameTag[1]}?api_key=${process.env.NEXT_RIOT}`)
         .then((r) => r.json())
         .then((result) => {
@@ -34,6 +36,19 @@ export default async function Search(props: summonerUrlParam) {
         .then((result) => {
             summonerAccountProfle = result[0]
         })
+    await fetch('https://ddragon.leagueoflegends.com/cdn/14.7.1/data/ko_KR/runesReforged.json')
+        .then((r) => r.json())
+        .then((result) => {
+            lolPerkJson = result
+        })
+    lolPerkJson.map((mainPerk) => {
+        perkKeyAndImg[mainPerk.id] = mainPerk.icon
+        mainPerk.slots.map((perk) => {
+            perk.runes.map((r) => {
+                perkKeyAndImg[r.id] = r.icon
+            })
+        })
+    })
     return (
         summonerAccount ?
             <div className={style.summoner_container}>

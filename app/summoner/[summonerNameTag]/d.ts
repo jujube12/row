@@ -329,3 +329,20 @@ type participants = {
     wardsPlaced: number,
     win: boolean
 }
+
+type perkJson = {
+    id: string,
+    key: string,
+    icon: string,
+    name: string,
+    slots: {
+        runes: {
+            id: number,
+            key: string,
+            icon: string,
+            name: string,
+            longDesc: string,
+            shortDesc: string
+        }[]
+    }[]
+}

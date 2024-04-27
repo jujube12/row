@@ -16,6 +16,8 @@ export default function DetailMatchBox(props: { matchData: match, spell: any, su
     })
     let maxDamageDealt = Math.max(...damageDealt)
     let maxDamageTaken = Math.max(...damageTaken)
+    const perkImgUrl = 'https://ddragon.leagueoflegends.com/cdn/img/'
+
     return (
         <div className={style.match_detail_wrapper}>
             <div className={style.match_detail_team}>
@@ -48,8 +50,8 @@ function TeamBox(props: { teamMembers: participants[], spell: any, searchedSummo
                                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/spell/${props.spell[summoner.summoner2Id]}.png`}></img>
                                 </div>
                                 <div>
-                                    <div></div>
-                                    <div></div>
+                                    <div>{summoner.perks.styles[0].selections[0].perk}</div>
+                                    <div>{summoner.perks.styles[1].style}</div>
                                 </div>
                             </div>
                             <div className={style.match_detail_user_info}>
