@@ -82,7 +82,7 @@ export default function ChampToggleBox() {
         return (
             champPosition[position].map((championName, i) => {
                 return (
-                    <div key={i} className={style.champion_img_box} onClick={() => { router.push(`champ/${championName}`) }}>
+                    <div key={i} className={style.champion_img_box} onClick={() => { router.push(`championList/${championName}`) }}>
                         <div>
                             <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${championName}.png`}></img>
                         </div>
