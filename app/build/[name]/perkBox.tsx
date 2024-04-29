@@ -27,9 +27,26 @@ export default function PerkBox(props: { perkData: perkInfo }) {
             setSubPerkIngo(perkData[perkData.findIndex((i) => i.id == mostSubPerk)])
         }
     }, [perkData])
-    console.log(summonerPerk)
-    return (
 
+    let mainPerkList = summonerPerk.primaryStyle[mostMainPerk as keyof perkInfo]
+    let selectedMainPerkIndex: number[] = []
+    mainPerkInfo?.slots.map((slot, i) => {
+        let runeArr: number[] = []
+        slot.runes.map((r) => {
+            runeArr.push(mainPerkList[r.id])
+        })
+        selectedMainPerkIndex.push(runeArr.indexOf(Math.max(...runeArr)))
+    })
+    let subPerkList = summonerPerk.subStyle[mostSubPerk as keyof perkInfo]
+    let selectedSubPerkIndex: number[] = []
+    subPerkInfo?.slots.map((slot, i) => {
+        let runeArr: number[] = []
+        slot.runes.map((r) => {
+            runeArr.push(subPerkList[r.id])
+        })
+        selectedSubPerkIndex.push(runeArr.indexOf(Math.max(...runeArr)))
+    })
+    return (
         <div className={style.build_champ_perks}>
             <div>
                 <div><img src={imgUrl + mainPerkInfo?.icon}></img></div>
@@ -38,9 +55,9 @@ export default function PerkBox(props: { perkData: perkInfo }) {
                         return (
                             <div key={i}>
                                 {
-                                    slot.runes.map((a, i) => {
+                                    slot.runes.map((a, j) => {
                                         return (
-                                            <div key={i}><img src={imgUrl + a.icon}></img></div>
+                                            <div key={j}><img style={selectedMainPerkIndex[i] == j ? { filter: 'none' } : {}} src={imgUrl + a.icon}></img></div>
                                         )
                                     })
                                 }
@@ -56,15 +73,18 @@ export default function PerkBox(props: { perkData: perkInfo }) {
                         return (
                             <div key={i}>
                                 {
-                                    slot.runes.map((a, i) => {
-                                        return (
-                                            <div key={i}><img src={imgUrl + a.icon}></img></div>
-                                        )
-                                    })
+                                    i != 0
+                                        ? slot.runes.map((a, j) => {
+                                            return (
+                                                <div key={j}><img style={selectedSubPerkIndex[i] == j ? { filter: 'none' } : {}} src={imgUrl + a.icon}></img></div>
+                                            )
+                                        })
+                                        : <div></div>
                                 }
                             </div>
                         )
-                    })
+                    }
+                    )
                 }
             </div>
         </div>

@@ -62,13 +62,25 @@
 
 .build_champ_perks {
     background-color: reset.$color-white;
-    padding: 1rem;
-    margin: 0.5rem;
     border-radius: 0.5rem;
-    display: flex;
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    img {
+        width: 2rem;
+        filter: grayscale(100%);
+    }
 
     >div {
-        width: 50%;
+        width: 90%;
+        margin: auto;
+        padding: 0.5rem 0;
+
+        >div:nth-child(1) {
+            >img {
+                filter: none;
+            }
+        }
 
         >div {
             display: flex;
@@ -84,9 +96,14 @@
         }
     }
 
-    img {
-        width: 2rem;
+    >div:nth-child(2) {
+        border-top: 0.1rem solid reset.$color-gray1;
+
     }
+}
+
+.build_champ_perks_img_none_filter {
+    filter: none;
 }
 
 .build_champ_spells {
