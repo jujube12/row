@@ -3,7 +3,6 @@
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
-  width: 100%;
 }
 @media (min-width: 992px) {
   .build_container {
@@ -11,8 +10,14 @@
   }
 }
 
-.build_wrapper {
+.bulid_wrapper {
   width: 100%;
+  margin: auto;
+}
+@media (min-width: 996px) {
+  .bulid_wrapper {
+    width: 80%;
+  }
 }
 
 .build_champ_profile {
@@ -65,33 +70,47 @@
   margin: 0.5rem;
   padding: 0.5rem;
 }
-.build_champ_perks img {
+.build_champ_perks > div img {
   width: 2rem;
   filter: grayscale(100%);
 }
-.build_champ_perks > div {
+.build_champ_perks > div > div {
   width: 90%;
   margin: auto;
   padding: 0.5rem 0;
 }
-.build_champ_perks > div > div:nth-child(1) > img {
+.build_champ_perks > div > div > div:nth-child(1) > img {
   filter: none;
 }
-.build_champ_perks > div > div {
+.build_champ_perks > div > div > div {
   display: flex;
   justify-content: space-around;
   padding: 0.3rem 0;
 }
-.build_champ_perks > div > div:nth-child(2) img {
+.build_champ_perks > div > div > div:nth-child(2) img {
   border-radius: 50%;
   background-color: #000000;
 }
-.build_champ_perks > div:nth-child(2) {
+.build_champ_perks > div > div:nth-child(2) {
   border-top: 0.1rem solid #dadada;
 }
-
-.build_champ_perks_img_none_filter {
-  filter: none;
+@media (min-width: 350px) {
+  .build_champ_perks > div {
+    display: flex;
+  }
+  .build_champ_perks > div > div {
+    width: 50%;
+  }
+  .build_champ_perks > div > div:nth-child(2) {
+    border: none;
+    border-left: 0.1rem solid #dadada;
+  }
+}
+@media (min-width: 768px) {
+  .build_champ_perks > div {
+    width: 70%;
+    margin: auto;
+  }
 }
 
 .build_champ_spells {
@@ -130,4 +149,12 @@
 }
 .build_champ_spells > div:nth-child(2) {
   border-top: 0.1rem solid #dadada;
+}
+@media (min-width: 768px) {
+  .build_champ_spells {
+    display: flex;
+  }
+  .build_champ_spells > div:nth-child(2) {
+    border: none;
+  }
 }/*# sourceMappingURL=build.module.css.map */

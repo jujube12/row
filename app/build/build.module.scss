@@ -2,11 +2,15 @@
 
 .build_container {
     @include reset.container();
-    width: 100%;
 }
 
-.build_wrapper {
+.bulid_wrapper {
     width: 100%;
+    margin: auto;
+
+    @media(min-width:996px) {
+        width: 80%;
+    }
 }
 
 .build_champ_profile {
@@ -66,44 +70,64 @@
     margin: 0.5rem;
     padding: 0.5rem;
 
-    img {
-        width: 2rem;
-        filter: grayscale(100%);
-    }
-
     >div {
-        width: 90%;
-        margin: auto;
-        padding: 0.5rem 0;
-
-        >div:nth-child(1) {
-            >img {
-                filter: none;
-            }
+        img {
+            width: 2rem;
+            filter: grayscale(100%);
         }
 
         >div {
-            display: flex;
-            justify-content: space-around;
-            padding: 0.3rem 0;
+            width: 90%;
+            margin: auto;
+            padding: 0.5rem 0;
+
+            >div:nth-child(1) {
+                >img {
+                    filter: none;
+                }
+            }
+
+            >div {
+                display: flex;
+                justify-content: space-around;
+                padding: 0.3rem 0;
+            }
+
+            >div:nth-child(2) {
+                img {
+                    border-radius: 50%;
+                    background-color: reset.$color-black;
+                }
+            }
         }
 
         >div:nth-child(2) {
-            img {
-                border-radius: 50%;
-                background-color: reset.$color-black;
+            border-top: 0.1rem solid reset.$color-gray1;
+        }
+    }
+
+    @media(min-width:350px) {
+        >div {
+            display: flex;
+
+            >div {
+                width: 50%;
+            }
+
+            >div:nth-child(2) {
+                border: none;
+                border-left: 0.1rem solid reset.$color-gray1;
+
             }
         }
     }
 
-    >div:nth-child(2) {
-        border-top: 0.1rem solid reset.$color-gray1;
-
+    @media(min-width:768px) {
+        >div {
+            width: 70%;
+            margin: auto;
+        }
     }
-}
-
-.build_champ_perks_img_none_filter {
-    filter: none;
 }
 
 .build_champ_spells {
@@ -148,6 +172,14 @@
 
     >div:nth-child(2) {
         border-top: 0.1rem solid reset.$color-gray1;
+    }
+
+    @media (min-width:768px) {
+        display: flex;
+
+        >div:nth-child(2) {
+            border: none;
+        }
     }
 }
 
