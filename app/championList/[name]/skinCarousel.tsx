@@ -1,5 +1,5 @@
 'use client'
-import style from '../champ.module.css'
+import style from '../championList.module.css'
 import { useState } from 'react'
 import { skin } from '../d'
 

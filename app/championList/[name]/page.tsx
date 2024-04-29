@@ -1,4 +1,4 @@
-import style from '../champ.module.css'
+import style from '../championList.module.css'
 import { connectDB } from '@/util/database'
 import { champUrlParam, champData } from '../d'
 import SkinCarousel from './skinCarousel'
@@ -6,7 +6,7 @@ import SpellList from './spellList'
 import Position from './position'
 import ChampTitle from './champTitle'
 import Error from '@/app/error'
-export default async function champInfo(props: champUrlParam) {
+export default async function champion(props: champUrlParam) {
     const champName = props.params.name
     const db = (await connectDB).db(process.env.NEXT_DB_NAME)
     const champData: champData | null = await db.collection<champData>('champInfo').findOne({ name: champName })

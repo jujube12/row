@@ -1,11 +1,11 @@
 @use '../reset';
 
 /** ================= champList =================*/
-.champ_container {
+.championList_container {
     @include reset.container()
 }
 
-.champ_title {
+.championList_title {
     @include reset.title();
     padding: 2rem 0;
 
@@ -14,35 +14,51 @@
     }
 }
 
-.champList_wrapper {
+.toggle_championList_wrapper {
     @include reset.box(90%, auto, 0);
     overflow: hidden;
 }
 
-.champList_toggle_btn {
+.toggle_championList_btn_bar {
     display: flex;
+    flex-wrap: wrap;
     background: linear-gradient(reset.$color-gold3, reset.$color-gold4);
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    border-bottom: 0.2rem solid reset.$color-gold3;
 
     >div {
-        flex-grow: 1;
-        padding: 0.7rem 0;
+        width: (100% /3);
+        padding: 0.3rem 0;
         text-align: center;
+    }
+
+    @media(min-width:768px) {
+        flex-wrap: nowrap;
+        border-bottom: none;
+
+        >div {
+            width: (100%/6);
+            padding: 0.5rem 0;
+        }
     }
 }
 
 .toggle_btn_selected {
     background-color: reset.$color-white;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    border: 0.1rem solid reset.$color-gold3;
-    border-bottom: none;
+    border-radius: 1rem;
+    color: reset.$color-gold5;
+
+    @media(min-width:768px) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
 
-.champList_box {
+.championList_box {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 0.5rem 0;
+    padding: 0.3rem;
 
     @media (min-width: 768px) {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -53,29 +69,32 @@
     }
 }
 
-.champInfo_box {
+.champion_img_box {
     position: relative;
-    width: 5rem;
+    width: 3.8rem;
+    height: auto;
     margin: 0.5rem auto;
 
-    img {
+    >div:nth-child(1) {
         width: 100%;
+
+        >img {
+            width: 100%;
+        }
     }
 
     >div:nth-child(2) {
-        @include reset.textOverflow();
         width: 100%;
         z-index: 1;
         color: reset.$color-white;
         text-align: center;
         background-color: reset.$color-black;
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         height: 20%;
-
     }
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
         transition-duration: 500ms;
 
         img {
@@ -84,7 +103,7 @@
     }
 
     @media (min-width: 768px) {
-        width: 6rem;
+        width: 5rem;
     }
 }
 

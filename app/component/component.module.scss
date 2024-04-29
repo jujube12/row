@@ -75,9 +75,15 @@
     margin: 0.5rem auto;
 
     >div:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
         font-weight: 700;
         padding-bottom: 0.3rem;
         border-bottom: 0.1rem solid reset.$color-gray1;
+
+        >div:nth-child(2) {
+            color: reset.$color-gold5;
+        }
     }
 
     >div:nth-child(2) {

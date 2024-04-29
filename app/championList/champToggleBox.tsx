@@ -1,5 +1,5 @@
 'use client'
-import style from './champ.module.css'
+import style from './championList.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 export default function ChampToggleBox() {
@@ -80,21 +80,21 @@ export default function ChampToggleBox() {
     let router = useRouter()
     function champImg(position: any) {
         return (
-            champPosition[position].map((a, i) => {
+            champPosition[position].map((championName, i) => {
                 return (
-                    <div key={i} className={style.champInfo_box} onClick={() => { router.push(`champ/${a}`) }}>
+                    <div key={i} className={style.champion_img_box} onClick={() => { router.push(`champ/${championName}`) }}>
                         <div>
-                            <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${a}.png`}></img>
+                            <img src={`https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${championName}.png`}></img>
                         </div>
-                        <div>{a}</div>
+                        <div>{championName}</div>
                     </div>
                 )
             })
         )
     }
     return (
-        <div className={style.champList_wrapper}>
-            <div className={style.champList_toggle_btn}>
+        <div className={style.toggle_championList_wrapper}>
+            <div className={style.toggle_championList_btn_bar}>
                 {
                     positionList.map((p, i) => {
                         return (
@@ -103,7 +103,7 @@ export default function ChampToggleBox() {
                     })
                 }
             </div>
-            <div className={style.champList_box}>{champImg(position)}</div>
+            <div className={style.championList_box}>{champImg(position)}</div>
         </div>
     )
 }

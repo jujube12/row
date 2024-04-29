@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState, useRef } from 'react'
-import style from '../champ.module.css'
+import style from '../championList.module.css'
 export default function ChampTitle(props: { name: string, title: string }) {
     useEffect(() => {
         window.addEventListener('scroll', updateScroll);

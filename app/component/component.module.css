@@ -81,9 +81,14 @@
   margin: 0.5rem auto;
 }
 .champ_box_wrapper > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
   font-weight: 700;
   padding-bottom: 0.3rem;
   border-bottom: 0.1rem solid #dadada;
+}
+.champ_box_wrapper > div:nth-child(1) > div:nth-child(2) {
+  color: #895e08;
 }
 .champ_box_wrapper > div:nth-child(2) {
   height: 10rem;

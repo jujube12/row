@@ -1,5 +1,5 @@
 'use client'
-import style from '../champ.module.css'
+import style from '../championList.module.css'
 import { useRouter } from 'next/navigation'
 export default function Position(props: { tags: string[], champName: string }) {
     const position = props.tags

@@ -1,6 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import style from '../champ.module.css'
+import style from '../championList.module.css'
 import { passive, spell } from '../d'
 
 export default function SpellList(props: { passive: passive, spellList: spell[], champKey: string }) {
