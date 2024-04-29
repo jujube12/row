@@ -1,27 +1,27 @@
 .board_container {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
   padding-top: 2rem;
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .board_container {
-    width: 100%;
+    width: 80%;
   }
 }
 
 /* ============= write box ============= */
 .write_container {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
   padding-top: 2rem;
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .write_container {
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -103,15 +103,15 @@
 
 /* ============= detail ============= */
 .detail_container {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
   padding-top: 2rem;
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .detail_container {
-    width: 100%;
+    width: 80%;
   }
 }
 

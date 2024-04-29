@@ -1,14 +1,14 @@
 .logged_container {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
   text-align: center;
   margin-top: 20px;
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .logged_container {
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -24,15 +24,15 @@
 }
 
 .login_container {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
   position: relative;
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .login_container {
-    width: 100%;
+    width: 80%;
   }
 }
 

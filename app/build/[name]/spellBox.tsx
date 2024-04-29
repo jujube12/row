@@ -11,8 +11,8 @@ export default function SpellBox(props: { spellData: spellInfo }) {
     count.map((a) => {
         sum += a
     })
-    let max = count[0]
-    let max2 = count[1]
+    let max = count[count.length - 1]
+    let max2 = count[count.length - 2]
     let first = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max))?.split('-')
     let seconde = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max2))?.split('-')
     let winPer = [(max / sum * 100).toFixed(2) + ' %', (max2 / sum * 100).toFixed(2) + ' %']
@@ -38,7 +38,6 @@ export default function SpellBox(props: { spellData: spellInfo }) {
         54: 'Summoner_UltBookPlaceholder',
         55: 'Summoner_UltBookSmitePlaceholder',
     }
-
     return (
         <div className={style.build_champ_spells}>
             <div>

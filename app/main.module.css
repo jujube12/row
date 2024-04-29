@@ -1,13 +1,13 @@
 .main_container {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
   position: relative;
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .main_container {
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -24,14 +24,14 @@
 }
 
 .loading_container {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-bottom: 2rem;
   min-height: 100vh;
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .loading_container {
-    width: 100%;
+    width: 80%;
   }
 }
 

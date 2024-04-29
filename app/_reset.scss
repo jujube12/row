@@ -26,13 +26,13 @@ $color-green5: #1e3143;
 
 // search
 @mixin container {
-    width: 80%;
+    width: 100%;
     margin: auto;
     padding-bottom: 2rem;
     min-height: 100vh;
 
-    @media (max-width: 992px) {
-        width: 100%;
+    @media (min-width: 992px) {
+        width: 80%;
     }
 }
 

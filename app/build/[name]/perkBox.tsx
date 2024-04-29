@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import style from '../build.module.css'
-import { matchInfo, perkInfo, perkJson } from '../d'
+import { perkInfo, perkJson } from '../d'
 
 export default function PerkBox(props: { perkData: perkInfo }) {
     const summonerPerk: perkInfo | undefined = props.perkData
@@ -27,16 +27,16 @@ export default function PerkBox(props: { perkData: perkInfo }) {
             setSubPerkIngo(perkData[perkData.findIndex((i) => i.id == mostSubPerk)])
         }
     }, [perkData])
-
+    console.log(summonerPerk)
     return (
 
         <div className={style.build_champ_perks}>
             <div>
                 <div><img src={imgUrl + mainPerkInfo?.icon}></img></div>
                 {
-                    mainPerkInfo?.slots.map((slot) => {
+                    mainPerkInfo?.slots.map((slot, i) => {
                         return (
-                            <div>
+                            <div key={i}>
                                 {
                                     slot.runes.map((a, i) => {
                                         return (
@@ -52,9 +52,9 @@ export default function PerkBox(props: { perkData: perkInfo }) {
             <div>
                 <div><img src={imgUrl + subPerkInfo?.icon}></img></div>
                 {
-                    subPerkInfo?.slots.map((slot) => {
+                    subPerkInfo?.slots.map((slot, i) => {
                         return (
-                            <div>
+                            <div key={i}>
                                 {
                                     slot.runes.map((a, i) => {
                                         return (

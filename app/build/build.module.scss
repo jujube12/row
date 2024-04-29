@@ -2,6 +2,7 @@
 
 .build_container {
     @include reset.container();
+    width: 100%;
 }
 
 .build_wrapper {
@@ -11,43 +12,50 @@
 .build_champ_profile {
     display: flex;
     background-color: reset.$color-white;
-    padding: 1rem;
+    padding: 0.3rem;
     margin: 0.5rem;
     border-radius: 0.5rem;
 
     img {
         border-radius: 0.5rem;
-        width: 7rem;
+        width: 5rem;
     }
 }
 
 .build_champ_profile_text {
-    padding: 0 1rem;
+    flex-grow: 1;
+    padding: 0 0.5rem;
 
     >div:nth-child(1) {
-        font-size: 2rem;
+        font-size: 1.3rem;
         padding: 0.3rem 0;
     }
 
     >div:nth-child(2) {
-        width: 17rem;
         border-radius: 0.5rem;
         display: flex;
         text-align: center;
         border: 0.05rem solid reset.$color-gray2;
-        padding: 0.5rem;
-
-        >div:nth-child(2) {
-            border-left: 0.05rem solid reset.$color-gray1;
-            border-right: 0.05rem solid reset.$color-gray1;
-        }
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
 
         >div {
             flex-grow: 1;
 
             >div:nth-child(1) {
-                font-weight: 600;
+                font-weight: 700;
             }
+        }
+
+        >div:nth-child(2) {
+            border-left: 0.05rem solid reset.$color-gray1;
+            border-right: 0.05rem solid reset.$color-gray1;
+        }
+    }
+
+    @media (min-width:576px) {
+        >div:nth-child(2) {
+            width: 20rem;
         }
     }
 }
@@ -83,14 +91,14 @@
 
 .build_champ_spells {
     background-color: reset.$color-white;
-    padding: 1rem;
     margin: 0.5rem;
     border-radius: 0.5rem;
-    display: flex;
+    padding: 0.5rem 1rem;
 
     >div {
         display: flex;
         flex-grow: 1;
+        padding: 0.2rem 0;
 
         >div:nth-child(1) {
             display: flex;
@@ -98,80 +106,97 @@
             img {
                 width: 2rem;
                 height: 2rem;
-                background-color: reset.$color-gray1;
                 margin: 0.1rem;
+                background-color: reset.$color-black;
+                border-radius: 20%;
+                padding: 0.1rem;
             }
         }
 
         >div:nth-child(2) {
             display: flex;
-        }
-    }
-}
-
-.build_champ_skills {
-    background-color: reset.$color-white;
-    padding: 1rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-
-    >div {
-        >div {
-            display: flex;
-
-            >div {
-                width: 2rem;
-                height: 2rem;
-                background-color: reset.$color-gray1;
-                margin: 0.1rem;
-            }
-        }
-    }
-}
-
-.build_champ_items {
-    background-color: reset.$color-white;
-    padding: 1rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-
-    >div {
-        >div {
-            display: flex;
+            padding-left: 1rem;
+            padding-top: 0.5rem;
 
             >div:nth-child(1) {
-                display: flex;
+                font-weight: 700;
+            }
 
-                >div {
-                    width: 2rem;
-                    height: 2rem;
-                    background-color: reset.$color-gray1;
-                    margin: 0.1rem;
-                }
+            >div:nth-child(2) {
+                padding-top: 0.1rem;
+                padding-left: 0.3rem;
             }
         }
     }
-}
 
-.build_champ_counter {
-    background-color: reset.$color-white;
-    padding: 1rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-
-    >div {
-        display: flex;
-
-        >div {
-
-            >div:nth-child(1) {
-                width: 2rem;
-                height: 2rem;
-                background-color: reset.$color-gray1;
-                margin: 0.1rem;
-            }
-        }
+    >div:nth-child(2) {
+        border-top: 0.1rem solid reset.$color-gray1;
     }
 }
+
+// .build_champ_skills {
+//     background-color: reset.$color-white;
+//     padding: 1rem;
+//     margin: 0.5rem;
+//     border-radius: 0.5rem;
+//     display: flex;
+
+//     >div {
+//         >div {
+//             display: flex;
+
+//             >div {
+//                 width: 2rem;
+//                 height: 2rem;
+//                 background-color: reset.$color-gray1;
+//                 margin: 0.1rem;
+//             }
+//         }
+//     }
+// }
+
+// .build_champ_items {
+//     background-color: reset.$color-white;
+//     padding: 1rem;
+//     margin: 0.5rem;
+//     border-radius: 0.5rem;
+//     display: flex;
+
+//     >div {
+//         >div {
+//             display: flex;
+
+//             >div:nth-child(1) {
+//                 display: flex;
+
+//                 >div {
+//                     width: 2rem;
+//                     height: 2rem;
+//                     background-color: reset.$color-gray1;
+//                     margin: 0.1rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .build_champ_counter {
+//     background-color: reset.$color-white;
+//     padding: 1rem;
+//     margin: 0.5rem;
+//     border-radius: 0.5rem;
+
+//     >div {
+//         display: flex;
+
+//         >div {
+
+//             >div:nth-child(1) {
+//                 width: 2rem;
+//                 height: 2rem;
+//                 background-color: reset.$color-gray1;
+//                 margin: 0.1rem;
+//             }
+//         }
+//     }
+// }
