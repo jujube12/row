@@ -3,6 +3,10 @@
 .board_container {
     @include reset.container();
     padding-top: 2rem;
+
+    >div:nth-child(1) {
+        @include reset.title();
+    }
 }
 
 /* ============= write box ============= */

@@ -73,7 +73,7 @@
 .champ_box_wrapper {
   width: 90%;
   height: auto;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   border: #d0b173 solid 0.15rem;
   background-color: #ffffff;
@@ -91,13 +91,74 @@
   color: #895e08;
 }
 .champ_box_wrapper > div:nth-child(2) {
-  height: 10rem;
+  display: flex;
+  justify-content: end;
+  margin-top: 0.5rem;
+  position: relative;
+}
+.champ_box_wrapper > div:nth-child(2) > div {
+  width: 7rem;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.3rem;
+  border: 0.08rem solid #895e08;
+  border-radius: 0.5rem;
+}
+.champ_box_wrapper > div:nth-child(2) > div:nth-child(1) {
+  background-color: #ffffff;
+}
+.champ_box_wrapper > div:nth-child(2) > div:nth-child(2) {
+  position: absolute;
+  background-color: #ffffff;
+}
+.champ_box_wrapper > div:nth-child(2) > div:nth-child(2) > div {
+  border-top: 0.08rem solid #895e08;
+}
+.champ_box_wrapper > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  border: none;
 }
 @media (min-width: 768px) {
   .champ_box_wrapper {
     margin-top: 0;
     margin-right: 0.2rem;
     width: 40%;
+  }
+}
+
+.champ_sorted_list > div {
+  display: flex;
+  padding-top: 0.5rem;
+}
+.champ_sorted_list > div > div {
+  width: 50%;
+}
+.champ_sorted_list > div > div > div {
+  display: flex;
+  margin: 0.1rem auto;
+}
+.champ_sorted_list > div > div > div > div {
+  padding-top: 0.3rem;
+}
+.champ_sorted_list > div > div > div > div:nth-child(1) {
+  width: 1.5rem;
+  font-weight: 600;
+}
+.champ_sorted_list > div > div > div > img {
+  width: 2rem;
+  background-color: #000000;
+}
+.champ_sorted_list > div > div > div > div:nth-child(3) {
+  padding-left: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .champ_sorted_list > div {
+    display: block;
+  }
+  .champ_sorted_list > div > div {
+    width: 100%;
   }
 }
 

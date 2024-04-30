@@ -16,3 +16,9 @@ export type post = {
     writeDate: number,
     editDate: number
 }
+
+export type champList = {
+    champName: string,
+    pickCount: number,
+    winningPer: number
+}

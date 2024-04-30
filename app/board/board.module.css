@@ -10,6 +10,16 @@
     width: 80%;
   }
 }
+.board_container > div:nth-child(1) {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #895e08, #f6d89d);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem #2f2f2f);
+}
 
 /* ============= write box ============= */
 .write_container {

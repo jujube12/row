@@ -71,7 +71,7 @@
 
 /* ===== champ box ===== */
 .champ_box_wrapper {
-    @include reset.box(90%, auto, 1rem);
+    @include reset.box(90%, auto, 0.5rem);
     margin: 0.5rem auto;
 
     >div:nth-child(1) {
@@ -87,7 +87,36 @@
     }
 
     >div:nth-child(2) {
-        height: 10rem;
+        display: flex;
+        justify-content: end;
+        margin-top: 0.5rem;
+        position: relative;
+
+        >div {
+            width: 7rem;
+            text-align: center;
+            font-size: 0.8rem;
+            padding: 0.1rem 0.3rem;
+            border: 0.08rem solid reset.$color-gold5;
+            border-radius: 0.5rem;
+        }
+
+        >div:nth-child(1) {
+            background-color: reset.$color-white;
+        }
+
+        >div:nth-child(2) {
+            position: absolute;
+            background-color: reset.$color-white;
+
+            >div {
+                border-top: 0.08rem solid reset.$color-gold5;
+            }
+
+            >div:nth-child(1) {
+                border: none;
+            }
+        }
     }
 
     @media (min-width: 768px) {
@@ -96,6 +125,52 @@
         width: 40%;
     }
 }
+
+.champ_sorted_list {
+    >div {
+        display: flex;
+        padding-top: 0.5rem;
+
+        >div {
+            width: 50%;
+
+            >div {
+                display: flex;
+                margin: 0.1rem auto;
+
+                >div {
+                    padding-top: 0.3rem;
+                }
+
+                >div:nth-child(1) {
+                    width: 1.5rem;
+                    font-weight: 600;
+                }
+
+                >img {
+                    width: 2rem;
+                    background-color: reset.$color-black;
+                }
+
+                >div:nth-child(3) {
+                    padding-left: 0.5rem;
+                    @include reset.textOverflow()
+                }
+            }
+        }
+    }
+
+    @media(min-width:768px) {
+        >div {
+            display: block;
+
+            >div {
+                width: 100%;
+            }
+        }
+    }
+}
+
 
 /* ===== board box ===== */
 .board_box_wrapper {

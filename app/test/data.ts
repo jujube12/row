@@ -1,10 +1,20 @@
 import { connectDB } from "@/util/database"
 import { matchData, matchInfo } from "./d"
+import { champData } from "../championList/d"
 export default async function dataHandler() {
     const matchVersion = 'match_14.7'
-    const matchInfoVersion = 'matchInfo_14.7'
+    const matchDataVersion = 'matchInfo_14.7'
+    const gameVersion = '14.7.1'
+
     let db = (await connectDB).db(process.env.NEXT_DB_NAME)
 
+    async function updateWinnningP0er() {
+        let a = await db.collection(matchDataVersion).find({}, { projection: { champName: 1, pickCount: 1, winCount: 1 } }).toArray()
+        a.map(async (aa) => {
+            let winp = Number((aa.winCount / aa.pickCount * 100).toFixed(2))
+            await db.collection(matchDataVersion).updateOne({ champName: aa.champName }, { $set: { winningPer: winp } })
+        })
+    }
     async function getChampList() {
         let champs: string[] = []
         await fetch('https://ddragon.leagueoflegends.com/cdn/14.7.1/data/en_US/champion.json')
@@ -14,20 +24,20 @@ export default async function dataHandler() {
             })
 
         await Promise.all(champs.map(async (a, i) => {
-            let result = await db.collection('matchInfo_14.7').insertOne({ champName: a, pickCount: 0, banCount: 0, winCount: 0, defeatCount: 0 })
+            let result = await db.collection(matchDataVersion).insertOne({ champName: a, pickCount: 0, banCount: 0, winCount: 0, defeatCount: 0 })
             console.log(i + ': ' + JSON.stringify(result) + '저장 완료')
         }))
 
         // fiddle name err change
-        let aa = await db.collection('matchInfo_14.7').find({ champName: { $regex: /Fiddle/ } }).toArray()
+        let aa = await db.collection(matchDataVersion).find({ champName: { $regex: /Fiddle/ } }).toArray()
         console.log(aa)
-        await db.collection('matchInfo_14.7').updateOne({ champName: 'Fiddlesticks' }, { $set: { champName: 'FiddleSticks' } })
-        let bb = await db.collection('matchInfo_14.7').find({ champName: { $regex: /Fiddle/ } }).toArray()
+        await db.collection(matchDataVersion).updateOne({ champName: 'Fiddlesticks' }, { $set: { champName: 'FiddleSticks' } })
+        let bb = await db.collection(matchDataVersion).find({ champName: { $regex: /Fiddle/ } }).toArray()
         console.log(bb)
     }
 
     async function updateMatchKeyInfo() {
-        let champList = await db.collection(matchInfoVersion).find({}, { projection: { champName: 1, _id: 0 } }).toArray();
+        let champList = await db.collection(matchDataVersion).find({}, { projection: { champName: 1, _id: 0 } }).toArray();
         champList.map(async (item) => {
             let name = item.champName
             if (item.champName === 'FiddleSticks') {
@@ -37,7 +47,7 @@ export default async function dataHandler() {
                 .then((r) => r.json())
                 .then(async (result) => {
                     console.log(result.data[name].key + ':' + item.champName)
-                    await db.collection(matchInfoVersion).updateOne({ champName: item.champName }, { $set: { champKey: Number(result.data[name].key) } })
+                    await db.collection(matchDataVersion).updateOne({ champName: item.champName }, { $set: { champKey: Number(result.data[name].key) } })
                 })
         })
     }
@@ -68,7 +78,7 @@ export default async function dataHandler() {
                 }
             }
         }
-        let dataLsit = await db.collection(matchInfoVersion).updateMany({}, { $set: perkType })
+        let dataLsit = await db.collection(matchDataVersion).updateMany({}, { $set: perkType })
     }
 
     async function getMatchData() {
@@ -143,12 +153,12 @@ export default async function dataHandler() {
         matchData.map((match, i) => {
             Promise.all(
                 match.info.teams[0].bans.map(async (ban, j) => {
-                    await db.collection(matchInfoVersion).updateOne({ champKey: ban.championId }, { $inc: { banCount: 1 } })
+                    await db.collection(matchDataVersion).updateOne({ champKey: ban.championId }, { $inc: { banCount: 1 } })
                 })
             )
             Promise.all(
                 match.info.teams[1].bans.map(async (ban, j) => {
-                    await db.collection(matchInfoVersion).updateOne({ champKey: ban.championId }, { $inc: { banCount: 1 } })
+                    await db.collection(matchDataVersion).updateOne({ champKey: ban.championId }, { $inc: { banCount: 1 } })
                 })
             )
             console.log(i)
@@ -193,7 +203,7 @@ export default async function dataHandler() {
                     [subExtra[0]]: 1,
                     [subExtra[1]]: 1,
                 }
-                await db.collection(matchInfoVersion).updateOne({ champName: summoner.championName }, { $inc: incItem })
+                await db.collection(matchDataVersion).updateOne({ champName: summoner.championName }, { $inc: incItem })
             }))
         })
     }
@@ -201,7 +211,7 @@ export default async function dataHandler() {
     async function getSpellCount() {
         let dataList = await db.collection<matchData>(matchVersion).find().toArray();
         // console.log(dataList[0].info.participants[0].summoner1Id + '-' + dataList[0].info.participants[0].summoner2Id)
-        // let result = await db.collection(matchInfoVersion).findOne({ champName: dataList[0].info.participants[0].championName, 'champName.spellCount.id': '3-4' })
+        // let result = await db.collection(matchDataVersion).findOne({ champName: dataList[0].info.participants[0].championName, 'champName.spellCount.id': '3-4' })
         // console.log(result)
 
         dataList.map((match, i) => {
@@ -211,12 +221,12 @@ export default async function dataHandler() {
                 const spellId = s + '-' + l
                 const chg = 'spellCount0.' + spellId + '.count'
                 const chgw = 'spellCount0.' + spellId + '.win'
-                const result = await db.collection<matchInfo>(matchInfoVersion).findOne({ champName: summoner.championName })
+                const result = await db.collection<matchInfo>(matchDataVersion).findOne({ champName: summoner.championName })
                 let count = summoner.win ? 1 : 0;
                 if (result?.spellsCount[spellId] != null) {
-                    await db.collection(matchInfoVersion).updateOne({ champName: summoner.championName }, { $inc: { [chg]: 1, [chgw]: count } })
+                    await db.collection(matchDataVersion).updateOne({ champName: summoner.championName }, { $inc: { [chg]: 1, [chgw]: count } })
                 } else {
-                    await db.collection(matchInfoVersion).updateOne({ champName: summoner.championName }, { $set: { [chg]: 1, [chgw]: count } })
+                    await db.collection(matchDataVersion).updateOne({ champName: summoner.championName }, { $set: { [chg]: 1, [chgw]: count } })
                 }
             })).then(() => {
                 console.log(i)
@@ -227,15 +237,15 @@ export default async function dataHandler() {
     async function checkChampInfo(champId: string | number,) {
         let result;
         if (typeof (champId) === 'number') {
-            result = await db.collection(matchInfoVersion).findOne({ champKey: champId })
+            result = await db.collection(matchDataVersion).findOne({ champKey: champId })
         } else {
-            result = await db.collection(matchInfoVersion).findOne({ champName: champId })
+            result = await db.collection(matchDataVersion).findOne({ champName: champId })
         }
         console.log(result)
     }
 
     async function checkData(checkItem: string) {
-        let result = await db.collection(matchInfoVersion).find().toArray()
+        let result = await db.collection(matchDataVersion).find().toArray()
         let sum = 0
         result.map(async (a) => {
             sum += a[checkItem]

@@ -32,6 +32,7 @@ export type matchInfo = {
     banCount: number,
     winCount: number,
     defeatCount: number,
+    winnningPer: number,
     perkCount: {
         primaryStyle: {
             [id: string]: string,
