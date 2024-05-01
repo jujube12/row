@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import BoardBox from "./boardBox";
 import ChampBox from "./champBox";
 import style from './component.module.css'
