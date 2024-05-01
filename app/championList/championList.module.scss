@@ -2,7 +2,7 @@
 
 /** ================= champList =================*/
 .championList_container {
-    @include reset.container()
+    @include reset.container();
 }
 
 .championList_title {
@@ -110,10 +110,14 @@
 /** ================= champDetail =================*/
 .champ_detail_container {
     @include reset.container();
-    width: 100%;
+
     background-color: reset.$color-black;
     color: reset.$color-white;
     font-family: 'Times New Roman', Times, serif;
+
+    @media (min-width: 992px) {
+        width: 100%;
+    }
 }
 
 .champ_detail_wrapper {
@@ -121,6 +125,9 @@
     margin: auto;
     position: relative;
 
+    @media (min-width: 992px) {
+        width: 80%;
+    }
 }
 
 .champ_detail_bg {

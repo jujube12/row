@@ -92,7 +92,7 @@
 }
 .champ_box_wrapper > div:nth-child(2) {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-top: 0.5rem;
   position: relative;
 }
