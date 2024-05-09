@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import SummonerSearchBox from './component/summonerSearchBox'
 import NavBox from './component/navBox';
 import style from './main.module.css'

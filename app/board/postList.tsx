@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic'
 import style from './board.module.css'
 import { connectDB } from '@/util/database'
 import { post } from './d'

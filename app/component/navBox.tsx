@@ -1,6 +1,5 @@
-export const dynamic = 'force-dynamic'
-import { connectDB } from "@/util/database";
 import style from './component.module.css'
+import { connectDB } from "@/util/database";
 import BoardBox from "./boardBox";
 import ChampBox from "./champBox";
 export default async function NavBox() {
@@ -13,7 +12,7 @@ export default async function NavBox() {
     let champSortListByName = [...champList]
     champSortListByWin.sort((a, b) => { return a.champName - b.champName })
 
-    let postList = await db.collection('post').find().sort({ _id: -1 }).limit(5).toArray()
+    let postList = await db.collection('post').find().sort({ _id: -1 }).limit(10).toArray()
     return (
         <div className={style.nav_box_wrapper}>
             <ChampBox champSortListByPick={JSON.stringify(champSortListByPick)} champSortListByWin={JSON.stringify(champSortListByWin)} champSortListByName={JSON.stringify(champSortListByName)}></ChampBox>
