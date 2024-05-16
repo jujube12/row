@@ -1,21 +1,23 @@
 'use client'
-import { useEffect, useState } from 'react'
 import style from '../build.module.css'
-import { matchInfo, spellInfo } from '../d'
+import { spellInfo } from '../d'
 
 export default function SpellBox(props: { spellData: spellInfo }) {
     const summonerSpell: spellInfo = props.spellData
+    console.log(summonerSpell)
     let count = Object.values(summonerSpell).map((i) => i.count)
-    count.sort()
-    let sum = 0
-    count.map((a) => {
-        sum += a
-    })
-    let max = count[count.length - 1]
-    let max2 = count[count.length - 2]
+    count.sort((a, b) => b - a)
+    let max = count[0]
+    let max2 = count[1]
     let first = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max))?.split('-')
     let seconde = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max2))?.split('-')
-    let winPer = [(max / sum * 100).toFixed(2) + ' %', (max2 / sum * 100).toFixed(2) + ' %']
+
+    let maxCount = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max))
+    let firstWin = summonerSpell[maxCount as keyof spellInfo].win
+    maxCount = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max2))
+    let secondWin = summonerSpell[maxCount as keyof spellInfo].win
+
+    let winPer = [(firstWin / max * 100).toFixed(2) + ' %', (secondWin / max2 * 100).toFixed(2) + ' %']
 
     let imgUrl = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/spell/'
     let spell: { [id: string]: string } = {
