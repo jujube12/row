@@ -4,9 +4,7 @@ import { spellInfo } from '../d'
 
 export default function SpellBox(props: { spellData: spellInfo }) {
     const summonerSpell: spellInfo = props.spellData
-    console.log(summonerSpell)
     let count = Object.values(summonerSpell).map((i) => i.count)
-    count.sort((a, b) => b - a)
     let max = count[0]
     let max2 = count[1]
     let first = (Object.keys(summonerSpell).find((i) => summonerSpell[i].count == max))?.split('-')
